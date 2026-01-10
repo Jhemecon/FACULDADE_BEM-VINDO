@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'Assinatura';
+  src: url('fonts/moontime-regular.ttf') format('truetype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.FUNDO-TITULAR {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+    }
+
+/* Topo sobre o vídeo */
+.superior_topo {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: transparent;
+  text-align: center;
+  padding: 20px;
+}
+
+.logo_ciesa {
+  display: flex;
+  gap: 30px;
+  margin-top: -10px;
+  position: fixed;
+  justify-content: flex-start;
+  padding-right: 40px;
+  top: 0;
+  right: 0px;
+  left: 0;
+  width: 10%;
+  padding: 20px 40px;
+  z-index: 2;
+  font-size: 32px;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+  position: fixed;
+  justify-content: flex-end;
+  padding-right: 40px;
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding: 20px 40px;
+  z-index: 2;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.conteudo {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+  text-align: center;
+  margin-top: 100px;
+  top: -1646px;
+}
+
+/* Logos originais */
+.LATIJ_logo {
+  position: relative;
+  width: 900px;
+  top: -950px;
+  transform: translateX(-500px);
+  transition: all 0.5s ease;
+  left: 550px;
+}
+
+.Chrono_logo {
+  position: relative;
+  width: 900px;
+  top: -1550px;
+  transform: translateX(-691px);
+  transition: all 0.5s ease;
+  cursor: pointer;
+  left: 730px;
+}
+
+/* Conteúdo associado */
+.descricao_latij {
+  position: relative;
+  max-width: 600px;
+  font-size: 18px;
+  top: -1200px;
+  transform: translateX(590px);
+  left: 550px;
+}
+
+.imagem_colaboradores {
+  position: relative;
+  width: 500px;
+  transform: translateX(1169px);
+  top: -1890px;
+}
+
+.exemplo_chrono_imagem {
+  position: relative;
+  width: 500px;
+  transform: translateX(-200px);
+  top: -2390px;
+  left: 1363px;
+}
+
+.descricao_chrono {
+  position: relative;
+  max-width: 600px;
+  font-size: 18px;
+  top: -1747px;
+  transform: translateX(590px);
+  left: 540px;
+  gap: 200px;
+  justify-content: center;
+  text-align: center;
+}
+
+.CIESA_PREDIO {
+  position: relative;
+  width: 1000px;
+  top: -2000px;
+  transform: translateX(-300px);
+  transition: all 0.5s ease;
+  left: 350px;
+}
+
+.descricao_predio_ciesa {
+  position: relative;
+  max-width: 600px;
+  font-size: 18px;
+  top: -2200px;
+  transform: translateX(590px);
+  left: 600px;
+}   
