@@ -13,7 +13,7 @@
   <!-- Fundo (não alterar o arquivo FUNDO_CIESA.svg) -->
   <img src="Media/SVG/FUNDO_CIESA.svg" class="FUNDO-TITULAR" alt="" aria-hidden="true">
 
-  <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
+  <a class="skip-link" href="#latij">Pular para o conteúdo</a>
 
   <header class="site-header">
     <div class="header__inner">
@@ -29,7 +29,9 @@
     </div>
   </header>
 
-  <main id="inicio" class="main">
+  <main class="main">
+    <section id="inicio" class="splash" aria-label="Início"></section>
+
     <section id="latij" class="latij-project" aria-label="Liga LATIJ">
       <div class="latij-project__inner">
         <div class="latij-project__media" aria-hidden="true"></div>
@@ -79,6 +81,25 @@
       <p class="footer__text">CIESA • Página de boas-vindas para novos alunos</p>
     </div>
   </footer>
+
+  <!-- Modal para detalhes -->
+  <div id="modal-overlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Fechar modal">&times;</button>
+      <div class="modal-header">
+        <h2 id="modal-title"></h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-buttons">
+          <button class="modal-btn" data-section="caracteristicas">Características que gostamos</button>
+          <button class="modal-btn" data-section="metas">Metas</button>
+          <button class="modal-btn" data-section="projetos">Projetos</button>
+          <button class="modal-btn" data-section="membros">Membros da liga</button>
+        </div>
+        <div id="modal-details" class="modal-details"></div>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js" defer></script>
 </body>
