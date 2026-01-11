@@ -205,13 +205,12 @@ body.bg-dimmed::before {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  cursor: pointer;
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition: transform 300ms ease, box-shadow 300ms ease;
 }
 
 .latij-project__media:hover {
-  transform: scale(1.02);
-  box-shadow: 0 20px 60px rgba(255, 221, 85, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .latij-project__title {
@@ -233,11 +232,11 @@ body.bg-dimmed::before {
 
 /* Seções */
 .section {
-  padding: 140px 0;
+  padding: 70px 0;
 }
 
 .section--alt {
-  padding-top: 100px;
+  padding-top: 100vh; /* empurra Chrono para fora da tela */
 }
 
 .section__eyebrow {
@@ -318,13 +317,6 @@ body.bg-dimmed::before {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  cursor: pointer;
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-.split__media--chrono:hover {
-  transform: scale(1.02);
-  box-shadow: 0 20px 60px rgba(255, 122, 133, 0.3);
 }
 
 .split__content {
@@ -354,38 +346,40 @@ body.bg-dimmed::before {
 }
 
 /* Modal */
-.modal-overlay {
+.modal {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 300ms ease, visibility 300ms ease;
 }
 
-.modal-overlay[aria-hidden="false"] {
-  opacity: 1;
-  visibility: visible;
+.modal[aria-hidden="false"] {
+  display: flex;
 }
 
-.modal-content {
-  background: var(--bg);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  max-width: 90vw;
-  max-height: 90vh;
-  width: 800px;
-  padding: 40px;
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.modal__content {
   position: relative;
+  width: min(90vw, 1000px);
+  max-height: 90vh;
   overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 40px;
+  margin: 20px;
 }
 
-.modal-close {
+.modal__close {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -401,51 +395,70 @@ body.bg-dimmed::before {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: background-color 200ms ease;
+  transition: background-color 160ms ease;
 }
 
-.modal-close:hover {
+.modal__close:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.modal-header {
-  margin-bottom: 30px;
+.modal__title {
+  margin: 0 0 30px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 36px;
+  text-align: center;
+  letter-spacing: 0.05em;
 }
 
-.modal-body {
-  color: var(--text);
-}
-
-.modal-buttons {
+.modal__sections {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 30px;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.modal-btn {
-  padding: 12px 20px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text);
-  cursor: pointer;
-  font-size: 14px;
+.modal-section {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 30px;
+}
+
+.modal-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-section__title {
+  margin: 0 0 20px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 24px;
   font-weight: 600;
-  transition: background-color 200ms ease, color 200ms ease;
-}
-
-.modal-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
   color: var(--accent-1);
 }
 
-.modal-details {
-  background: var(--panel);
-  padding: 20px;
-  border-radius: var(--radius-md);
+.modal-section__content {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.modal-section__image {
+  width: 200px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border);
-  min-height: 200px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+.modal-section__text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 /* Responsivo */

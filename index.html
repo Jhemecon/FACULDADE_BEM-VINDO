@@ -82,26 +82,72 @@
     </div>
   </footer>
 
-  <!-- Modal para detalhes -->
-  <div id="modal-overlay" class="modal-overlay" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Fechar modal">&times;</button>
-      <div class="modal-header">
-        <h2 id="modal-title"></h2>
-      </div>
-      <div class="modal-body">
-        <div class="modal-buttons">
-          <button class="modal-btn" data-section="caracteristicas">Características que gostamos</button>
-          <button class="modal-btn" data-section="metas">Metas</button>
-          <button class="modal-btn" data-section="projetos">Projetos</button>
-          <button class="modal-btn" data-section="membros">Membros da liga</button>
-        </div>
-        <div id="modal-details" class="modal-details"></div>
+  <script src="js/main.js" defer></script>
+
+  <!-- Modal LATIJ Detalhes -->
+  <div id="latij-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal__overlay" aria-hidden="true"></div>
+    <div class="modal__content">
+      <button class="modal__close" aria-label="Fechar modal">&times;</button>
+      <h2 id="modal-title" class="modal__title">LIGA LATIJ - Detalhes</h2>
+
+      <div class="modal__sections">
+        <section class="modal-section">
+          <h3 class="modal-section__title">Objetivos</h3>
+          <div class="modal-section__content">
+            <div class="modal-section__image" data-image="objetivos"><!-- Placeholder para imagem --></div>
+            <p class="modal-section__text">
+              Promover eventos educacionais e culturais que visam o desenvolvimento pessoal e profissional dos participantes.
+              Incentivar a colaboração entre estudantes e a comunidade acadêmica.
+            </p>
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h3 class="modal-section__title">Feitos</h3>
+          <div class="modal-section__content">
+            <div class="modal-section__image" data-image="feitos"><!-- Placeholder para imagem --></div>
+            <p class="modal-section__text">
+              Realizamos mais de 50 eventos nos últimos anos, incluindo workshops, palestras e atividades culturais.
+              Parcerias estabelecidas com empresas locais e instituições educacionais.
+            </p>
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h3 class="modal-section__title">Metas</h3>
+          <div class="modal-section__content">
+            <div class="modal-section__image" data-image="metas"><!-- Placeholder para imagem --></div>
+            <p class="modal-section__text">
+              Expandir para 100 eventos anuais, aumentar a participação de estudantes em 30% e lançar programas de mentoria.
+            </p>
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h3 class="modal-section__title">Membros</h3>
+          <div class="modal-section__content">
+            <div class="modal-section__image" data-image="membros"><!-- Placeholder para imagem --></div>
+            <p class="modal-section__text">
+              Contamos com uma equipe de 20 membros ativos, incluindo coordenadores, organizadores e voluntários.
+              Diversidade de cursos e experiências para enriquecer nossas iniciativas.
+            </p>
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h3 class="modal-section__title">Buscamos por</h3>
+          <div class="modal-section__content">
+            <div class="modal-section__image" data-image="buscamos"><!-- Placeholder para imagem --></div>
+            <p class="modal-section__text">
+              Novos membros apaixonados por educação e cultura. Pessoas criativas, organizadas e dispostas a contribuir
+              com ideias inovadoras para nossos projetos.
+            </p>
+          </div>
+        </section>
       </div>
     </div>
   </div>
-
-  <script src="js/main.js" defer></script>
 </body>
 </html>
 
