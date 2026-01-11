@@ -1,14 +1,5 @@
-Página de teste simples
+This page is intended to be an introductory guide for new college students.
 
-Arquivos criados:
+Aiming to be as simple as possible to facilitate reading and make the invitation easier for new students.
 
-- index.html: página inicial que referencia CSS e JS
-- css/styles.css: estilos básicos
-- js/main.js: script com handler de clique
-
-Como usar:
-
-1. Abra `index.html` no navegador (duplo clique).
-2. Clique no botão para ver o alerta.
-
-Feito por Copilot.
+Using only HTML and CSS, and maybe a little JS? LOL maybe
