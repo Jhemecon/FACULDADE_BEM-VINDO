@@ -7,7 +7,7 @@ const textos = {
 const infosUteis = {
 	biblioteca: {
 		titulo: "📚 Biblioteca",
-		descricao: "A biblioteca do CIESA oferece um acervo completo de livros, periódicos, teses e recursos digitais disponíveis 24/7 para todos os alunos. Com computadores equipados e áreas de estudo confortáveis, é o espaço ideal para pesquisa e aprendizado. Contamos com acesso a bases de dados especializadas e plataformas de e-learning para potencializar seus estudos."
+		descricao: "A biblioteca do CIESA, localizada no último andar, oferece um acervo completo de livros físicos, periódicos, teses e recursos digitais para todos os alunos. Com áreas de estudo confortáveis, é o espaço ideal para pesquisa e aprendizado. Contamos com acesso a bases de dados especializadas e plataformas de e-learning para potencializar seus estudos."
 	},
 	laboratorio: {
 		titulo: "💻 Laboratórios",
@@ -23,19 +23,23 @@ const infosUteis = {
 	},
 	notas: {
 		titulo: "📊 Notas",
-		descricao: "Acesse seu boletim acadêmico e histórico de notas através do portal do aluno. Você pode consultar seu desempenho em todas as disciplinas, visualizar faltas, prazos de provas e acompanhar sua evolução durante o semestre. O sistema é intuitivo e disponível 24/7 através de qualquer dispositivo com conexão à internet."
+		descricao: "A média para aprovação no CIESA é 8, então é preciso estudar regularmente, mas não é difícil alcançar com dedicação e acompanhamento das aulas."
 	},
 	email: {
 		titulo: "📧 Email Institucional",
-		descricao: "Seu email corporativo @ciesa.edu.br é essencial para comunicação com professores, colegas e setores da instituição. Configure sua senha na Central de Atendimento ou portal do aluno. Utilize para comunicações oficiais, recebimento de informações importantes e participação em discussões acadêmicas. Acesso via webmail ou configuração em clientes de email."
+		descricao: "O CIESA oferece email institucional @ciesa.edu.br com diversos benefícios, como armazenamento ilimitado, integração com ferramentas acadêmicas e suporte técnico dedicado para comunicações oficiais e acesso a recursos exclusivos."
 	},
 	artigos: {
 		titulo: "📰 Artigos",
-		descricao: "Acesse uma ampla base de artigos científicos, pesquisas acadêmicas e publicações de excelência. A biblioteca digital do CIESA conta com acesso a periódicos internacionais, plataformas de pesquisa científica e repositórios de trabalhos acadêmicos. Fundamental para aprofundar seus conhecimentos e desenvolver pesquisas de qualidade."
+		descricao: "Os artigos científicos são fundamentais para o avanço do conhecimento acadêmico, permitindo a disseminação de pesquisas inovadoras, validação de hipóteses e contribuição para o debate intelectual em diversas áreas do saber."
 	},
 	camisa: {
 		titulo: "👕 Loja CIESA",
-		descricao: "Adquira sua camisa, uniforme e itens de identidade visual do CIESA. A loja oferece desde peças básicas até itens personalizados com o logotipo e cores da instituição. Preços especiais para alunos. Contribua para criar uma comunidade unida e identificada. Estoque disponível na secretaria ou solicite via email institucional."
+		descricao: "Tenha a opção de comprar camisas personalizadas do seu curso no CIESA, com o nome do curso estampado, para representar sua instituição com orgulho e estilo em eventos acadêmicos e atividades extracurriculares."
+	},
+	conquistas: {
+		titulo: "🏆 Conquistas dos Alunos",
+		descricao: "Os alunos do CIESA já conquistaram prêmios em competições nacionais, estágios em empresas de ponta, publicações em revistas científicas e reconhecimento internacional por projetos inovadores, tudo graças ao suporte e oportunidades oferecidas pela instituição."
 	}
 };
 
@@ -137,8 +141,10 @@ function configurarNavegacao() {
 function configurarModalLATIJ() {
 	const modal = document.getElementById("latij-modal");
 	const logo = document.querySelector(".liga-card--latij");
+	if (!modal || !logo) return;
 	const closeBtn = modal.querySelector(".modal__close");
 	const overlay = modal.querySelector(".modal__overlay");
+	if (!closeBtn || !overlay) return;
 
 	function abrirModal() {
 		modal.classList.add("modal--open");
@@ -164,24 +170,20 @@ function configurarModalLATIJ() {
 }
 
 function configurarModalChrono() {
-	console.log("Configurando modal Chrono");
 	const modal = document.getElementById("chrono-modal");
 	const logo = document.querySelector(".liga-card--chrono");
+	if (!modal || !logo) return;
 	const closeBtn = modal.querySelector(".modal__close");
 	const overlay = modal.querySelector(".modal__overlay");
-
-	console.log("Modal Chrono:", modal);
-	console.log("Logo Chrono:", logo);
+	if (!closeBtn || !overlay) return;
 
 	function abrirModal() {
-		console.log("Abrindo modal Chrono");
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden"; // impede scroll da página
 		verificarVideoCard();
 	}
 
 	function fecharModal() {
-		console.log("Fechando modal Chrono");
 		modal.classList.remove("modal--open");
 		document.body.style.overflow = ""; // restaura scroll
 	}
@@ -244,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	configurarModalInfos();
 	configurarModalEventos();
 	configurarModalAreas();
+	configurarModalEquipe();
 });
 
 function configurarEfeitoCaracteres() {
@@ -265,9 +268,11 @@ function configurarEfeitoCaracteres() {
 function configurarModalCIESA() {
 	const modal = document.getElementById("ciesa-modal");
 	const imageTrigger = document.getElementById("ciesa-image-trigger");
+	const modalImage = document.getElementById("ciesa-modal-image");
+	if (!modal || !imageTrigger || !modalImage) return;
 	const closeBtn = modal.querySelector(".ciesa-modal__close");
 	const overlay = modal.querySelector(".modal__overlay");
-	const modalImage = document.getElementById("ciesa-modal-image");
+	if (!closeBtn || !overlay) return;
 
 	// Array com as imagens (adicione mais URLs conforme necessário)
 	const imagens = [
@@ -338,15 +343,18 @@ function configurarModalCIESA() {
 function configurarModalEventos() {
 	const modal = document.getElementById("eventos-modal");
 	const trigger = document.getElementById("eventos-trigger");
+	if (!modal || !trigger) return;
 	const closeBtn = modal.querySelector(".eventos-modal__close");
 	const overlay = modal.querySelector(".modal__overlay");
 	const tabs = modal.querySelectorAll(".eventos-tab");
 	const panels = modal.querySelectorAll(".eventos-panel");
+	if (!closeBtn || !overlay) return;
 
 	function renderizarEventos() {
 		const ciesaList = modal.querySelector("#eventos-ciesa-list");
 		const parceriaList = modal.querySelector("#eventos-parceria-list");
 		const indicadosList = modal.querySelector("#eventos-indicados-list");
+		if (!ciesaList || !parceriaList || !indicadosList) return;
 
 		function renderEventos(container, tipo) {
 			container.innerHTML = "";
@@ -416,13 +424,16 @@ function configurarModalEventos() {
 		}
 	});
 }
+
 function configurarModalInfos() {
 	const modal = document.getElementById("info-modal");
 	const infoItems = document.querySelectorAll(".info-item");
+	if (!modal || infoItems.length === 0) return;
 	const closeBtn = modal.querySelector(".info-modal__close");
 	const overlay = modal.querySelector(".modal__overlay");
 	const modalTitle = modal.querySelector(".info-modal__title");
 	const modalDescription = modal.querySelector(".info-modal__description");
+	if (!closeBtn || !overlay || !modalTitle || !modalDescription) return;
 
 	function abrirModal(info) {
 		const dados = infosUteis[info];
@@ -468,8 +479,10 @@ function configurarModalInfos() {
 function configurarModalAreas() {
 	const modal = document.getElementById("areas-modal");
 	const trigger = document.getElementById("areas-trigger");
+	if (!modal || !trigger) return;
 	const closeBtn = modal.querySelector(".areas-modal__close");
 	const overlay = modal.querySelector(".modal__overlay");
+	if (!closeBtn || !overlay) return;
 
 	function abrirModal() {
 		modal.classList.add("modal--open");
@@ -496,6 +509,47 @@ function configurarModalAreas() {
 	document.addEventListener("keydown", (event) => {
 		if (event.key === "Escape" && modal.classList.contains("modal--open")) {
 			fecharModal();
+		}
+	});
+}
+
+function configurarModalEquipe() {
+	const equipeLink = document.querySelector(".equipe-link");
+	const equipeModal = document.getElementById("equipe-modal");
+	if (!equipeLink || !equipeModal) return;
+
+	const closeBtn = equipeModal.querySelector(".modal__close");
+	const overlay = equipeModal.querySelector(".modal__overlay");
+	if (!closeBtn || !overlay) return;
+
+	function abrirEquipeModal(event) {
+		if (event) event.preventDefault();
+		equipeModal.classList.add("modal--open");
+		equipeModal.setAttribute("aria-hidden", "false");
+		document.body.style.overflow = "hidden";
+	}
+
+	function fecharEquipeModal() {
+		equipeModal.classList.remove("modal--open");
+		equipeModal.setAttribute("aria-hidden", "true");
+		document.body.style.overflow = "";
+	}
+
+	equipeLink.addEventListener("click", abrirEquipeModal);
+	equipeLink.addEventListener("keydown", (event) => {
+		if (event.key === "Enter" || event.key === " ") {
+			event.preventDefault();
+			abrirEquipeModal();
+		}
+	});
+
+	closeBtn.addEventListener("click", fecharEquipeModal);
+	overlay.addEventListener("click", fecharEquipeModal);
+
+	// Fechar com ESC
+	document.addEventListener("keydown", (event) => {
+		if (event.key === "Escape" && equipeModal.classList.contains("modal--open")) {
+			fecharEquipeModal();
 		}
 	});
 }
