@@ -105,7 +105,7 @@ function configurarNavegacao() {
 	const links = document.querySelectorAll(".nav__link");
 
 	function aplicarOverlayPorHash(hash) {
-    if (hash === "#quem-somos" || hash === "#sobre-ciesa" || hash === "#informacoes-uteis" || hash === "#eventos" || hash === "#ia-github") {
+    if (hash === "#quem-somos" || hash === "#sobre-ciesa" || hash === "#informacoes-uteis" || hash === "#eventos" || hash === "#ia-github" || hash === "#criacao-site") {
 			document.body.classList.add("bg-dimmed");
 			return;
 		}

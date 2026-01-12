@@ -170,7 +170,8 @@ body.bg-dimmed::before {
 #sobre-ciesa,
 #informacoes-uteis,
 #eventos,
-#ia-github {
+#ia-github,
+#criacao-site {
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
 
