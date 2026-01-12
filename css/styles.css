@@ -942,12 +942,17 @@ body.bg-dimmed::before {
 	max-width: 600px;
 	margin: 0 auto;
 	text-align: center;
+	padding: 34px;
+	border-radius: var(--radius-lg);
+	background: var(--panel);
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow);
 }
 .areas-trigger-card {
+	background: var(--bg-secondary);
+	border: 1px solid var(--border);
+	border-radius: 12px;
 	padding: 32px;
-	background: rgba(255, 255, 255, 0.04);
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	border-radius: var(--radius-md);
 	cursor: pointer;
 	transition: all 0.3s ease;
 	margin-top: 24px;
@@ -956,13 +961,13 @@ body.bg-dimmed::before {
 }
 
 .areas-trigger-card:hover {
-	background: rgba(255, 255, 255, 0.06);
-	border-color: rgba(255, 255, 255, 0.12);
-	transform: translateY(-1px);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+	border-color: var(--accent-1);
 }
 
 .areas-trigger-card:focus-visible {
-	outline: 2px solid rgba(255, 221, 85, 0.5);
+	outline: 2px solid var(--accent-1);
 	outline-offset: 2px;
 }
 
@@ -1006,7 +1011,8 @@ body.bg-dimmed::before {
 @media (max-width: 768px) {
 	.areas-content {
 		max-width: 100%;
-		padding: 0 20px;
+		padding: 24px;
+		margin: 0 20px;
 	}
 
 	.areas-trigger-card {
