@@ -938,6 +938,11 @@ body.bg-dimmed::before {
 }
 
 /* Áreas de Atuação */
+.areas-content {
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+}
 .areas-trigger-card {
 	background: var(--bg-secondary);
 	border: 1px solid var(--border);
@@ -963,8 +968,10 @@ body.bg-dimmed::before {
 
 .areas-trigger__content {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	gap: 20px;
+	gap: 16px;
+	text-align: center;
 }
 
 .areas-trigger__title {
@@ -973,6 +980,7 @@ body.bg-dimmed::before {
 	font-weight: 600;
 	color: var(--text);
 	line-height: 1.3;
+	flex: 1;
 }
 
 .areas-trigger__subtitle {
@@ -980,6 +988,7 @@ body.bg-dimmed::before {
 	color: var(--muted);
 	font-size: 14px;
 	line-height: 1.5;
+	flex: 1;
 }
 
 .areas-trigger__icon {
@@ -995,6 +1004,11 @@ body.bg-dimmed::before {
 
 /* Responsivo para Áreas de Atuação */
 @media (max-width: 768px) {
+	.areas-content {
+		max-width: 100%;
+		padding: 0 20px;
+	}
+
 	.areas-trigger-card {
 		padding: 24px;
 	}
@@ -1005,14 +1019,6 @@ body.bg-dimmed::before {
 
 	.areas-trigger__subtitle {
 		font-size: 13px;
-	}
-
-	.areas-trigger__icon {
-		font-size: 20px;
-	}
-
-	.areas-trigger__icon {
-		align-self: flex-end;
 	}
 }
 
