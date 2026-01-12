@@ -127,6 +127,7 @@ function configurarModalLATIJ() {
 	function abrirModal() {
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden"; // impede scroll da página
+		verificarVideoCard();
 	}
 
 	function fecharModal() {
@@ -160,6 +161,7 @@ function configurarModalChrono() {
 		console.log("Abrindo modal Chrono");
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden"; // impede scroll da página
+		verificarVideoCard();
 	}
 
 	function fecharModal() {
@@ -179,6 +181,42 @@ function configurarModalChrono() {
 		}
 	});
 }
+
+// Rastrear cliques nas ligas para mostrar vídeo
+let ligasClicadas = {
+	latij: false,
+	chrono: false
+};
+
+function verificarVideoCard() {
+	if (ligasClicadas.latij && ligasClicadas.chrono) {
+		const videoCard = document.getElementById("liga-video-card");
+		if (videoCard && videoCard.classList.contains("video-card--hidden")) {
+			videoCard.classList.remove("video-card--hidden");
+			videoCard.classList.add("video-card--visible");
+		}
+	}
+}
+
+// Rastrear cliques nas ligas
+document.addEventListener("DOMContentLoaded", () => {
+	const ligaLatij = document.querySelector(".liga-card--latij");
+	const ligaChrono = document.querySelector(".liga-card--chrono");
+
+	if (ligaLatij) {
+		ligaLatij.addEventListener("click", () => {
+			ligasClicadas.latij = true;
+			verificarVideoCard();
+		});
+	}
+
+	if (ligaChrono) {
+		ligaChrono.addEventListener("click", () => {
+			ligasClicadas.chrono = true;
+			verificarVideoCard();
+		});
+	}
+});
 
 document.addEventListener("DOMContentLoaded", () => {
 	aplicarTextos();
