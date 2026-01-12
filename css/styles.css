@@ -1279,6 +1279,14 @@ body.bg-dimmed::before {
 }
 
 /* Áreas de Atuação */
+.areas-section {
+  background: rgba(5, 6, 8, 0.35);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  margin: 70px 20px;
+  padding: 50px 0;
+}
+
 .areas-header {
   text-align: center;
   margin-bottom: 50px;
@@ -1358,6 +1366,11 @@ body.bg-dimmed::before {
 
 /* Responsivo Áreas de Atuação */
 @media (max-width: 768px) {
+  .areas-section {
+    margin: 70px 10px;
+    padding: 30px 0;
+  }
+  
   .areas-grid {
     grid-template-columns: 1fr;
     gap: 20px;
