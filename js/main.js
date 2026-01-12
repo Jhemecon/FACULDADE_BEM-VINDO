@@ -19,7 +19,23 @@ const infosUteis = {
 	},
 	atividades: {
 		titulo: "🏃 Atividades",
-		descricao: "Participar é essencial para uma formação completa! O CIESA oferece uma variedade de atividades extracurriculares: esportes, grupos culturais, competições, eventos de networking e muito mais. Essas atividades desenvolvem suas habilidades pessoais, expandem seu círculo profissional e tornam sua experiência acadêmica memorável."
+		descricao: "Participar é essencial para uma formação completa! O CIESA oferece uma variedade de atividades extracurriculares: esportos, grupos culturais, competições, eventos de networking e muito mais. Essas atividades desenvolvem suas habilidades pessoais, expandem seu círculo profissional e tornam sua experiência acadêmica memorável."
+	},
+	notas: {
+		titulo: "📊 Notas",
+		descricao: "Acesse seu boletim acadêmico e histórico de notas através do portal do aluno. Você pode consultar seu desempenho em todas as disciplinas, visualizar faltas, prazos de provas e acompanhar sua evolução durante o semestre. O sistema é intuitivo e disponível 24/7 através de qualquer dispositivo com conexão à internet."
+	},
+	email: {
+		titulo: "📧 Email Institucional",
+		descricao: "Seu email corporativo @ciesa.edu.br é essencial para comunicação com professores, colegas e setores da instituição. Configure sua senha na Central de Atendimento ou portal do aluno. Utilize para comunicações oficiais, recebimento de informações importantes e participação em discussões acadêmicas. Acesso via webmail ou configuração em clientes de email."
+	},
+	artigos: {
+		titulo: "📰 Artigos",
+		descricao: "Acesse uma ampla base de artigos científicos, pesquisas acadêmicas e publicações de excelência. A biblioteca digital do CIESA conta com acesso a periódicos internacionais, plataformas de pesquisa científica e repositórios de trabalhos acadêmicos. Fundamental para aprofundar seus conhecimentos e desenvolver pesquisas de qualidade."
+	},
+	camisa: {
+		titulo: "👕 Loja CIESA",
+		descricao: "Adquira sua camisa, uniforme e itens de identidade visual do CIESA. A loja oferece desde peças básicas até itens personalizados com o logotipo e cores da instituição. Preços especiais para alunos. Contribua para criar uma comunidade unida e identificada. Estoque disponível na secretaria ou solicite via email institucional."
 	}
 };
 
