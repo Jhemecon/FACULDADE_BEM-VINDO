@@ -430,6 +430,11 @@ const eventosData = {
 			titulo: "Expo Projetos - Plaza Shopping",
 			data: "Anualmente",
 			descricao: "Grande evento onde todas as faculdades de Manaus apresentam e entregam seus projetos acadêmicos e de extensão. Oportunidade de showcasing profissional e networking com toda a comunidade acadêmica local."
+		},
+		{
+			titulo: "Inauguração dos Laboratórios - Paulo Salvatore",
+			data: "Realizado",
+			descricao: "Evento de inauguração dos modernos laboratórios do CIESA com a presença do renomado Paulo Salvatore, especialista em desenvolvimento de sistemas, jogos e Inteligência Artificial (IA). Palestra inspiradora e tour técnico pelas novas instalações."
 		}
 	],
 	indicados: [
