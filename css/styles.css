@@ -2585,120 +2585,6 @@ body.bg-dimmed::before {
   line-height: 1.6;
 }
 
-/* Estilos para Coordenadora */
-.cordenadora-content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.cordenadora-header {
-  text-align: center;
-  padding: 20px 0;
-  border-bottom: 2px solid rgba(255, 221, 85, 0.2);
-}
-
-.cordenadora-header h3 {
-  margin: 0 0 8px;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.cordenadora-cargo {
-  margin: 0;
-  font-size: 14px;
-  color: var(--accent-1);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.cordenadora-bio {
-  padding: 20px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 221, 85, 0.05);
-  border-left: 4px solid var(--accent-1);
-}
-
-.cordenadora-bio h4 {
-  margin: 0 0 12px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.cordenadora-bio p {
-  margin: 0 0 12px;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.cordenadora-bio p:last-child {
-  margin-bottom: 0;
-}
-
-.cordenadora-responsabilidades {
-  padding: 20px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 122, 133, 0.05);
-  border-left: 4px solid var(--accent-2);
-}
-
-.cordenadora-responsabilidades h4 {
-  margin: 0 0 16px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.cordenadora-responsabilidades ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.cordenadora-responsabilidades li {
-  margin-bottom: 8px;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.cordenadora-responsabilidades li:last-child {
-  margin-bottom: 0;
-}
-
-.cordenadora-contato {
-  padding: 20px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px dashed var(--border);
-}
-
-.cordenadora-contato h4 {
-  margin: 0 0 12px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.cordenadora-contato p {
-  margin: 0 0 12px;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.cordenadora-contato p:last-child {
-  margin-bottom: 0;
-}
-
-.cordenadora-contato strong {
-  color: var(--accent-1);
-  font-weight: 600;
-}
-
 /* CTA Button */
 .cta-button {
   margin-top: 20px;
@@ -3018,6 +2904,88 @@ body.bg-dimmed::before {
 
   .site-footer {
     padding: 24px 0;
+  }
+}
+
+/* Coordenadora Styles */
+.coordenadora-content {
+  padding: 24px 0;
+}
+
+.coordenadora-perfil {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.coordenadora-foto-container {
+  flex-shrink: 0;
+}
+
+.coordenadora-foto {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.coordenadora-info {
+  flex: 1;
+}
+
+.coordenadora-nome {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.coordenadora-cargo {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent-1);
+}
+
+.coordenadora-descricao {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.coordenadora-contato {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.coordenadora-contato strong {
+  color: var(--accent-1);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .coordenadora-perfil {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .coordenadora-foto-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .coordenadora-nome {
+    font-size: 20px;
   }
 }
 

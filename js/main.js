@@ -345,36 +345,28 @@ const infosUteis = {
 			</div>
 		`
 	},
-	cordenadora: {
-		titulo: "👩‍💼 Cordenadora do Curso",
+	coordenadora: {
+		titulo: "👩‍💼 Coordenadora",
 		descricao: `
-			<div class="cordenadora-content">
-				<div class="cordenadora-header">
-					<h3>Janaina Souza</h3>
-					<p class="cordenadora-cargo">Coordenadora do Curso de Comunicação Digital</p>
-				</div>
-
-				<div class="cordenadora-bio">
-					<h4>Sobre a Coordenadora</h4>
-					<p>Janaina Souza é a coordenadora responsável pela condução acadêmica e institucional do curso de Comunicação Digital no CIESA. Com vasta experiência na área de comunicação e tecnologia, ela é dedicada a proporcionar uma educação de excelência que une teoria e prática.</p>
-					<p>Sua liderança é marcada pelo compromisso com o desenvolvimento profissional dos alunos, pela inovação curricular e pelo fortalecimento das conexões entre a instituição e o mercado de trabalho.</p>
-				</div>
-
-				<div class="cordenadora-responsabilidades">
-					<h4>Responsabilidades Principais</h4>
-					<ul>
-						<li><strong>Orientação Acadêmica:</strong> Acompanhamento contínuo do progresso dos alunos</li>
-						<li><strong>Gestão Curricular:</strong> Desenvolvimento e atualização do currículo do curso</li>
-						<li><strong>Parcerias Institucionais:</strong> Estabelecimento de conexões com empresas e instituições</li>
-						<li><strong>Suporte ao Aluno:</strong> Resolução de dúvidas e orientações sobre carreira</li>
-						<li><strong>Inovação Pedagógica:</strong> Implementação de novas metodologias e tecnologias</li>
-					</ul>
-				</div>
-
-				<div class="cordenadora-contato">
-					<h4>Como Entrar em Contato</h4>
-					<p>A coordenadora está sempre disponível para atender aos alunos com dúvidas, sugestões ou orientações sobre o curso. Agende um horário através da secretaria do CIESA ou entre em contato através do email institucional.</p>
-					<p><strong>Dica:</strong> Visite regularmente a coordenadoria para estar sempre atualizado sobre as novidades do curso e oportunidades de desenvolvimento profissional!</p>
+			<div class="coordenadora-content">
+				<div class="coordenadora-perfil">
+					<div class="coordenadora-foto-container">
+						<div class="coordenadora-foto" style="background-color: #f0f0f0; width: 150px; height: 150px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 14px;">
+							[Foto da Coordenadora]
+						</div>
+					</div>
+					<div class="coordenadora-info">
+						<h3 class="coordenadora-nome">Janaina Souza</h3>
+						<p class="coordenadora-cargo">Coordenadora do CIESA</p>
+						<p class="coordenadora-descricao">
+							Janaina Souza é a coordenadora responsável por guiar e apoiar toda a comunidade acadêmica do CIESA. 
+							Com vasta experiência em educação e gestão, ela está sempre disponível para orientar alunos, 
+							resolver questões acadêmicas e garantir que você tenha a melhor experiência possível durante sua jornada no CIESA.
+						</p>
+						<p class="coordenadora-contato">
+							<strong>📧 Email:</strong> janaina.souza@ciesa.edu.br
+						</p>
+					</div>
 				</div>
 			</div>
 		`
