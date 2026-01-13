@@ -3488,9 +3488,9 @@ body.bg-dimmed::before {
   width: 100%;
   padding: 28px 24px;
   border-radius: var(--radius-lg);
-  background: var(--panel);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .footer__content {
@@ -3559,8 +3559,13 @@ body.bg-dimmed::before {
 
 .footer__copyright {
   margin: 0;
-  color: var(--muted);
+  color: #10B981;
   font-size: 13px;
+}
+
+.footer__credit {
+  color: #3B82F6;
+  font-weight: 600;
 }
 
 /* Responsivo Footer */
