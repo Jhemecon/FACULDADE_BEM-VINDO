@@ -2665,9 +2665,12 @@ body.bg-dimmed::before {
 
 .eventos-modal__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 24px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .eventos-item {
@@ -2720,151 +2723,6 @@ body.bg-dimmed::before {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.5;
-}
-
-/* Seções do Modal de Eventos */
-.eventos-secao {
-  animation: fadeIn 300ms ease;
-}
-
-.eventos-secao--hidden {
-  display: none;
-}
-
-.eventos-detalhes-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.evento-detalhe {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.evento-detalhe::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(600px at 50% 50%, rgba(255, 255, 255, 0.1), transparent 80%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.evento-detalhe:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-}
-
-.evento-detalhe:hover::before {
-  opacity: 1;
-}
-
-.evento-detalhe__data {
-  margin: 0 0 8px 0;
-  color: var(--accent-1);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-
-.evento-detalhe__titulo {
-  margin: 0 0 8px 0;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.evento-detalhe__descricao {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.evento-detalhe--empty {
-  text-align: center;
-  padding: 40px 20px;
-  color: var(--muted);
-}
-
-#eventos-voltar {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  margin-bottom: 20px;
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 160ms ease;
-}
-
-#eventos-voltar:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--muted);
-}
-
-#eventos-voltar:active {
-  transform: scale(0.98);
-}
-
-/* Responsivo para Eventos */
-@media (max-width: 768px) {
-  .eventos-modal__grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .eventos-item {
-    padding: 16px;
-  }
-
-  .eventos-item__title {
-    font-size: 15px;
-  }
-
-  .eventos-item__text {
-    font-size: 13px;
-  }
-
-  #eventos-secao-detalhes {
-    padding: 20px 0;
-  }
-
-  #eventos-detalhes-titulo {
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
-
-  #eventos-detalhes-descricao {
-    font-size: 12px;
-    margin-bottom: 16px;
-  }
-
-  .evento-detalhe {
-    padding: 16px;
-  }
-
-  .evento-detalhe__titulo {
-    font-size: 15px;
-  }
-
-  .evento-detalhe__descricao {
-    font-size: 13px;
-  }
 }
 
 /* Footer */

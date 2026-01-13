@@ -798,79 +798,18 @@ function configurarModalEventos() {
 	const modal = document.getElementById("eventos-modal");
 	const trigger = document.getElementById("eventos-trigger");
 	if (!modal || !trigger) return;
-	
 	const closeBtn = modal.querySelector(".eventos-modal__close");
 	const overlay = modal.querySelector(".modal__overlay");
-	const eventosItems = modal.querySelectorAll(".eventos-item");
-	const secaoSelecao = document.getElementById("eventos-secao-selecao");
-	const secaoDetalhes = document.getElementById("eventos-secao-detalhes");
-	const voltarBtn = document.getElementById("eventos-voltar");
-	const detalhesLista = document.getElementById("eventos-detalhes-lista");
-	const detalhesiTulo = document.getElementById("eventos-detalhes-titulo");
-	const detalhesDescricao = document.getElementById("eventos-detalhes-descricao");
-
-	if (!closeBtn || !overlay || !secaoSelecao || !secaoDetalhes || !voltarBtn) return;
-
-	const detalhesMeta = {
-		ciesa: {
-			titulo: "🎓 Eventos do CIESA",
-			descricao: "Eventos organizados pelo próprio CIESA para seu desenvolvimento acadêmico e profissional.",
-		},
-		parceria: {
-			titulo: "🤝 Eventos de Parcerias",
-			descricao: "Eventos que o CIESA consegue para os alunos através de parcerias com instituições e empresas.",
-		},
-		indicados: {
-			titulo: "⭐ Eventos Indicados",
-			descricao: "Eventos que acontecem em Manaus e são indicados para ganhar mais conhecimento, networking e experiências.",
-		},
-	};
+	if (!closeBtn || !overlay) return;
 
 	function abrirModal() {
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden";
-		mostrarSecaoSelecao();
 	}
 
 	function fecharModal() {
 		modal.classList.remove("modal--open");
 		document.body.style.overflow = "";
-	}
-
-	function mostrarSecaoSelecao() {
-		secaoSelecao.classList.remove("eventos-secao--hidden");
-		secaoDetalhes.classList.add("eventos-secao--hidden");
-	}
-
-	function abrirDetalhesEventos(tipo) {
-		if (!tipo || !(tipo in eventosData)) return;
-
-		const meta = detalhesMeta[tipo] || { titulo: "Eventos", descricao: "" };
-		detalhesiTulo.textContent = meta.titulo;
-		detalhesDescricao.textContent = meta.descricao;
-
-		// Renderizar eventos
-		detalhesLista.innerHTML = "";
-		const eventos = eventosData[tipo] || [];
-
-		if (eventos.length === 0) {
-			detalhesLista.innerHTML = '<div class="evento-detalhe evento-detalhe--empty">Em breve, mais eventos!</div>';
-		} else {
-			eventos.forEach((evento) => {
-				const div = document.createElement("div");
-				div.className = "evento-detalhe";
-				div.innerHTML = `
-					<div class="evento-detalhe__data">${evento.data}</div>
-					<h3 class="evento-detalhe__titulo">${evento.titulo}</h3>
-					<p class="evento-detalhe__descricao">${evento.descricao}</p>
-				`;
-				detalhesLista.appendChild(div);
-			});
-		}
-
-		// Mostrar seção de detalhes
-		secaoSelecao.classList.add("eventos-secao--hidden");
-		secaoDetalhes.classList.remove("eventos-secao--hidden");
 	}
 
 	trigger.addEventListener("click", abrirModal);
@@ -883,30 +822,10 @@ function configurarModalEventos() {
 
 	closeBtn.addEventListener("click", fecharModal);
 	overlay.addEventListener("click", fecharModal);
-	voltarBtn.addEventListener("click", mostrarSecaoSelecao);
-
-	// Adicionar eventos aos cards de seleção
-	eventosItems.forEach((item) => {
-		item.addEventListener("click", () => {
-			const tipo = item.getAttribute("data-eventos");
-			abrirDetalhesEventos(tipo);
-		});
-
-		item.addEventListener("keydown", (event) => {
-			if (event.key === "Enter" || event.key === " ") {
-				event.preventDefault();
-				const tipo = item.getAttribute("data-eventos");
-				abrirDetalhesEventos(tipo);
-			}
-		});
-	});
 
 	// Fechar com ESC
 	document.addEventListener("keydown", (event) => {
-		if (event.key !== "Escape" || !modal.classList.contains("modal--open")) return;
-		if (!secaoDetalhes.classList.contains("eventos-secao--hidden")) {
-			mostrarSecaoSelecao();
-		} else {
+		if (event.key === "Escape" && modal.classList.contains("modal--open")) {
 			fecharModal();
 		}
 	});
