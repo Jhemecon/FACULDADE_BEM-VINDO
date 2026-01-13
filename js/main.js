@@ -632,55 +632,32 @@ function configurarNavegacao() {
 		});
 	}
 
+	// Remover overlay quando clicar fora das áreas permitidas
+	document.addEventListener("click", (event) => {
+		// Só remove se o body tiver a classe bg-dimmed
+		if (!document.body.classList.contains("bg-dimmed")) return;
+
+		// Verificar se o clique foi em elementos que não devem remover o overlay
+		const target = event.target;
+
+		// Não remover se clicou na logo do CIESA
+		if (target.closest('.brand')) return;
+
+		// Não remover se clicou em links do nav
+		if (target.closest('.nav__link')) return;
+
+		// Não remover se clicou na própria seção (conteúdo principal)
+		if (target.closest('.section')) return;
+
+		// Não remover se clicou no header
+		if (target.closest('.site-header')) return;
+
+		// Se chegou aqui, clicou fora - remover overlay
+		document.body.classList.remove("bg-dimmed");
+	});
+
 	aplicarOverlayPorHash(window.location.hash);
 	window.addEventListener("hashchange", () => aplicarOverlayPorHash(window.location.hash));
-}
-
-function configurarMenuMobile() {
-	const navToggle = document.querySelector('.nav-toggle');
-	const nav = document.querySelector('.nav');
-	const navLinks = document.querySelectorAll('.nav__link');
-
-	if (!navToggle || !nav) return;
-
-	function toggleMenu() {
-		const isOpen = nav.classList.contains('nav--open');
-		const newState = !isOpen;
-
-		nav.classList.toggle('nav--open');
-		navToggle.setAttribute('aria-expanded', newState.toString());
-
-		// Impede scroll da página quando menu está aberto
-		document.body.style.overflow = newState ? 'hidden' : '';
-	}
-
-	function closeMenu() {
-		nav.classList.remove('nav--open');
-		navToggle.setAttribute('aria-expanded', 'false');
-		document.body.style.overflow = '';
-	}
-
-	// Toggle do menu ao clicar no botão hamburger
-	navToggle.addEventListener('click', toggleMenu);
-
-	// Fecha menu ao clicar em um link
-	navLinks.forEach(link => {
-		link.addEventListener('click', closeMenu);
-	});
-
-	// Fecha menu ao clicar fora (no overlay)
-	document.addEventListener('click', (event) => {
-		if (!nav.contains(event.target) && !navToggle.contains(event.target) && nav.classList.contains('nav--open')) {
-			closeMenu();
-		}
-	});
-
-	// Fecha menu ao pressionar ESC
-	document.addEventListener('keydown', (event) => {
-		if (event.key === 'Escape' && nav.classList.contains('nav--open')) {
-			closeMenu();
-		}
-	});
 }
 
 function configurarModalLATIJ() {
@@ -784,7 +761,6 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
 	aplicarTextos();
 	configurarNavegacao();
-	configurarMenuMobile();
 	configurarModalLATIJ();
 	configurarModalChrono();
 	configurarEfeitoCaracteres();
