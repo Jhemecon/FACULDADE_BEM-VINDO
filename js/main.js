@@ -636,6 +636,53 @@ function configurarNavegacao() {
 	window.addEventListener("hashchange", () => aplicarOverlayPorHash(window.location.hash));
 }
 
+function configurarMenuMobile() {
+	const navToggle = document.querySelector('.nav-toggle');
+	const nav = document.querySelector('.nav');
+	const navLinks = document.querySelectorAll('.nav__link');
+
+	if (!navToggle || !nav) return;
+
+	function toggleMenu() {
+		const isOpen = nav.classList.contains('nav--open');
+		const newState = !isOpen;
+
+		nav.classList.toggle('nav--open');
+		navToggle.setAttribute('aria-expanded', newState.toString());
+
+		// Impede scroll da página quando menu está aberto
+		document.body.style.overflow = newState ? 'hidden' : '';
+	}
+
+	function closeMenu() {
+		nav.classList.remove('nav--open');
+		navToggle.setAttribute('aria-expanded', 'false');
+		document.body.style.overflow = '';
+	}
+
+	// Toggle do menu ao clicar no botão hamburger
+	navToggle.addEventListener('click', toggleMenu);
+
+	// Fecha menu ao clicar em um link
+	navLinks.forEach(link => {
+		link.addEventListener('click', closeMenu);
+	});
+
+	// Fecha menu ao clicar fora (no overlay)
+	document.addEventListener('click', (event) => {
+		if (!nav.contains(event.target) && !navToggle.contains(event.target) && nav.classList.contains('nav--open')) {
+			closeMenu();
+		}
+	});
+
+	// Fecha menu ao pressionar ESC
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && nav.classList.contains('nav--open')) {
+			closeMenu();
+		}
+	});
+}
+
 function configurarModalLATIJ() {
 	const modal = document.getElementById("latij-modal");
 	const logo = document.querySelector(".liga-card--latij");
@@ -737,6 +784,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
 	aplicarTextos();
 	configurarNavegacao();
+	configurarMenuMobile();
 	configurarModalLATIJ();
 	configurarModalChrono();
 	configurarEfeitoCaracteres();
