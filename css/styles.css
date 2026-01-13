@@ -2018,6 +2018,287 @@ body.bg-dimmed::before {
 	}
 }
 
+/* Modal IA & GitHub */
+.ia-github-modal {
+	display: none;
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+}
+
+.ia-github-modal.modal--open {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ia-github-modal__content {
+	position: relative;
+	width: min(90vw, 800px);
+	max-height: 90vh;
+	overflow-y: auto;
+	background: var(--panel);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow);
+	padding: 40px;
+	margin: 20px;
+	animation: slideUp 300ms ease;
+}
+
+.ia-github-modal__close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background: none;
+	border: none;
+	color: var(--text);
+	font-size: 32px;
+	cursor: pointer;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: background-color 160ms ease;
+}
+
+.ia-github-modal__close:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.ia-github-modal__title {
+	margin: 0 0 16px 0;
+	font-size: 32px;
+	font-weight: 700;
+	color: var(--text);
+	line-height: 1.2;
+}
+
+.ia-github-modal__grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 24px;
+	margin-top: 32px;
+}
+
+.ia-github-item {
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: var(--radius-md);
+	transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.ia-github-item::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(600px at 50% 50%, rgba(255, 255, 255, 0.1), transparent 80%);
+	opacity: 0;
+	transition: opacity 0.35s ease;
+	pointer-events: none;
+}
+
+.ia-github-item:hover {
+	background: rgba(255, 255, 255, 0.08);
+	border-color: rgba(255, 255, 255, 0.15);
+	transform: translateY(-2px);
+}
+
+.ia-github-item:hover::before {
+	opacity: 1;
+}
+
+.ia-github-item:focus {
+	outline: 2px solid rgba(255, 221, 85, 0.5);
+	outline-offset: 2px;
+}
+
+.ia-github-item__title {
+	margin: 0 0 8px 0;
+	font-family: 'Montserrat', Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--text);
+	letter-spacing: 0.02em;
+}
+
+.ia-github-item__text {
+	margin: 0;
+	color: var(--muted);
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+/* Modal Detalhes IA & GitHub */
+.ia-github-detalhes-modal {
+	display: none;
+	position: fixed;
+	inset: 0;
+	z-index: 1001;
+}
+
+.ia-github-detalhes-modal.modal--open {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ia-github-detalhes-modal__content {
+	position: relative;
+	width: min(90vw, 700px);
+	max-height: 85vh;
+	overflow-y: auto;
+	background: var(--panel);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow);
+	padding: 40px;
+	margin: 20px;
+	animation: slideUp 300ms ease;
+}
+
+.ia-github-detalhes-modal__close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background: none;
+	border: none;
+	color: var(--text);
+	font-size: 32px;
+	cursor: pointer;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: background-color 160ms ease;
+}
+
+.ia-github-detalhes-modal__close:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.ia-github-detalhes-modal__title {
+	margin: 0 0 8px 0;
+	font-size: 28px;
+	font-weight: 700;
+	color: var(--text);
+	line-height: 1.2;
+}
+
+.ia-github-detalhes-modal__subtitle {
+	margin: 0 0 24px 0;
+	color: var(--muted);
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.ia-github-detalhes-lista {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.ia-github-detalhe {
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: var(--radius-md);
+	transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
+}
+
+.ia-github-detalhe::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(600px at 50% 50%, rgba(255, 255, 255, 0.1), transparent 80%);
+	opacity: 0;
+	transition: opacity 0.35s ease;
+	pointer-events: none;
+}
+
+.ia-github-detalhe:hover {
+	background: rgba(255, 255, 255, 0.08);
+	border-color: rgba(255, 255, 255, 0.15);
+	transform: translateY(-2px);
+}
+
+.ia-github-detalhe:hover::before {
+	opacity: 1;
+}
+
+.ia-github-detalhe__titulo {
+	margin: 0 0 8px 0;
+	font-family: 'Montserrat', Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--text);
+}
+
+.ia-github-detalhe__descricao {
+	margin: 0;
+	color: var(--muted);
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+/* Responsivo para IA & GitHub */
+@media (max-width: 768px) {
+	.ia-github-modal__grid {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+
+	.ia-github-item {
+		padding: 16px;
+	}
+
+	.ia-github-item__title {
+		font-size: 15px;
+	}
+
+	.ia-github-item__text {
+		font-size: 13px;
+	}
+
+	.ia-github-detalhes-modal__content {
+		padding: 24px;
+	}
+
+	.ia-github-detalhes-modal__title {
+		font-size: 22px;
+		margin-bottom: 12px;
+	}
+
+	.ia-github-detalhes-modal__subtitle {
+		font-size: 12px;
+		margin-bottom: 16px;
+	}
+
+	.ia-github-detalhe {
+		padding: 16px;
+	}
+
+	.ia-github-detalhe__titulo {
+		font-size: 15px;
+	}
+
+	.ia-github-detalhe__descricao {
+		font-size: 13px;
+	}
+}
+
 /* Modal Informações Úteis */
 .info-modal {
   display: none;

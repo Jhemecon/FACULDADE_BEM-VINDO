@@ -451,6 +451,45 @@ const eventosData = {
 	]
 };
 
+const iaGithubData = {
+	ia: [
+		{
+			titulo: "O que é Inteligência Artificial",
+			descricao: "IA é a capacidade de máquinas executarem tarefas que normalmente exigem inteligência humana, como aprendizado, reconhecimento de padrões e tomada de decisão."
+		},
+		{
+			titulo: "Cuidados no Dia a Dia",
+			descricao: "Cuidado com dados pessoais compartilhados com IA, proteja informações sensíveis, questione a privacidade de plataformas de IA e tenha responsabilidade ao usar IA para tomadas de decisão importantes."
+		},
+		{
+			titulo: "Uso Prático de IA",
+			descricao: "IA está em assistentes virtuais, recomendações de vídeos, análise de dados, tradução automática, reconhecimento facial e muito mais. Ferramentas como ChatGPT, Copilot e DALL-E são exemplos práticos de IA generativa."
+		},
+		{
+			titulo: "Curiosidades Rápidas",
+			descricao: "Deep learning é inspirado no cérebro humano. Máquinas já conseguem gerar imagens, textos e código. IA não substitui humanos, mas potencializa habilidades. A ética em IA é crucial para o futuro."
+		}
+	],
+	github: [
+		{
+			titulo: "O que é GitHub",
+			descricao: "GitHub é a maior plataforma de hospedagem de código do mundo. Utiliza Git, um sistema de controle de versão que permite rastrear alterações, colaborar em projetos e manter histórico completo do desenvolvimento."
+		},
+		{
+			titulo: "Importância para Tecnologia",
+			descricao: "GitHub é essencial para qualquer profissional de tecnologia. Permite versionamento de código, colaboração em equipe, integração contínua, portfolio profissional e portabilidade entre projetos."
+		},
+		{
+			titulo: "Competências Desenvolvidas",
+			descricao: "Dominar Git e GitHub desenvolve habilidades em controle de versão, resolução de conflitos de merge, colaboração em equipe remota, documentação de projetos e workflows profissionais de desenvolvimento."
+		},
+		{
+			titulo: "Carreira e Oportunidades",
+			descricao: "Um bom perfil no GitHub com projetos relevantes é cartão de visita para recrutadores. Contribuições em projetos open source aumentam visibilidade profissional e criam oportunidades no mercado de trabalho."
+		}
+	]
+};
+
 
 function aplicarTextos() {
 	const elementos = document.querySelectorAll("[data-text]");
@@ -607,6 +646,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	configurarModalEventos();
 	configurarModalAreas();
 	configurarModalOQueTeremosHoje();
+	configurarModalIAGithub();
 	configurarModalEquipe();
 });
 
@@ -1042,6 +1082,121 @@ function configurarModalAreas() {
 	// Fechar com ESC
 	document.addEventListener("keydown", (event) => {
 		if (event.key === "Escape" && modal.classList.contains("modal--open")) {
+			fecharModal();
+		}
+	});
+}
+
+function configurarModalIAGithub() {
+	const modal = document.getElementById("ia-github-modal");
+	const trigger = document.getElementById("ia-github-trigger");
+	const detalhesModal = document.getElementById("ia-github-detalhes-modal");
+	const detalhesCloseBtn = detalhesModal?.querySelector(".ia-github-detalhes-modal__close");
+	const detalhesOverlay = detalhesModal?.querySelector(".modal__overlay");
+	const detalhesTitle = document.getElementById("ia-github-detalhes-title");
+	const detalhesSubtitle = document.getElementById("ia-github-detalhes-subtitle");
+	const detalhesList = document.getElementById("ia-github-detalhes-lista");
+	
+	if (!modal || !trigger) return;
+	const closeBtn = modal.querySelector(".ia-github-modal__close");
+	const overlay = modal.querySelector(".modal__overlay");
+	const iaGithubItems = modal.querySelectorAll(".ia-github-item");
+	if (!closeBtn || !overlay) return;
+
+	const detalhesMeta = {
+		ia: {
+			titulo: "🤖 Inteligência Artificial",
+			subtitulo: "Introdução básica, cuidados no dia a dia e curiosidades sobre IA"
+		},
+		github: {
+			titulo: "🐙 GitHub",
+			subtitulo: "A importância do GitHub para profissionais de tecnologia"
+		}
+	};
+
+	function abrirModal() {
+		modal.classList.add("modal--open");
+		document.body.style.overflow = "hidden";
+	}
+
+	function fecharModal() {
+		modal.classList.remove("modal--open");
+		fecharDetalhes();
+		document.body.style.overflow = "";
+	}
+
+	function fecharDetalhes() {
+		if (detalhesModal) {
+			detalhesModal.classList.remove("modal--open");
+		}
+	}
+
+	function abrirDetalhes(tipo) {
+		if (!tipo || !(tipo in iaGithubData)) return;
+
+		const meta = detalhesMeta[tipo] || { titulo: "", subtitulo: "" };
+		detalhesTitle.textContent = meta.titulo;
+		detalhesSubtitle.textContent = meta.subtitulo;
+
+		// Renderizar conteúdo
+		detalhesList.innerHTML = "";
+		const items = iaGithubData[tipo] || [];
+
+		items.forEach((item) => {
+			const div = document.createElement("div");
+			div.className = "ia-github-detalhe";
+			div.innerHTML = `
+				<h3 class="ia-github-detalhe__titulo">${item.titulo}</h3>
+				<p class="ia-github-detalhe__descricao">${item.descricao}</p>
+			`;
+			detalhesList.appendChild(div);
+		});
+
+		if (detalhesModal) {
+			detalhesModal.classList.add("modal--open");
+			document.body.style.overflow = "hidden";
+		}
+	}
+
+	trigger.addEventListener("click", abrirModal);
+	trigger.addEventListener("keydown", (event) => {
+		if (event.key === "Enter" || event.key === " ") {
+			event.preventDefault();
+			abrirModal();
+		}
+	});
+
+	closeBtn.addEventListener("click", fecharModal);
+	overlay.addEventListener("click", fecharModal);
+	
+	if (detalhesCloseBtn && detalhesOverlay) {
+		detalhesCloseBtn.addEventListener("click", fecharDetalhes);
+		detalhesOverlay.addEventListener("click", fecharDetalhes);
+	}
+
+	// Adicionar eventos aos items
+	iaGithubItems.forEach((item) => {
+		item.addEventListener("click", () => {
+			const tipo = item.getAttribute("data-tipo");
+			abrirDetalhes(tipo);
+		});
+		item.addEventListener("keydown", (event) => {
+			if (event.key === "Enter" || event.key === " ") {
+				event.preventDefault();
+				const tipo = item.getAttribute("data-tipo");
+				abrirDetalhes(tipo);
+			}
+		});
+	});
+
+	// Fechar com ESC
+	document.addEventListener("keydown", (event) => {
+		if (event.key !== "Escape") return;
+		if (detalhesModal && detalhesModal.classList.contains("modal--open")) {
+			fecharDetalhes();
+			return;
+		}
+		if (modal.classList.contains("modal--open")) {
 			fecharModal();
 		}
 	});
