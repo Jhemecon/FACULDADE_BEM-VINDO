@@ -2909,187 +2909,113 @@ body.bg-dimmed::before {
 
 /* Coordenadora Styles */
 .coordenadora-content {
-  padding: 24px 0;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.coordenadora-perfil {
+.coordenadora-profile {
   display: flex;
   gap: 32px;
   align-items: flex-start;
 }
 
-.coordenadora-foto-container {
+.coordenadora-photo {
   flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 3px solid var(--accent-1);
+  box-shadow: 0 8px 32px rgba(255, 221, 85, 0.2);
 }
 
-.coordenadora-foto {
-  width: 150px;
-  height: 150px;
-  border-radius: 12px;
-  background-color: var(--panel);
-  border: 1px solid var(--border);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: var(--muted);
+.coordenadora-photo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .coordenadora-info {
   flex: 1;
 }
 
-.coordenadora-nome {
+.coordenadora-info h3 {
   margin: 0 0 8px;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--text);
 }
 
-.coordenadora-cargo {
-  margin: 0 0 16px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--accent-1);
-}
-
-.coordenadora-descricao {
-  margin: 0 0 16px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text);
-}
-
-.coordenadora-contato {
-  margin: 0;
-  font-size: 14px;
-  color: var(--text);
-}
-
-.coordenadora-contato strong {
-  color: var(--accent-1);
-  font-weight: 600;
-}
-
-@media (max-width: 600px) {
-  .coordenadora-perfil {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .coordenadora-foto-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .coordenadora-nome {
-    font-size: 20px;
-  }
-}
-
-/* Laboratório Styles */
-.laboratorio-content {
-  padding: 24px 0;
-}
-
-.laboratorio-intro {
-  margin-bottom: 32px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
-}
-
-.laboratorio-intro p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text);
-}
-
-.laboratorio-responsabilidade {
-  margin-top: 24px;
-}
-
-.laboratorio-responsabilidade h3 {
+.coordenadora-role {
   margin: 0 0 16px;
   font-size: 18px;
   font-weight: 600;
-  color: var(--accent-2);
+  color: var(--accent-1);
 }
 
-.laboratorio-responsabilidade > p {
+.coordenadora-description {
   margin: 0 0 24px;
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text);
-}
-
-.responsabilidade-lista {
-  margin-bottom: 24px;
-  padding: 20px;
-  background: rgba(12, 14, 22, 0.5);
-  border-radius: var(--radius-md);
-  border-left: 3px solid var(--accent-1);
-}
-
-.responsabilidade-lista h4 {
-  margin: 0 0 16px;
   font-size: 16px;
-  font-weight: 600;
-  color: var(--accent-1);
-}
-
-.responsabilidade-items {
-  margin: 0;
-  padding-left: 20px;
-  list-style: none;
-}
-
-.responsabilidade-items li {
-  margin-bottom: 12px;
-  padding-left: 8px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--text);
-  position: relative;
-}
-
-.responsabilidade-items li:before {
-  content: "✓";
-  position: absolute;
-  left: -20px;
-  color: var(--accent-1);
-  font-weight: bold;
-}
-
-.responsabilidade-items li:last-child {
-  margin-bottom: 0;
-}
-
-.responsabilidade-items strong {
-  color: var(--accent-1);
-  font-weight: 600;
-}
-
-.responsabilidade-aviso {
-  margin-top: 24px;
-  padding: 20px;
-  background: rgba(255, 122, 133, 0.1);
-  border: 1px solid rgba(255, 122, 133, 0.3);
-  border-radius: var(--radius-md);
-}
-
-.responsabilidade-aviso p {
-  margin: 0;
-  font-size: 14px;
+  color: var(--muted);
   line-height: 1.6;
+}
+
+.coordenadora-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(12, 14, 22, 0.6);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.highlight-icon {
+  font-size: 20px;
+}
+
+.highlight-item span {
+  font-size: 14px;
   color: var(--text);
+  font-weight: 500;
 }
 
-.responsabilidade-aviso strong {
-  color: var(--accent-2);
-  font-weight: 600;
-}
+@media (max-width: 768px) {
+  .coordenadora-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
 
-}
+  .coordenadora-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .coordenadora-info h3 {
+    font-size: 24px;
+  }
+
+  .coordenadora-role {
+    font-size: 16px;
+  }
+
+  .coordenadora-description {
+    font-size: 15px;
+  }
+
+  .coordenadora-highlights {
+    align-items: stretch;
+  }
+
+  .highlight-item {
+    justify-content: center;
+  }

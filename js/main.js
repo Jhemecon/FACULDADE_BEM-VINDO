@@ -11,43 +11,7 @@ const infosUteis = {
 	},
 	laboratorio: {
 		titulo: "💻 Laboratórios",
-		descricao: `
-			<div class="laboratorio-content">
-				<div class="laboratorio-intro">
-					<p>Nossos laboratórios estão equipados com computadores de última geração e softwares especializados para cada área de conhecimento. Os ambientes são projetados para prática profissional, permitindo que você desenvolva projetos reais e ganhe experiência prática essencial. Com suporte técnico disponível, você tem tudo para colocar em prática seus conhecimentos teóricos.</p>
-				</div>
-
-				<div class="laboratorio-responsabilidade">
-					<h3>⚠️ Responsabilidade e Cuidados</h3>
-					<p>Os laboratórios são espaços de uso compartilhado e exigem responsabilidade de todos os alunos. Zelar pela conservação dos equipamentos e pela limpeza do ambiente é fundamental para manter a qualidade desses recursos.</p>
-					
-					<div class="responsabilidade-lista">
-						<h4>🛡️ Como Cuidar dos Equipamentos</h4>
-						<ul class="responsabilidade-items">
-							<li><strong>Manejo cuidadoso:</strong> Utilize os computadores e periféricos com cuidado e atenção</li>
-							<li><strong>Limpeza regular:</strong> Limpe seu espaço de trabalho ao final de cada uso</li>
-							<li><strong>Organização:</strong> Deixe os equipamentos organizados e na posição correta</li>
-							<li><strong>Relato de problemas:</strong> Comunique imediatamente qualquer dano ou mau funcionamento ao suporte técnico</li>
-							<li><strong>Segurança:</strong> Não realize modificações ou desmontes não autorizados</li>
-						</ul>
-					</div>
-
-					<div class="responsabilidade-lista">
-						<h4>🧹 Mantendo o Ambiente Limpo</h4>
-						<ul class="responsabilidade-items">
-							<li><strong>Limpeza após uso:</strong> Limpe sua estação de trabalho, teclado e mouse</li>
-							<li><strong>Organização:</strong> Guarde seus pertences pessoais e materiais adequadamente</li>
-							<li><strong>Respeito ao espaço:</strong> Mantenha o laboratório limpo e agradável para outros usuários</li>
-							<li><strong>Higiene:</strong> Retirar lixo e manter a área com boa ventilação</li>
-						</ul>
-					</div>
-
-					<div class="responsabilidade-aviso">
-						<p><strong>📌 Importante:</strong> O descuido com os equipamentos pode resultar em restrição de acesso aos laboratórios e responsabilização do aluno por danos causados.</p>
-					</div>
-				</div>
-			</div>
-		`
+		descricao: "Nossos laboratórios estão equipados com computadores de última geração e softwares especializados para cada área de conhecimento. Os ambientes são projetados para prática profissional, permitindo que você desenvolva projetos reais e ganhe experiência prática essencial. Com suporte técnico disponível, você tem tudo para colocar em prática seus conhecimentos teóricos."
 	},
 	notas: {
 		titulo: "📊 Notas",
@@ -382,26 +346,35 @@ const infosUteis = {
 		`
 	},
 	coordenadora: {
-		titulo: "👩‍💼 Coordenadora",
+		titulo: "👩‍🏫 Coordenadora - Janaina Souza",
 		descricao: `
 			<div class="coordenadora-content">
-				<div class="coordenadora-perfil">
-					<div class="coordenadora-foto-container">
-						<div class="coordenadora-foto" style="background-color: #f0f0f0; width: 150px; height: 150px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 14px;">
-							[Foto da Coordenadora]
-						</div>
+				<div class="coordenadora-profile">
+					<div class="coordenadora-photo">
+						<img src="https://via.placeholder.com/200x200/2d3748/ffd700?text=JS" alt="Janaina Souza - Coordenadora do CIESA" class="coordenadora-photo__img">
 					</div>
 					<div class="coordenadora-info">
-						<h3 class="coordenadora-nome">Janaina Souza</h3>
-						<p class="coordenadora-cargo">Coordenadora do CIESA</p>
-						<p class="coordenadora-descricao">
-							Janaina Souza é a coordenadora responsável por guiar e apoiar toda a comunidade acadêmica do CIESA. 
-							Com vasta experiência em educação e gestão, ela está sempre disponível para orientar alunos, 
-							resolver questões acadêmicas e garantir que você tenha a melhor experiência possível durante sua jornada no CIESA.
+						<h3>Janaina Souza</h3>
+						<p class="coordenadora-role">Coordenadora do CIESA</p>
+						<p class="coordenadora-description">
+							Profissional dedicada com vasta experiência em educação e coordenação acadêmica. 
+							Especialista em formação técnica e desenvolvimento de competências profissionais, 
+							com foco em preparar alunos para os desafios do mercado de trabalho atual.
 						</p>
-						<p class="coordenadora-contato">
-							<strong>📧 Email:</strong> janaina.souza@ciesa.edu.br
-						</p>
+						<div class="coordenadora-highlights">
+							<div class="highlight-item">
+								<span class="highlight-icon">🎓</span>
+								<span>Mestre em Educação</span>
+							</div>
+							<div class="highlight-item">
+								<span class="highlight-icon">💼</span>
+								<span>15+ anos de experiência</span>
+							</div>
+							<div class="highlight-item">
+								<span class="highlight-icon">🏆</span>
+								<span>Prêmios em inovação educacional</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -744,7 +717,7 @@ function configurarModalInformacoesUteis() {
 				// Abre o modal individual
 				if (infoModal && infoModalTitle && infoModalDescription) {
 					infoModalTitle.textContent = dados.titulo;
-					if (info === "notas" || info === "email" || info === "artigos" || info === "camisa" || info === "conquistas") {
+					if (info === "notas" || info === "email" || info === "artigos" || info === "camisa" || info === "conquistas" || info === "coordenadora") {
 						infoModalDescription.innerHTML = dados.descricao;
 					} else {
 						infoModalDescription.textContent = dados.descricao;
@@ -781,7 +754,7 @@ function configurarModalInfos() {
 		if (!dados) return;
 
 		modalTitle.textContent = dados.titulo;
-		if (info === "notas" || info === "email" || info === "artigos" || info === "camisa" || info === "conquistas") {
+		if (info === "notas" || info === "email" || info === "artigos" || info === "camisa" || info === "conquistas" || info === "coordenadora") {
 			modalDescription.innerHTML = dados.descricao;
 		} else {
 			modalDescription.textContent = dados.descricao;
