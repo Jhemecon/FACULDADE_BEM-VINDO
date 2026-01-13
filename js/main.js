@@ -408,6 +408,11 @@ const eventosData = {
 			titulo: "Aulas no Sábado - Conteúdos Extras",
 			data: "Aos sábados - Agendado",
 			descricao: "Aulas complementares aos sábados para aprofundamento em conteúdos específicos. Oportunidade de explorar tópicos avançados e tirar dúvidas em um formato mais descontraído."
+		},
+		{
+			titulo: "Competição de Design - Mascote CIESA",
+			data: "Em breve",
+			descricao: "Competição criativa onde alunos irão projetar o melhor mascote para o CIESA. Premiação para os três melhores designs: 1º lugar, 2º lugar e 3º lugar. Uma oportunidade de demonstrar criatividade e representar a instituição de forma inovadora."
 		}
 	],
 	parceria: [
