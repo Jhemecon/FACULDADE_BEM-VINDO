@@ -490,6 +490,101 @@ const iaGithubData = {
 	]
 };
 
+const sobreSiteData = {
+	desenvolvimento: {
+		titulo: "Como o Site Foi Desenvolvido",
+		intro: "Um projeto construído com paixão, dedicação e muitas xícaras de café ☕",
+		items: [
+			{
+				titulo: "Planejamento e Design",
+				descricao: "O processo iniciou com pesquisas sobre as necessidades dos alunos do CIESA e inspirações de sites de universidades e institutos de tecnologia. Foi criado um wireframe detalhado, definindo a estrutura de navegação, seções principais e fluxo do usuário."
+			},
+			{
+				titulo: "Desenvolvimento Frontend",
+				descricao: "Utilizando HTML5, CSS3 e JavaScript vanilla, desenvolvemos uma interface responsiva que se adapta perfeitamente a diferentes tamanhos de tela. Implementamos modais interativos, animações suaves e uma experiência de usuário intuitiva."
+			},
+			{
+				titulo: "Otimizações e Performance",
+				descricao: "O site foi otimizado para carregar rapidamente, com CSS minificado, imagens SVG para ícones, e carregamento eficiente de fontes. Também foi implementado com acessibilidade web em mente, seguindo as normas WCAG."
+			},
+			{
+				titulo: "Testes e Iterações",
+				descricao: "Múltiplas rodadas de testes foram realizadas em diferentes navegadores e dispositivos. Feedback de usuários foi coletado e incorporado para melhorias contínuas. O design foi refinado baseado em testes de usabilidade."
+			}
+		]
+	},
+	inspiracoes: {
+		titulo: "Inspirações e Referências",
+		intro: "Este projeto foi influenciado por grandes exemplos de design moderno",
+		items: [
+			{
+				titulo: "Design Minimalista",
+				descricao: "Inspirado em sites como Apple e o design moderno minimalista, optamos por uma abordagem limpa com muito espaço em branco, tipografia clara e paleta de cores consistente que não sobrecarrega o usuário."
+			},
+			{
+				titulo: "Interatividade Moderna",
+				descricao: "Referências de sites de tech companies como GitHub, Vercel e Stripe influenciaram o uso de modais interativos, cards animados e transições suaves que tornam a experiência mais envolvente e agradável."
+			},
+			{
+				titulo: "Acessibilidade",
+				descricao: "Inspirado em guidelines de acessibilidade web e sites inclusivos, implementamos suporte a teclado completo, leitores de tela, contraste adequado e hierarquia semântica de HTML para garantir que todos possam usar o site."
+			},
+			{
+				titulo: "Educação e Comunidade",
+				descricao: "Referências de universidades e institutos educacionais que possuem sites informativos e engajadores. O foco foi criar um espaço que celebra a comunidade do CIESA e facilita a descoberta de oportunidades."
+			}
+		]
+	},
+	tecnologias: {
+		titulo: "Tecnologias Utilizadas",
+		intro: "Um stack moderno e escolhas tecnológicas bem fundamentadas",
+		items: [
+			{
+				titulo: "HTML5",
+				descricao: "Usando semântica HTML5 com elementos como <section>, <nav>, <article> e <main> para estrutura clara do documento. Implementação de ARIA labels e roles para melhor acessibilidade."
+			},
+			{
+				titulo: "CSS3",
+				descricao: "Flexbox e CSS Grid para layouts responsivos, CSS custom properties (variáveis) para temas consistentes, animações CSS smooth e media queries para adaptação em diferentes dispositivos. Também usamos SCSS mentalmente para organização."
+			},
+			{
+				titulo: "JavaScript Vanilla",
+				descricao: "JavaScript puro (sem frameworks) para máxima performance e controle. Implementamos manipulação do DOM, event listeners, gerenciamento de estado com classes CSS e modais interativos totalmente funcionais."
+			},
+			{
+				titulo: "Git e Versionamento",
+				descricao: "Controle de versão com Git e GitHub, permitindo histórico completo de desenvolvimento, rastreamento de mudanças e possibilidade de rollback. Commits organizados com mensagens descritivas."
+			},
+			{
+				titulo: "Ferramentas e Deployment",
+				descricao: "Desenvolvimento local com live server, testes em navegadores modernos (Chrome, Firefox, Safari, Edge). Site otimizado para performance com compressão de imagens e carregamento eficiente de recursos."
+			}
+		]
+	},
+	equipe: {
+		titulo: "A Equipe por Trás do Projeto",
+		intro: "Pessoas talentosas que dedicaram tempo e criatividade para este projeto",
+		items: [
+			{
+				titulo: "David Neves (nevext)",
+				descricao: "Desenvolvedor e designer responsável pela criação completa do site. Trabalhou em planejamento, design visual, desenvolvimento frontend completo com HTML/CSS/JavaScript, otimizações de performance e implementação de acessibilidade."
+			},
+			{
+				titulo: "Liga Chronokaio",
+				descricao: "Equipe que forneceu orientação, feedback e suporte durante o desenvolvimento. Seus insights sobre as necessidades dos alunos ajudaram a moldar as funcionalidades e o design do site para melhor servir a comunidade CIESA."
+			},
+			{
+				titulo: "Comunidade CIESA",
+				descricao: "Todos os alunos, professores e staff do CIESA que forneceram feedback valioso, testaram o site, sugeriram melhorias e ajudaram a validar que o projeto estava atendendo suas necessidades e expectativas."
+			},
+			{
+				titulo: "Professores e Mentores",
+				descricao: "Orientação técnica e criativa de professores do CIESA que compartilharam conhecimento, boas práticas de desenvolvimento web, acessibilidade e design thinking durante o projeto."
+			}
+		]
+	}
+};
+
 
 function aplicarTextos() {
 	const elementos = document.querySelectorAll("[data-text]");
@@ -648,6 +743,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	configurarModalOQueTeremosHoje();
 	configurarModalIAGithub();
 	configurarModalEquipe();
+	configurarModalSobreSite();
 });
 
 function configurarEfeitoCaracteres() {
@@ -1239,6 +1335,112 @@ function configurarModalEquipe() {
 	document.addEventListener("keydown", (event) => {
 		if (event.key === "Escape" && equipeModal.classList.contains("modal--open")) {
 			fecharEquipeModal();
+		}
+	});
+}
+
+function configurarModalSobreSite() {
+	const trigger = document.getElementById("criacao-site-trigger");
+	const modal = document.getElementById("sobre-site-modal");
+	const detalhesModal = document.getElementById("sobre-site-detalhes-modal");
+	
+	if (!trigger || !modal || !detalhesModal) return;
+
+	const closeBtn = modal.querySelector(".sobre-site-modal__close");
+	const overlay = modal.querySelector(".modal__overlay");
+	const items = modal.querySelectorAll(".sobre-site-item");
+	
+	const detalhesCloseBtn = detalhesModal.querySelector(".sobre-site-detalhes-modal__close");
+	const detalhesOverlay = detalhesModal.querySelector(".modal__overlay");
+	const detalhesTitle = detalhesModal.querySelector("#sobre-site-detalhes-title");
+	const detalhesIntro = detalhesModal.querySelector("#sobre-site-detalhes-intro");
+	const detalhesList = detalhesModal.querySelector("#sobre-site-detalhes-lista");
+
+	if (!closeBtn || !overlay || !detalhesCloseBtn) return;
+
+	function abrirModal() {
+		modal.classList.add("modal--open");
+		document.body.style.overflow = "hidden";
+	}
+
+	function fecharModal() {
+		modal.classList.remove("modal--open");
+		document.body.style.overflow = "";
+	}
+
+	function fecharDetalhes() {
+		if (detalhesModal) {
+			detalhesModal.classList.remove("modal--open");
+		}
+	}
+
+	function abrirDetalhes(tipo) {
+		if (!tipo || !(tipo in sobreSiteData)) return;
+
+		const data = sobreSiteData[tipo];
+		detalhesTitle.textContent = data.titulo;
+		detalhesIntro.textContent = data.intro;
+
+		// Renderizar conteúdo
+		detalhesList.innerHTML = "";
+		const items = data.items || [];
+
+		items.forEach((item) => {
+			const div = document.createElement("div");
+			div.className = "sobre-site-detalhe";
+			div.innerHTML = `
+				<h3 class="sobre-site-detalhe__titulo">${item.titulo}</h3>
+				<p class="sobre-site-detalhe__descricao">${item.descricao}</p>
+			`;
+			detalhesList.appendChild(div);
+		});
+
+		detalhesModal.classList.add("modal--open");
+		document.body.style.overflow = "hidden";
+	}
+
+	// Listeners para trigger
+	trigger.addEventListener("click", abrirModal);
+	trigger.addEventListener("keydown", (event) => {
+		if (event.key === "Enter" || event.key === " ") {
+			event.preventDefault();
+			abrirModal();
+		}
+	});
+
+	// Listeners para items
+	items.forEach((item) => {
+		item.addEventListener("click", () => {
+			const tipo = item.getAttribute("data-tipo");
+			abrirDetalhes(tipo);
+		});
+
+		item.addEventListener("keydown", (event) => {
+			if (event.key === "Enter" || event.key === " ") {
+				event.preventDefault();
+				const tipo = item.getAttribute("data-tipo");
+				abrirDetalhes(tipo);
+			}
+		});
+	});
+
+	// Listeners para fechar modal principal
+	closeBtn.addEventListener("click", fecharModal);
+	overlay.addEventListener("click", fecharModal);
+
+	// Listeners para fechar modal de detalhes
+	detalhesCloseBtn.addEventListener("click", fecharDetalhes);
+	detalhesOverlay.addEventListener("click", fecharDetalhes);
+
+	// Fechar com ESC
+	document.addEventListener("keydown", (event) => {
+		if (event.key === "Escape") {
+			if (detalhesModal.classList.contains("modal--open")) {
+				fecharDetalhes();
+				document.body.style.overflow = "hidden";
+			} else if (modal.classList.contains("modal--open")) {
+				fecharModal();
+			}
 		}
 	});
 }
