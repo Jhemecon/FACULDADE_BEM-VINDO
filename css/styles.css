@@ -395,7 +395,6 @@ body.bg-dimmed::before {
 /* Seções */
 .section {
   padding: 400px 0;
-  scroll-margin-top: calc(50vh - var(--header-h));
 }
 
 .section--alt {

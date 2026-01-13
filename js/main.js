@@ -622,7 +622,7 @@ function configurarNavegacao() {
 
 			event.preventDefault();
 			aplicarOverlayPorHash(href);
-			alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+			alvo.scrollIntoView({ behavior: "smooth", block: "center" });
 			history.pushState(null, "", href);
 		});
 	}
