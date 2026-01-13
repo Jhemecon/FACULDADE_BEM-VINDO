@@ -2668,40 +2668,33 @@ body.bg-dimmed::before {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 32px;
-  width: 100%;
 }
 
 .eventos-item {
-  padding: 28px 24px;
-  background: linear-gradient(135deg, rgba(255, 221, 85, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-  border: 2px solid rgba(255, 221, 85, 0.2);
-  border-radius: var(--radius-lg);
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  min-height: 160px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .eventos-item::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(600px at 50% 50%, rgba(255, 221, 85, 0.15), transparent 80%);
+  background: radial-gradient(600px at 50% 50%, rgba(255, 255, 255, 0.1), transparent 80%);
   opacity: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
 
 .eventos-item:hover {
-  background: linear-gradient(135deg, rgba(255, 221, 85, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
-  border-color: rgba(255, 221, 85, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(255, 221, 85, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .eventos-item:hover::before {
@@ -2709,15 +2702,15 @@ body.bg-dimmed::before {
 }
 
 .eventos-item:focus {
-  outline: 2px solid rgba(255, 221, 85, 0.6);
+  outline: 2px solid rgba(255, 221, 85, 0.5);
   outline-offset: 2px;
 }
 
 .eventos-item__title {
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   color: var(--text);
   letter-spacing: 0.02em;
 }
@@ -2726,31 +2719,22 @@ body.bg-dimmed::before {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Responsivo para Eventos */
-@media (max-width: 1024px) {
-  .eventos-modal__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-}
-
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .eventos-modal__grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .eventos-item {
-    min-height: 140px;
-    padding: 24px 20px;
+    padding: 16px;
   }
 
   .eventos-item__title {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 15px;
   }
 
   .eventos-item__text {
