@@ -711,7 +711,7 @@ function configurarNavegacao() {
 			window.snapTimeout = setTimeout(() => {
 				snapToNearestSection();
 				isScrolling = false;
-			}, 300); // Espera 300ms após parar de rolar
+			}, 200); // Espera 200ms após parar de rolar
 		}
 
 		scrollTimeout = setTimeout(() => {
