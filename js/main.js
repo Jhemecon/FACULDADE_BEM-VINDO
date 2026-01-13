@@ -429,9 +429,9 @@ const eventosData = {
 	],
 	indicados: [
 		{
-			titulo: "Ocean - Programa de Desenvolvimento",
+			titulo: "Ocean - Plataforma de Eventos",
 			data: "Sempre indicado",
-			descricao: "Programa renomado de desenvolvimento profissional e treinamento técnico. Sempre é indicado pelos coordenadores como oportunidade de excelência em capacitação."
+			descricao: "Plataforma que reúne diversos eventos tech e de networking. Sempre é indicada pelos coordenadores como oportunidade para os alunos participarem de eventos profissionais de qualidade."
 		},
 		{
 			titulo: "Bootcamp - Programação Intensiva",
