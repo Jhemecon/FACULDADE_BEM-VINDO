@@ -124,11 +124,10 @@ body.bg-dimmed::before {
   display: block;
   filter: grayscale(100%) contrast(1.05) brightness(1.12);
   opacity: 0.92;
-  transition: filter 180ms ease, opacity 180ms ease;
+  transition: filter 180ms ease, opacity 180ms ease, border 180ms ease, box-shadow 180ms ease;
 }
 
-.brand:hover .brand__logo,
-.brand:focus-visible .brand__logo {
+.brand:active .brand__logo {
   filter: none;
   opacity: 1;
 }
@@ -892,6 +891,22 @@ body.nav-open .nav-scrim {
   grid-template-columns: 200px 1fr;
   gap: 20px;
   align-items: start;
+}
+
+.modal-section:nth-child(odd) .modal-section__content {
+  grid-template-columns: 200px 1fr;
+}
+
+.modal-section:nth-child(even) .modal-section__content {
+  grid-template-columns: 1fr 200px;
+}
+
+.modal-section:nth-child(even) .modal-section__image {
+  order: 2;
+}
+
+.modal-section:nth-child(even) .modal-section__text {
+  order: 1;
 }
 
 .modal-section__image {

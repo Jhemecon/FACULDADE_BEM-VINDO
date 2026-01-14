@@ -11,7 +11,8 @@ const infosUteis = {
 	},
 	laboratorio: {
 		titulo: "💻 Laboratórios",
-		descricao: "Nossos laboratórios estão equipados com computadores de última geração e softwares especializados para cada área de conhecimento. Os ambientes são projetados para prática profissional, permitindo que você desenvolva projetos reais e ganhe experiência prática essencial. Com suporte técnico disponível, você tem tudo para colocar em prática seus conhecimentos teóricos."
+		descricao: "Nossos laboratórios estão equipados com computadores de última geração e softwares especializados para cada área de conhecimento. Os ambientes são projetados para prática profissional, permitindo que você desenvolva projetos reais e ganhe experiência prática essencial. Com suporte técnico disponível, você tem tudo para colocar em prática seus conhecimentos teóricos.",
+		video: "Media/Videos/SALVATORE_INAUGURACAO_VIDEO_1.mp4"
 	},
 	notas: {
 		titulo: "📊 Notas",
@@ -349,36 +350,37 @@ const infosUteis = {
 		titulo: "👩‍🏫 Coordenadora - Janaina Souza",
 		descricao: `
 			<div class="coordenadora-content">
-				<div class="coordenadora-profile">
-					<div class="coordenadora-photo">
-						<img src="https://via.placeholder.com/200x200/2d3748/ffd700?text=JS" alt="Janaina Souza - Coordenadora do CIESA" class="coordenadora-photo__img">
+				<div class="coordenadora-info">
+					<h3>Janaina Souza</h3>
+					<p class="coordenadora-role">Coordenadora do CIESA</p>
+					
+					<div class="coordenadora-section">
+						<h4>📚 Experiência Acadêmica</h4>
+						<p>22 anos como professora universitária, atuando nas seguintes áreas:</p>
+						<ul class="coordenadora-areas">
+							<li>Programação</li>
+							<li>Lógica</li>
+							<li>Banco de Dados (BD)</li>
+							<li>Desenvolvimento de Jogos</li>
+							<li>Matemática</li>
+							<li>Ciência de Dados</li>
+							<li>Design</li>
+						</ul>
 					</div>
-					<div class="coordenadora-info">
-						<h3>Janaina Souza</h3>
-						<p class="coordenadora-role">Coordenadora do CIESA</p>
-						<p class="coordenadora-description">
-							Profissional dedicada com vasta experiência em educação e coordenação acadêmica. 
-							Especialista em formação técnica e desenvolvimento de competências profissionais, 
-							com foco em preparar alunos para os desafios do mercado de trabalho atual.
-						</p>
-						<div class="coordenadora-highlights">
-							<div class="highlight-item">
-								<span class="highlight-icon">🎓</span>
-								<span>Mestre em Educação</span>
-							</div>
-							<div class="highlight-item">
-								<span class="highlight-icon">💼</span>
-								<span>15+ anos de experiência</span>
-							</div>
-							<div class="highlight-item">
-								<span class="highlight-icon">🏆</span>
-								<span>Prêmios em inovação educacional</span>
-							</div>
-						</div>
+
+					<div class="coordenadora-section">
+						<h4>🎓 Formação Acadêmica</h4>
+						<p>Mestre em Inteligência Artificial</p>
+					</div>
+
+					<div class="coordenadora-section">
+						<h4>💼 Profissão</h4>
+						<p>Analista de Sistemas</p>
 					</div>
 				</div>
 			</div>
-		`
+		`,
+		imagem: "Media/SVG/JANAINA_SOUZA_4K.svg"
 	}
 };
 
@@ -392,7 +394,8 @@ const eventosData = {
 		{
 			titulo: "Projetos de Extensão",
 			data: "Contínuos",
-			descricao: "Projetos desenvolvidos pelos alunos em parceria com a comunidade. Oportunidades de aplicar conhecimento prático e contribuir com a sociedade. Participação voluntária com reconhecimento acadêmico."
+			descricao: "Projetos desenvolvidos pelos alunos em parceria com a comunidade. Oportunidades de aplicar conhecimento prático e contribuir com a sociedade. Participação voluntária com reconhecimento acadêmico.",
+			imagens: ["Media/SVG/EXTENSÃO_1.svg", "Media/SVG/EXTENSÃO_2.svg"]
 		},
 		{
 			titulo: "Projetos Integradores",
@@ -402,7 +405,8 @@ const eventosData = {
 		{
 			titulo: "Halloween - Festa da LATIJ",
 			data: "31 de Outubro",
-			descricao: "Evento tradicional organizado pela LATIJ (Liga Acadêmica de Tecnologia, Inovação e Jogo). Uma festa temática com atividades, competições e prêmios para a comunidade CIESA."
+			descricao: "Evento tradicional organizado pela LATIJ (Liga Acadêmica de Tecnologia, Inovação e Jogo). Uma festa temática com atividades, competições e prêmios para a comunidade CIESA.",
+			imagem: "Media/SVG/HALOWWEN_CIESA (1).svg"
 		},
 		{
 			titulo: "Aulas no Sábado - Conteúdos Extras",
@@ -419,12 +423,15 @@ const eventosData = {
 		{
 			titulo: "Bemol BDXP Pocket Edition",
 			data: "Realizado",
-			descricao: "Evento da Bemol que apresentou tendências em tecnologia e cybersegurança. Incluiu palestra sobre segurança digital, coffee break e troca de dados com profissionais da área."
+			descricao: "Evento da Bemol que apresentou tendências em tecnologia e cybersegurança. Incluiu palestra sobre segurança digital, coffee break e troca de dados com profissionais da área.",
+			imagens: ["Media/SVG/BDXP_IMAGEM_1.svg", "Media/SVG/BDXP_IMAGEM_2.svg"]
 		},
 		{
 			titulo: "INDT - Instituto Nokia de Tecnologia",
 			data: "Realizado",
-			descricao: "CIESA foi convidado para participar de evento do INDT com foco em cybersegurança avançada. Além de palestras aprofundadas, contou com testes práticos em aparelhos e demonstrações de segurança em sistemas reais."
+			descricao: "CIESA foi convidado para participar de evento do INDT com foco em cybersegurança avançada. Além de palestras aprofundadas, contou com testes práticos em aparelhos e demonstrações de segurança em sistemas reais.",
+			video: "Media/Videos/INDT_VIDEO_1.mp4",
+			imagens: ["Media/SVG/INDT_IMAGEM_1.svg", "Media/SVG/INDT_IMAGEM_2.svg", "Media/SVG/INDT_IMAGEM_3.svg", "Media/SVG/INDT_IMAGEM_4.svg"]
 		},
 		{
 			titulo: "Expo Projetos - Plaza Shopping",
@@ -434,7 +441,15 @@ const eventosData = {
 		{
 			titulo: "Inauguração dos Laboratórios - Paulo Salvatore",
 			data: "Realizado",
-			descricao: "Evento de inauguração dos modernos laboratórios do CIESA com a presença do renomado Paulo Salvatore, especialista em desenvolvimento de sistemas, jogos e Inteligência Artificial (IA). Palestra inspiradora e tour técnico pelas novas instalações."
+			descricao: "Evento de inauguração dos modernos laboratórios do CIESA com a presença do renomado Paulo Salvatore, especialista em desenvolvimento de sistemas, jogos e Inteligência Artificial (IA). Palestra inspiradora e tour técnico pelas novas instalações.",
+			video: "Media/Videos/SALVATORE_INAUGURACAO_VIDEO_1.mp4",
+			imagens: ["Media/SVG/SALVATORE_IMAGEM_1.svg"]
+		},
+		{
+			titulo: "Visita na Receita Federal",
+			data: "Realizado",
+			descricao: "Visita técnica realizada à Receita Federal onde os alunos do CIESA conheceram o funcionamento dos sistemas de fiscalização e segurança. Uma oportunidade prática de aprender sobre compliance, auditoria e tecnologia aplicada ao setor público. Experiência valiosa para profissionais em desenvolvimento.",
+			imagens: ["Media/SVG/RECEITA_FEDERAL_1.svg", "Media/SVG/RECEITA_FEDERAL_IMAGEM_2.svg", "Media/SVG/RECEITA_FEDERAL_IMAGEM_3.svg"]
 		}
 	],
 	indicados: [
@@ -490,96 +505,143 @@ const iaGithubData = {
 	]
 };
 
+const areasAtuacaoData = {
+	jogos: {
+		titulo: "🎮 Criação de Jogos",
+		video: "Media/Videos/JOGOS_VIDEO_1.mp4"
+	}
+};
+
 const sobreSiteData = {
 	desenvolvimento: {
-		titulo: "Como o Site Foi Desenvolvido",
-		intro: "Um projeto construído com paixão, dedicação e muitas xícaras de café ☕",
+		titulo: "Planejamento & Design",
+		intro: "Descobra como o site foi cuidadosamente planejado e desenhado para melhor servir a comunidade CIESA",
 		items: [
 			{
-				titulo: "Planejamento e Design",
-				descricao: "O processo iniciou com pesquisas sobre as necessidades dos alunos do CIESA e inspirações de sites de universidades e institutos de tecnologia. Foi criado um wireframe detalhado, definindo a estrutura de navegação, seções principais e fluxo do usuário."
+				titulo: "📋 Objetivo do Site",
+				descricao: "Oferecer maior clareza e tranquilidade para os novos alunos, criando um espaço informativo que apresente tudo que o CIESA pode proporcionar de forma acessível e bem organizada."
 			},
 			{
-				titulo: "Desenvolvimento Frontend",
-				descricao: "Utilizando HTML5, CSS3 e JavaScript vanilla, desenvolvemos uma interface responsiva que se adapta perfeitamente a diferentes tamanhos de tela. Implementamos modais interativos, animações suaves e uma experiência de usuário intuitiva."
+				titulo: "👥 Público-Alvo",
+				descricao: "Desenvolvido especificamente para estudantes ingressantes que estão descobrindo o CIESA. O site funciona como um guia essencial nas primeiras semanas de adaptação à instituição."
 			},
 			{
-				titulo: "Otimizações e Performance",
-				descricao: "O site foi otimizado para carregar rapidamente, com CSS minificado, imagens SVG para ícones, e carregamento eficiente de fontes. Também foi implementado com acessibilidade web em mente, seguindo as normas WCAG."
+				titulo: "🔄 Finalidade e Escopo",
+				descricao: "Planejado para ser um evento anual com novos participantes, contando com uma rotação de apresentadores. O conteúdo é periódico e dinâmico, permitindo atualizações constantes com novas informações e oportunidades."
 			},
 			{
-				titulo: "Testes e Iterações",
-				descricao: "Múltiplas rodadas de testes foram realizadas em diferentes navegadores e dispositivos. Feedback de usuários foi coletado e incorporado para melhorias contínuas. O design foi refinado baseado em testes de usabilidade."
+				titulo: "📚 Conteúdo Estratégico",
+				descricao: "Informações completas sobre tudo que o CIESA pode proporcionar: laboratórios, biblioteca, projetos de extensão, eventos, áreas de atuação, coordenadores e muito mais. Tudo organizado em modais interativos para fácil navegação."
+			},
+			{
+				titulo: "🗺️ Navegação Simples e Intuitiva",
+				descricao: "Pensada de forma simples e estática para facilitar a explicação ao usuário. Sem elementos complexos que possam confundir, mantendo o foco na clareza e acessibilidade da informação."
+			},
+			{
+				titulo: "🎨 Paleta de Cores Institucional",
+				descricao: "Cores inspiradas na identidade visual do CIESA, buscando ao mesmo tempo originalidade. Cada tonalidade foi escolhida para transmitir confiança, inovação e profissionalismo."
+			},
+			{
+				titulo: "✨ Layout e Identidade Visual",
+				descricao: "Desenvolvidos para transmitir identidade própria e coerência visual. Tipografia clara, espaçamento harmonioso e elementos visuais consistentes criam uma experiência unificada em todas as páginas."
+			},
+			{
+				titulo: "♿ Acessibilidade como Prioridade",
+				descricao: "Considerada como aspecto essencial para garantir inclusão e boa experiência de uso. Suporte a teclado, leitores de tela, contraste adequado e semântica HTML correta garantem que todos possam aproveitar plenamente o site."
 			}
 		]
 	},
 	inspiracoes: {
 		titulo: "Inspirações e Referências",
-		intro: "Este projeto foi influenciado por grandes exemplos de design moderno",
+		intro: "Uma jornada de exploração, iteração e construção de uma identidade visual própria",
 		items: [
 			{
-				titulo: "Design Minimalista",
-				descricao: "Inspirado em sites como Apple e o design moderno minimalista, optamos por uma abordagem limpa com muito espaço em branco, tipografia clara e paleta de cores consistente que não sobrecarrega o usuário."
+				titulo: "🔄 Processo Iterativo de Desenvolvimento",
+				descricao: "O desenvolvimento precisou ser reiniciado algumas vezes até que o criador conseguisse visualizar uma proposta que realmente fizesse sentido. Cada iteração trouxe insights valiosos sobre o que funcionava e o que poderia ser melhorado, refinando gradualmente a visão do projeto."
 			},
 			{
-				titulo: "Interatividade Moderna",
-				descricao: "Referências de sites de tech companies como GitHub, Vercel e Stripe influenciaram o uso de modais interativos, cards animados e transições suaves que tornam a experiência mais envolvente e agradável."
+				titulo: "💡 Liquid Pink - Referência Principal",
+				descricao: "Uma das principais referências foi o site Liquid Pink, que apresentou ideias interessantes e serviu como base para reflexão. Este projeto foi fundamental para compreender estruturas de navegação, padrões de design e abordagens criativas que influenciaram decisões estéticas e funcionais."
 			},
 			{
-				titulo: "Acessibilidade",
-				descricao: "Inspirado em guidelines de acessibilidade web e sites inclusivos, implementamos suporte a teclado completo, leitores de tela, contraste adequado e hierarquia semântica de HTML para garantir que todos possam usar o site."
+				titulo: "🎯 Buscando Inspiração como Ponto de Partida",
+				descricao: "É importante destacar que buscar inspiração em outros projetos é um excelente passo inicial quando ainda não há um norte definido. Esta prática permitiu entender tendências, melhores práticas e soluções criativas já testadas no mercado."
 			},
 			{
-				titulo: "Educação e Comunidade",
-				descricao: "Referências de universidades e institutos educacionais que possuem sites informativos e engajadores. O foco foi criar um espaço que celebra a comunidade do CIESA e facilita a descoberta de oportunidades."
+				titulo: "🛠️ Construindo Identidade Própria",
+				descricao: "A partir dessas referências, foi possível construir uma estrutura própria e original ao longo do desenvolvimento. Não se trata apenas de copiar, mas de absorver conceitos, adaptá-los ao contexto do CIESA e desenvolver uma solução que reflete a essência única desta instituição."
+			},
+			{
+				titulo: "✨ Do Conceito à Realidade",
+				descricao: "O caminho de inspiração e referências transformou-se em decisões de design concretas: escolha de cores institucionais, tipografia profissional, estrutura de navegação intuitiva e uma identidade visual que fala para a comunidade CIESA de forma autêntica e relevante."
 			}
 		]
 	},
 	tecnologias: {
 		titulo: "Tecnologias Utilizadas",
-		intro: "Um stack moderno e escolhas tecnológicas bem fundamentadas",
+		intro: "Um stack fundamentado em HTML, CSS e JavaScript, com suporte estratégico de IA",
 		items: [
 			{
-				titulo: "HTML5",
-				descricao: "Usando semântica HTML5 com elementos como <section>, <nav>, <article> e <main> para estrutura clara do documento. Implementação de ARIA labels e roles para melhor acessibilidade."
+				titulo: "🏗️ HTML - Fundação Estrutural",
+				descricao: "Serviu como base de toda a construção do site. Semântica HTML5 com elementos semânticos (section, nav, article, main) garantem uma estrutura clara do documento e melhor acessibilidade. ARIA labels e roles implementados para inclusão completa, permitindo que todos os usuários, independente de suas capacidades, naveguem e compreendam o conteúdo com facilidade."
 			},
 			{
-				titulo: "CSS3",
-				descricao: "Flexbox e CSS Grid para layouts responsivos, CSS custom properties (variáveis) para temas consistentes, animações CSS smooth e media queries para adaptação em diferentes dispositivos. Também usamos SCSS mentalmente para organização."
+				titulo: "🎨 CSS - Identidade Visual",
+				descricao: "Responsável pela estilização e definição da identidade visual. Flexbox e CSS Grid para layouts responsivos, CSS custom properties para consistência de temas, animações suaves e media queries para perfeita adaptação em diferentes dispositivos."
 			},
 			{
-				titulo: "JavaScript Vanilla",
-				descricao: "JavaScript puro (sem frameworks) para máxima performance e controle. Implementamos manipulação do DOM, event listeners, gerenciamento de estado com classes CSS e modais interativos totalmente funcionais."
+				titulo: "⚡ JavaScript - Interatividade e Dinamismo",
+				descricao: "Utilizado para adicionar interatividade e dinamismo. JavaScript vanilla (sem frameworks) para máxima performance e controle total. Manipulação do DOM, event listeners sofisticados, gerenciamento de estado elegante e modais interativos totalmente funcionais."
 			},
 			{
-				titulo: "Git e Versionamento",
-				descricao: "Controle de versão com Git e GitHub, permitindo histórico completo de desenvolvimento, rastreamento de mudanças e possibilidade de rollback. Commits organizados com mensagens descritivas."
+				titulo: "💻 Desenvolvimento Manual e Estruturado",
+				descricao: "O código foi escrito manualmente até que a estrutura principal estivesse bem definida. Este processo garantiu compreensão profunda de cada componente e qualidade de código superior. Uma base sólida para futuras expansões."
 			},
 			{
-				titulo: "Ferramentas e Deployment",
-				descricao: "Desenvolvimento local com live server, testes em navegadores modernos (Chrome, Firefox, Safari, Edge). Site otimizado para performance com compressão de imagens e carregamento eficiente de recursos."
+				titulo: "🤖 Inteligência Artificial como Apoio Estratégico",
+				descricao: "A partir da estrutura definida, para tarefas simples e repetitivas, foi utilizada a Inteligência Artificial integrada ao VSCode. Esta ferramenta acelerou significativamente a execução, mantendo total controle criativo e qualidade do projeto."
+			},
+			{
+				titulo: "⏱️ Impacto do Uso de IA na Produtividade",
+				descricao: "A diferença entre usar e não usar IA é significativa: o tempo de execução das tarefas reduz consideravelmente. Contudo, o desenvolvimento de cada funcionalidade começava com compreensão manual antes de qualquer automação."
+			},
+			{
+				titulo: "⚠️ Recomendação: Use IA com Sabedoria",
+				descricao: "Nunca dependa totalmente da IA. Ela deve ser usada como apoio inteligente, mas não como única solução. Um exemplo real: quando os servidores da IA ficaram indisponíveis, várias atividades precisaram ser finalizadas manualmente até normalização. Sempre tenha um plano B."
+			},
+			{
+				titulo: "🎯 Lição Aprendida - Independência Técnica",
+				descricao: "Essa experiência reforcou uma lição valiosa: um desenvolvedor deve ser capaz de trabalhar com ou sem ferramentas de IA. A combinação de habilidades manuais sólidas com suporte de IA cria a melhor abordagem possível para desenvolvimento sustentável."
 			}
 		]
 	},
 	equipe: {
 		titulo: "A Equipe por Trás do Projeto",
-		intro: "Pessoas talentosas que dedicaram tempo e criatividade para este projeto",
+		intro: "Um projeto colaborativo onde cada pessoa contribuiu com suas habilidades e perspectivas únicas",
 		items: [
 			{
-				titulo: "David Neves (nevext)",
-				descricao: "Desenvolvedor e designer responsável pela criação completa do site. Trabalhou em planejamento, design visual, desenvolvimento frontend completo com HTML/CSS/JavaScript, otimizações de performance e implementação de acessibilidade."
+				titulo: "🔧 David Neves (nevext) - Desenvolvimento",
+				descricao: "Responsável pela criação completa do site, implementação em HTML, CSS e JavaScript, além de portar o projeto para o GitHub. Trabalhou em todas as camadas do desenvolvimento, desde o planejamento inicial até a finalização e publicação do código."
 			},
 			{
-				titulo: "Liga Chronokaio",
-				descricao: "Equipe que forneceu orientação, feedback e suporte durante o desenvolvimento. Seus insights sobre as necessidades dos alunos ajudaram a moldar as funcionalidades e o design do site para melhor servir a comunidade CIESA."
+				titulo: "👨‍💼 Jhemerson Conde - Liga LATIJ",
+				descricao: "Realizou testes de usabilidade utilizando ferramentas de avaliação de design e experiência do usuário. Seus insights garantiram que a interface fosse intuitiva, acessível e atendesse às reais necessidades dos usuários finais."
 			},
 			{
-				titulo: "Comunidade CIESA",
-				descricao: "Todos os alunos, professores e staff do CIESA que forneceram feedback valioso, testaram o site, sugeriram melhorias e ajudaram a validar que o projeto estava atendendo suas necessidades e expectativas."
+				titulo: "💡 Julio - Liga LATIJ",
+				descricao: "Aplicou feedbacks construtivos e contribuiu com ideias criativas para aprimorar o projeto. Participou ativamente na validação de funcionalidades e na identificação de oportunidades de melhoria."
 			},
 			{
-				titulo: "Professores e Mentores",
-				descricao: "Orientação técnica e criativa de professores do CIESA que compartilharam conhecimento, boas práticas de desenvolvimento web, acessibilidade e design thinking durante o projeto."
+				titulo: "⚡ Luan Nery - Liga Chronokaio",
+				descricao: "Participou do desenvolvimento inicial, sugerindo ideias de aplicação e indicando o uso de React como alternativa tecnológica. Suas perspectivas técnicas enriqueceram as discussões sobre arquitetura e tecnologia do projeto."
+			},
+			{
+				titulo: "👨‍🏫 Professor John - Orientação e Feedback",
+				descricao: "Contribuiu com feedbacks valiosos durante todo o processo de desenvolvimento. Suas observações ajudaram a refinar decisões de design e funcionalidades, garantindo alinhamento com as melhores práticas educacionais."
+			},
+			{
+				titulo: "📊 Professor Francisco - Análise Crítica",
+				descricao: "Realizou análises críticas profundas, oferecendo uma visão aprofundada sobre o projeto. Suas contribuições técnicas e estratégicas foram fundamentais para validar a qualidade e viabilidade da solução implementada."
 			}
 		]
 	}
@@ -716,6 +778,48 @@ function configurarNavegacao() {
 	window.addEventListener("hashchange", () => aplicarOverlayPorHash(window.location.hash));
 }
 
+function preencherMidiasModais() {
+	// Preencher mídias do modal LATIJ
+	const latijObjetivos = document.querySelector("#latij-modal [data-image='objetivos']");
+	const latijFeitos = document.querySelector("#latij-modal [data-image='feitos']");
+	
+	if (latijObjetivos && latijObjetivos.children.length === 0) {
+		const video = document.createElement('video');
+		video.src = 'Media/Videos/LATIJ_OBJETIVOS.mp4';
+		video.loop = true;
+		video.autoplay = true;
+		video.muted = true; // necessário para autoplay em muitos navegadores
+		// Compatibilidade mobile para permitir autoplay inline
+		video.playsInline = true;
+		video.setAttribute('playsinline', '');
+		video.setAttribute('webkit-playsinline', '');
+		// Garantir que não existam controles visíveis
+		video.removeAttribute('controls');
+		video.style.width = '100%';
+		video.style.height = 'auto';
+		video.style.maxHeight = '150px';
+		video.style.objectFit = 'cover';
+		video.style.borderRadius = 'var(--radius-md)';
+		video.style.display = 'block';
+		latijObjetivos.appendChild(video);
+		// Tentar tocar explicitamente (cairá em catch se bloqueado)
+		video.play().catch(() => {});
+	}
+	
+	if (latijFeitos && latijFeitos.children.length === 0) {
+		const img = document.createElement('img');
+		img.src = 'Media/SVG/HALOWWEN_CIESA (1).svg';
+		img.style.width = '100%';
+		img.style.height = 'auto';
+		img.style.maxHeight = '1500px';
+		img.style.objectFit = 'contain';
+		img.style.borderRadius = 'var(--radius-md)';
+		img.style.display = 'block';
+		img.alt = 'Halloween CIESA';
+		latijFeitos.appendChild(img);
+	}
+}
+
 function configurarModalLATIJ() {
 	const modal = document.getElementById("latij-modal");
 	const logo = document.querySelector(".liga-card--latij");
@@ -728,6 +832,7 @@ function configurarModalLATIJ() {
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden"; // impede scroll da página
 		verificarVideoCard();
+		preencherMidiasModais();
 	}
 
 	function fecharModal() {
@@ -1066,6 +1171,60 @@ function configurarModalInformacoesUteis() {
 	});
 }
 
+function inserirMidiaNoModal(container, tipo, src) {
+	if (!container || !tipo || !src) return;
+	
+	// Criar wrapper com layout profissional flex
+	const wrapper = document.createElement('div');
+	wrapper.style.display = 'flex';
+	wrapper.style.gap = '24px';
+	wrapper.style.alignItems = 'flex-start';
+	wrapper.style.marginTop = '20px';
+	wrapper.style.flexWrap = 'wrap';
+	
+	// Criar contêiner para mídia
+	const midiaContainer = document.createElement('div');
+	midiaContainer.style.flex = '1';
+	midiaContainer.style.minWidth = '250px';
+	midiaContainer.style.maxWidth = '400px';
+	
+	if (tipo === 'video') {
+		const video = document.createElement('video');
+		video.src = src;
+		video.loop = true;
+		video.autoplay = true;
+		video.muted = true;
+		video.playsInline = true;
+		video.setAttribute('playsinline', '');
+		video.setAttribute('webkit-playsinline', '');
+		video.removeAttribute('controls');
+		video.style.width = '100%';
+		video.style.height = 'auto';
+		video.style.borderRadius = 'var(--radius-md)';
+		video.style.display = 'block';
+		video.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.15)';
+		video.play().catch(() => {});
+		midiaContainer.appendChild(video);
+	} else if (tipo === 'imagem') {
+		const img = document.createElement('img');
+		img.src = src;
+		img.style.width = '100%';
+		img.style.height = 'auto';
+		img.style.borderRadius = 'var(--radius-md)';
+		img.style.display = 'block';
+		img.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.15)';
+		img.alt = 'Mídia profissional';
+		midiaContainer.appendChild(img);
+	}
+	
+	wrapper.appendChild(midiaContainer);
+	return wrapper;
+}
+
+function inserirVideoNoModal(container, videoSrc) {
+	return inserirMidiaNoModal(container, 'video', videoSrc);
+}
+
 function configurarModalInfos() {
 	const modal = document.getElementById("info-modal");
 	const infoItems = document.querySelectorAll(".info-item");
@@ -1080,12 +1239,32 @@ function configurarModalInfos() {
 		const dados = infosUteis[info];
 		if (!dados) return;
 
+		// Limpar descrição anterior (importante para mídias)
+		modalDescription.innerHTML = '';
+
 		modalTitle.textContent = dados.titulo;
 		if (info === "notas" || info === "email" || info === "artigos" || info === "camisa" || info === "conquistas" || info === "coordenadora") {
 			modalDescription.innerHTML = dados.descricao;
 		} else {
 			modalDescription.textContent = dados.descricao;
 		}
+
+		// Adicionar vídeo se existir
+		if (dados.video) {
+			const videoWrapper = inserirVideoNoModal(modalDescription, dados.video);
+			if (videoWrapper) {
+				modalDescription.appendChild(videoWrapper);
+			}
+		}
+
+		// Adicionar imagem se existir
+		if (dados.imagem) {
+			const imagemWrapper = inserirMidiaNoModal(modalDescription, 'imagem', dados.imagem);
+			if (imagemWrapper) {
+				modalDescription.appendChild(imagemWrapper);
+			}
+		}
+
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden";
 	}
@@ -1263,6 +1442,90 @@ function configurarModalEventos() {
 					<h3 class="evento-detalhe__titulo">${evento.titulo}</h3>
 					<p class="evento-detalhe__descricao">${evento.descricao}</p>
 				`;
+				
+				// Adicionar vídeo se existir (em destaque)
+				if (evento.video) {
+					const videoWrapper = document.createElement('div');
+					videoWrapper.style.marginTop = '24px';
+					videoWrapper.style.marginBottom = '24px';
+					
+					const video = document.createElement('video');
+					video.src = evento.video;
+					video.style.width = '100%';
+					video.style.height = 'auto';
+					video.style.borderRadius = 'var(--radius-md)';
+					video.style.display = 'block';
+					video.style.backgroundColor = '#000';
+					video.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.2)';
+					video.loop = true;
+					video.autoplay = true;
+					video.muted = true;
+					video.playsInline = true;
+					
+					videoWrapper.appendChild(video);
+					div.appendChild(videoWrapper);
+				}
+				
+				// Adicionar imagens se existirem
+				if (evento.imagens && Array.isArray(evento.imagens)) {
+					const imagensContainer = document.createElement('div');
+					imagensContainer.style.display = 'grid';
+					imagensContainer.style.gridTemplateColumns = 'repeat(auto-fit, minmax(200px, 1fr))';
+					imagensContainer.style.gap = '20px';
+					imagensContainer.style.marginTop = evento.video ? '24px' : '16px';
+					
+					evento.imagens.forEach((imagemSrc) => {
+						const imagemWrapper = document.createElement('div');
+						imagemWrapper.style.overflow = 'hidden';
+						imagemWrapper.style.borderRadius = 'var(--radius-md)';
+						imagemWrapper.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+						imagemWrapper.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+						imagemWrapper.style.cursor = 'pointer';
+						
+						const img = document.createElement('img');
+						img.src = imagemSrc;
+						img.style.width = '100%';
+						img.style.height = '240px';
+						img.style.objectFit = 'cover';
+						img.style.display = 'block';
+						img.alt = 'Imagem do evento';
+						
+						imagemWrapper.appendChild(img);
+						
+						// Efeito hover
+						imagemWrapper.addEventListener('mouseenter', () => {
+							imagemWrapper.style.transform = 'scale(1.05)';
+							imagemWrapper.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.2)';
+						});
+						
+						imagemWrapper.addEventListener('mouseleave', () => {
+							imagemWrapper.style.transform = 'scale(1)';
+							imagemWrapper.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+						});
+						
+						imagensContainer.appendChild(imagemWrapper);
+					});
+					
+					div.appendChild(imagensContainer);
+				} else if (evento.imagem) {
+					// Imagem única
+					const imagemWrapper = document.createElement('div');
+					imagemWrapper.style.marginTop = '16px';
+					imagemWrapper.style.maxWidth = '300px';
+					
+					const img = document.createElement('img');
+					img.src = evento.imagem;
+					img.style.width = '100%';
+					img.style.height = 'auto';
+					img.style.borderRadius = 'var(--radius-md)';
+					img.style.display = 'block';
+					img.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.15)';
+					img.alt = 'Imagem do evento';
+					
+					imagemWrapper.appendChild(img);
+					div.appendChild(imagemWrapper);
+				}
+				
 				detalhesList.appendChild(div);
 			});
 		}
@@ -1325,6 +1588,8 @@ function configurarModalAreas() {
 	const overlay = modal.querySelector(".modal__overlay");
 	if (!closeBtn || !overlay) return;
 
+	const areaItems = modal.querySelectorAll(".area-modal-item");
+
 	function abrirModal() {
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden";
@@ -1345,6 +1610,24 @@ function configurarModalAreas() {
 
 	closeBtn.addEventListener("click", fecharModal);
 	overlay.addEventListener("click", fecharModal);
+
+	// Adicionar evento para cards com vídeos
+	areaItems.forEach((item) => {
+		item.addEventListener("click", () => {
+			// Verificar se tem vídeo relacionado
+			const areaKey = item.getAttribute("data-area") || item.textContent.toLowerCase().includes("jogo") ? "jogos" : null;
+			
+			if (areaKey && areasAtuacaoData[areaKey]) {
+				const areaData = areasAtuacaoData[areaKey];
+				if (areaData.video) {
+					const videoWrapper = inserirVideoNoModal(item, areaData.video);
+					if (videoWrapper && !item.querySelector('video')) {
+						item.appendChild(videoWrapper);
+					}
+				}
+			}
+		});
+	});
 
 	// Fechar com ESC
 	document.addEventListener("keydown", (event) => {
