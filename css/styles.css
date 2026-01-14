@@ -234,9 +234,9 @@ body.nav-open .nav-scrim {
 }
 
 .nav__link--active {
-  color: #00FF66;
-  background: rgba(0, 255, 102, 0.1);
-  border: 1px solid rgba(0, 255, 102, 0.2);
+  color: #438b2c;
+  background: rgba(67, 139, 44, 0.1);
+  border: 1px solid rgba(67, 139, 44, 0.2);
   position: relative;
 }
 
@@ -248,7 +248,7 @@ body.nav-open .nav-scrim {
   transform: translateX(-50%);
   width: 20px;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #00FF66 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #438b2c 50%, transparent 100%);
   border-radius: 1px;
 }
 
@@ -3749,18 +3749,18 @@ body.nav-open .nav-scrim {
   padding-top: 16px;
   width: 100%;
   text-align: left;
-  border-top: 2px solid #1FD084;
+  border-top: 2px solid #438b2c;
   padding-top: 20px;
 }
 
 .footer__copyright {
   margin: 0;
-  color: #00FF66;
+  color: #438b2c;
   font-size: 13px;
 }
 
 .footer__credit {
-  color: #00FF66;
+  color: #438b2c;
   font-weight: 600;
 }
 
