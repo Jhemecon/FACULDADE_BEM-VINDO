@@ -119,20 +119,21 @@ body.bg-dimmed::before {
 }
 
 .brand__logo {
-  height: 80px;
+  height: 40px;
   width: auto;
   display: block;
   clip-path: inset(0 60% 0 0);
-  transform: translateX(15px);
+  transform: translateX(-10px);
   transition: transform 0.3s ease;
   cursor: pointer;
 }
 
 .brand__logo:hover {
-  transform: translateX(15px) scale(1.1);
+  transform: translateX(-10px) scale(1.1);
 }
 
 .brand:active .brand__logo {
+  transform: translateX(-10px) scale(0.95);
   transform: translateX(15px) scale(0.95);
 }
 
