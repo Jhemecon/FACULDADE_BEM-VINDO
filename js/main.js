@@ -1234,6 +1234,11 @@ function configurarModalInformacoesUteis() {
 	function abrirModal() {
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden";
+		
+		// Salvar estado de fechar quando abrir
+		pushModalState("informacoes-uteis-modal", () => {
+			fecharModal();
+		});
 	}
 
 	function fecharModal() {
@@ -1518,6 +1523,11 @@ function configurarModalEventos() {
 	function abrirModal() {
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden";
+		
+		// Salvar estado de fechar quando abrir
+		pushModalState("eventos-modal", () => {
+			fecharModal();
+		});
 	}
 
 	function fecharModal() {
@@ -1786,6 +1796,11 @@ function configurarModalIAGithub() {
 	function abrirModal() {
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden";
+		
+		// Salvar estado de fechar quando abrir
+		pushModalState("ia-github-modal", () => {
+			fecharModal();
+		});
 	}
 
 	function fecharModal() {
@@ -1941,6 +1956,11 @@ function configurarModalSobreSite() {
 	function abrirModal() {
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden";
+		
+		// Salvar estado de fechar quando abrir
+		pushModalState("sobre-site-modal", () => {
+			fecharModal();
+		});
 	}
 
 	function fecharModal() {
