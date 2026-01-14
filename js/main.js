@@ -436,7 +436,8 @@ const eventosData = {
 		{
 			titulo: "Expo Projetos - Plaza Shopping",
 			data: "Anualmente",
-			descricao: "Grande evento onde todas as faculdades de Manaus apresentam e entregam seus projetos acadêmicos e de extensão. Oportunidade de showcasing profissional e networking com toda a comunidade acadêmica local."
+			descricao: "Grande evento onde todas as faculdades de Manaus apresentam e entregam seus projetos acadêmicos e de extensão. Oportunidade de showcasing profissional e networking com toda a comunidade acadêmica local.",
+			imagens: ["Media/SVG/ENTREGA_PLAZA.svg"]
 		},
 		{
 			titulo: "Inauguração dos Laboratórios - Paulo Salvatore",
