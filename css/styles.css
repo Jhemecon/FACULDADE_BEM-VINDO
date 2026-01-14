@@ -119,10 +119,11 @@ body.bg-dimmed::before {
 }
 
 .brand__logo {
-  height: 44px;
+  height: 60px;
   width: auto;
   display: block;
-  clip-path: inset(0 50% 0 0);
+  clip-path: inset(0 60% 0 0);
+  transform: translateX(15px);
 }
 
 .brand:active .brand__logo {
