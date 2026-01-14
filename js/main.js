@@ -1,4 +1,42 @@
 
+// Sistema de Histórico de Ações (Undo)
+const actionHistory = [];
+const maxHistorySize = 50;
+
+function addToHistory(action) {
+	actionHistory.push(action);
+	if (actionHistory.length > maxHistorySize) {
+		actionHistory.shift();
+	}
+}
+
+function undoLastAction() {
+	if (actionHistory.length === 0) {
+		alert('Nenhuma ação para desfazer');
+		return;
+	}
+	
+	const lastAction = actionHistory.pop();
+	console.log('Desfazendo ação:', lastAction);
+	
+	// Recarrega a página para reverter ao estado anterior
+	window.location.reload();
+}
+
+// Bloquear Ctrl+A
+document.addEventListener('keydown', (e) => {
+	if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+		e.preventDefault();
+		return false;
+	}
+});
+
+// Bloquear seleção de texto
+document.addEventListener('selectstart', (e) => {
+	e.preventDefault();
+	return false;
+});
+
 const textos = {
 	descricao_latij:
 		"A LIGA LATIJ é uma iniciativa estudantil voltada para eventos educacionais e culturais. Aqui você encontra oportunidades para aprender com projetos, participar de atividades e construir conexões com outros alunos e professores.",
@@ -930,13 +968,27 @@ document.addEventListener("DOMContentLoaded", () => {
 	configurarModalCIESA();
 	configurarModalInformacoesUteis();
 	configurarModalInfos();
+	
+	// Configurar botão de undo
+	const undoBtn = document.getElementById("undo-btn");
+	if (undoBtn) {
+		undoBtn.addEventListener("click", undoLastAction);
+	}
+	
+	// Bloquear Ctrl+Z também (se preferir usar apenas o botão)
+	// document.addEventListener("keydown", (e) => {
+	//   if ((e.ctrlKey || e.metaKey) && e.key === "z") {
+	//     e.preventDefault();
+	//     undoLastAction();
+	//   }
+	// });
+
 	configurarModalEventos();
 	configurarModalAreas();
 	configurarModalOQueTeremosHoje();
 	configurarModalIAGithub();
 	configurarModalEquipe();
 	configurarModalSobreSite();
-	configurarAnimacaoLogo();
 });
 
 function configurarMenuMobile() {
@@ -1752,42 +1804,6 @@ function configurarModalIAGithub() {
 			fecharModal();
 		}
 	});
-}
-
-function configurarAnimacaoLogo() {
-	const brandLink = document.querySelector(".brand");
-	const logoAnimationOverlay = document.getElementById("logo-animation-overlay");
-	
-	if (!brandLink || !logoAnimationOverlay) return;
-
-	let lastAnimationTime = 0;
-	const cooldownDuration = 60000; // 60 segundos em milissegundos
-
-	function playLogoAnimation(event) {
-		const now = Date.now();
-		
-		// Verificar se está em cooldown
-		if (now - lastAnimationTime < cooldownDuration) {
-			return;
-		}
-
-		// Prevenir navegação padrão temporariamente
-		event.preventDefault();
-
-		// Atualizar tempo da última animação
-		lastAnimationTime = now;
-
-		// Ativar a animação
-		logoAnimationOverlay.classList.add("active");
-
-		// Depois da animação terminar, navegar para o início
-		setTimeout(() => {
-			logoAnimationOverlay.classList.remove("active");
-			window.location.hash = "#inicio";
-		}, 10000); // 10 segundos da animação
-	}
-
-	brandLink.addEventListener("click", playLogoAnimation);
 }
 
 function configurarModalEquipe() {
