@@ -3757,11 +3757,17 @@ body.nav-open .nav-scrim {
   margin: 0;
   color: #438b2c;
   font-size: 13px;
+  font-weight: 700;
 }
 
 .footer__credit {
   color: #438b2c;
-  font-weight: 600;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.footer__credit:hover {
+  transform: scale(1.1);
 }
 
 /* Responsivo Footer */
