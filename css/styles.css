@@ -122,7 +122,6 @@ body.bg-dimmed::before {
   height: 60px;
   width: auto;
   display: block;
-  clip-path: inset(0 60% 0 0);
   transform: translateX(15px);
   transition: transform 0.3s ease;
   cursor: pointer;
