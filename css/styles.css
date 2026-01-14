@@ -234,9 +234,9 @@ body.nav-open .nav-scrim {
 }
 
 .nav__link--active {
-  color: #438b2c;
-  background: rgba(67, 139, 44, 0.1);
-  border: 1px solid rgba(67, 139, 44, 0.2);
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
   position: relative;
 }
 
@@ -248,7 +248,7 @@ body.nav-open .nav-scrim {
   transform: translateX(-50%);
   width: 20px;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #438b2c 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #2563eb 50%, transparent 100%);
   border-radius: 1px;
 }
 
@@ -2723,7 +2723,7 @@ body.nav-open .nav-scrim {
 }
 
 .sobre-site-detalhe__descricao a {
-	color: #438b2c;
+	color: #2563eb;
 	font-weight: 700;
 	text-decoration: none;
 	transition: opacity 0.2s ease;
@@ -3749,19 +3749,19 @@ body.nav-open .nav-scrim {
   padding-top: 16px;
   width: 100%;
   text-align: left;
-  border-top: 2px solid #438b2c;
+  border-top: 2px solid #2563eb;
   padding-top: 20px;
 }
 
 .footer__copyright {
   margin: 0;
-  color: #438b2c;
+  color: #2563eb;
   font-size: 13px;
   font-weight: 700;
 }
 
 .footer__credit {
-  color: #438b2c;
+  color: #2563eb;
   font-weight: 700;
   transition: transform 0.2s ease;
 }
