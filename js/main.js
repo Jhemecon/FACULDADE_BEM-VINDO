@@ -92,6 +92,10 @@ function initializeModalUndoButtons() {
 document.addEventListener('DOMContentLoaded', () => {
 	initializeModalUndoButtons();
 });
+
+// Bloquear Ctrl+A
+document.addEventListener('keydown', (e) => {
+	if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
 		e.preventDefault();
 		return false;
 	}
