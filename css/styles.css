@@ -122,6 +122,7 @@ body.bg-dimmed::before {
   height: 44px;
   width: auto;
   display: block;
+  clip-path: inset(0 50% 0 0);
 }
 
 .brand:active .brand__logo {
