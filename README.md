@@ -50,7 +50,7 @@ You are free to use, modify, and distribute it, provided that proper credit is g
 ## Author
 Created by **David Neves (Nevext)**  
 - GitHub: [@nevext](https://github.com/nevext)  
-- Contact: institutional email recommended (nevext@outlook.com)  
+- Contact: (nevext@outlook.com)  
 
 ---
 
