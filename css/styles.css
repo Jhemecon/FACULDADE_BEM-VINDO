@@ -515,8 +515,33 @@ body.nav-open .nav-scrim {
   width: 84px;
   height: 3px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  background: linear-gradient(90deg, #438b2c, #2600ff);
   margin: 0 0 22px;
+}
+
+/* Progresso visual: accent line cresce de cima para baixo */
+#o-que-teremos-hoje .section__accent {
+  width: 84px;
+}
+
+#informacoes-uteis .section__accent {
+  width: 140px;
+}
+
+#areas-atuacao .section__accent {
+  width: 196px;
+}
+
+#eventos .section__accent {
+  width: 252px;
+}
+
+#ia-github .section__accent {
+  width: 308px;
+}
+
+#criacao-site .section__accent {
+  width: 364px;
 }
 
 .section__text {
@@ -747,7 +772,7 @@ body.nav-open .nav-scrim {
 
 .modal__close {
   position: absolute;
-  top: 20px;
+  top: 0px;
   right: 20px;
   background: none;
   border: none;
@@ -770,8 +795,8 @@ body.nav-open .nav-scrim {
 
 .modal__undo {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 0px;
+  left: 5px;
   background: none;
   border: none;
   color: var(--text);
@@ -978,7 +1003,8 @@ body.nav-open .nav-scrim {
 
 .modal-section__image {
   width: 200px;
-  height: 150px;
+  height: auto;
+  min-height: 150px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -988,6 +1014,14 @@ body.nav-open .nav-scrim {
   color: var(--muted);
   font-size: 14px;
   text-align: center;
+  overflow: hidden;
+}
+
+.modal-section__image img,
+.modal-section__image video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .modal-section__text {
@@ -2725,7 +2759,7 @@ body.nav-open .nav-scrim {
 }
 
 .sobre-site-detalhe__descricao a {
-	color: #1e3a5f;
+	color: #ff7a85;
 	font-weight: 700;
 	text-decoration: none;
 	transition: opacity 0.2s ease;
@@ -3538,7 +3572,7 @@ body.nav-open .nav-scrim {
 }
 
 .destaque-card::before {
-  content: "⭐";
+  content: "";
   position: absolute;
   top: 16px;
   right: 16px;

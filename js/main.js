@@ -399,7 +399,7 @@ const infosUteis = {
 				</div>
 
 				<div class="conquistas-destaque">
-					<h3>🏅 Conquista Destaque: Instituto de Pesquisa Eldorado</h3>
+					<h3>Conquista Destaque: Instituto de Pesquisa Eldorado</h3>
 					<div class="destaque-card">
 						<h4>Emprego no Instituto de Pesquisa Eldorado</h4>
 						<p><strong>Um aluno do CIESA conseguiu emprego no renomado Instituto de Pesquisa Eldorado</strong>, um dos principais centros de pesquisa tecnológica do país. Esta conquista excepcional destaca a excelência acadêmica e a preparação profissional oferecida pela instituição.</p>
@@ -903,6 +903,38 @@ function preencherMidiasModais() {
 	}
 }
 
+function preencherMidiasChrono() {
+	// Preencher mídias do modal CHRONO
+	const chronoObjetivos = document.querySelector("#chrono-modal [data-image='chrono-objetivos']");
+	const chronoFeitos = document.querySelector("#chrono-modal [data-image='chrono-feitos']");
+	
+	if (chronoObjetivos && chronoObjetivos.children.length === 0) {
+		const img = document.createElement('img');
+		img.src = 'Media/PNG/CHRONO_QUEMSOMOS.jpeg';
+		img.style.width = '100%';
+		img.style.height = 'auto';
+		img.style.maxHeight = '1500px';
+		img.style.objectFit = 'contain';
+		img.style.borderRadius = 'var(--radius-md)';
+		img.style.display = 'block';
+		img.alt = 'Objetivos CHRONO';
+		chronoObjetivos.appendChild(img);
+	}
+	
+	if (chronoFeitos && chronoFeitos.children.length === 0) {
+		const img = document.createElement('img');
+		img.src = 'Media/PNG/CHRONO_OBJETIVOS.jpeg';
+		img.style.width = '100%';
+		img.style.height = 'auto';
+		img.style.maxHeight = '1500px';
+		img.style.objectFit = 'contain';
+		img.style.borderRadius = 'var(--radius-md)';
+		img.style.display = 'block';
+		img.alt = 'Feitos CHRONO';
+		chronoFeitos.appendChild(img);
+	}
+}
+
 function configurarModalLATIJ() {
 	const modal = document.getElementById("latij-modal");
 	const logo = document.querySelector(".liga-card--latij");
@@ -944,6 +976,7 @@ function configurarModalChrono() {
 		modal.classList.add("modal--open");
 		document.body.style.overflow = "hidden"; // impede scroll da página
 		verificarVideoCard();
+		preencherMidiasChrono();
 	}
 
 	function fecharModal() {
