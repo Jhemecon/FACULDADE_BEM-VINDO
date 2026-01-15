@@ -92,6 +92,22 @@ body.bg-dimmed::before {
   top: 12px;
 }
 
+/* Mobile Responsivo */
+@media (max-width: 480px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+
 /* Header */
 .site-header {
   position: fixed;
@@ -3942,3 +3958,168 @@ body.nav-open .nav-scrim {
   .highlight-item {
     justify-content: center;
   }
+}
+
+/* Mobile Extra Small (até 480px) */
+@media (max-width: 480px) {
+  :root {
+    --header-h: 60px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+    margin: 0 auto;
+    padding: 0 12px;
+  }
+
+  .site-header {
+    padding: 8px 12px;
+  }
+
+  .header__inner {
+    gap: 12px;
+  }
+
+  .brand__logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav.nav--open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--panel-strong);
+    padding: 16px;
+    gap: 8px;
+    z-index: 999;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav__link {
+    padding: 12px 16px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section__title {
+    font-size: 28px;
+  }
+
+  .section__text {
+    font-size: 14px;
+  }
+
+  .modal__content {
+    width: 95vw;
+    max-height: 85vh;
+    padding: 20px;
+  }
+
+  .modal__undo {
+    top: 2px;
+    left: 2px;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+  }
+
+  .modal__close {
+    top: 2px;
+    right: 2px;
+    width: 36px;
+    height: 36px;
+    font-size: 28px;
+  }
+
+  .latij-project__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .quem-somos__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .liga-card {
+    padding: 20px;
+  }
+
+  .liga-card__title {
+    font-size: 20px;
+  }
+
+  .info-list {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-section__content {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .modal-section__image {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+    min-height: 120px;
+  }
+
+  .destaque-card {
+    padding: 16px;
+  }
+
+  .destaque-card::before {
+    font-size: 18px;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+/* Tablet (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .nav {
+    gap: 8px;
+  }
+
+  .nav__link {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .modal__content {
+    width: 90vw;
+    max-height: 80vh;
+    padding: 30px;
+  }
+
+  .latij-project__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-section__content {
+    grid-template-columns: 1fr;
+  }
+}
