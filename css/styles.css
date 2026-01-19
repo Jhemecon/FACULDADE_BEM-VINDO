@@ -7,13 +7,13 @@
   --panel: rgba(12, 14, 22, 0.72);
   --panel-strong: rgba(12, 14, 22, 0.88);
   --text: #f5f5f7;
-  --muted: #c9ccda;
-  --border: rgba(255, 255, 255, 0.12);
+  --muted: #d8dbe6;
+  --border: rgba(255, 255, 255, 0.20);
   --shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
   --radius-lg: 28px;
   --radius-md: 18px;
   --container: 1100px;
-  --accent-1: #ffdd55;
+  --accent-1: #ffd700;
   --accent-2: #ff7a85;
   --header-h: 76px;
 }
