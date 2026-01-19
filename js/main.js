@@ -74,20 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	initializeModalUndoButtons();
 });
 
-// Bloquear Ctrl+A
-document.addEventListener('keydown', (e) => {
-	if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
-		e.preventDefault();
-		return false;
-	}
-});
-
-// Bloquear seleção de texto
-document.addEventListener('selectstart', (e) => {
-	e.preventDefault();
-	return false;
-});
-
 const textos = {
 	descricao_latij:
 		"A LIGA LATIJ é uma iniciativa estudantil voltada para eventos educacionais e culturais. Aqui você encontra oportunidades para aprender com projetos, participar de atividades e construir conexões com outros alunos e professores.",
