@@ -100,16 +100,20 @@ body.bg-dimmed::before {
   position: absolute;
   left: -9999px;
   top: 0;
-  background: #000;
-  color: #fff;
-  padding: 10px 12px;
-  border-radius: 10px;
-  z-index: 999;
+  background: #ffd700;  /* MUDOU */
+  color: #050608;  /* MUDOU */
+  padding: 12px 16px;  /* MUDOU */
+  border-radius: 8px;
+  z-index: 9999;
+  font-weight: 600;  /* NOVO */
+  text-decoration: none;
 }
 
 .skip-link:focus {
   left: 12px;
   top: 12px;
+  outline: 3px solid #ffffff;  /* NOVO */
+  outline-offset: 2px;  /* NOVO */
 }
 
 /* Mobile Responsivo */
