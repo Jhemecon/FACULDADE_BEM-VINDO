@@ -1,114 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>CIESA - BEM VINDO</title>
-      <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🟢</text></svg>">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="css/styles.css">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal de boas-vindas do CIESA - Centro de Ensino Superior. Informações sobre ligas acadêmicas, áreas de atuação, eventos e recursos para novos alunos.">
+  <meta name="keywords" content="CIESA, educação, tecnologia, comunicação, ligas acadêmicas, LATIJ, Chronokaio">
+  <meta name="author" content="David Neves (nevext)">
+  <meta name="theme-color" content="#050608">
+  
+  <title>CIESA - Bem-vindo | Portal do Estudante</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🟢</text></svg>">
+  
+  <!-- Preconnect para otimizar carregamento de fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fontes com display swap para melhor performance -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Preload critical CSS -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
 <body>
-  <!-- Fundo (não alterar o arquivo FUNDO_CIESA.svg) -->
-  <img src="Media/SVG/FUNDO_CIESA.svg" class="FUNDO-TITULAR" alt="" aria-hidden="true" role="presentation">
+  <!-- Imagem de fundo decorativa -->
+  <img src="Media/SVG/FUNDO_CIESA.svg" class="FUNDO-TITULAR" alt="" aria-hidden="true" loading="lazy">
 
-  <a class="skip-link" href="#main-content">
-  Pular para o conteúdo principal
-</a>
+  <!-- Skip Link para acessibilidade -->
+  <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
 
+  <!-- Header com navegação principal -->
   <header class="site-header" role="banner">
     <div class="header__inner">
-      <a class="brand" href="#inicio" aria-label="Ir para o início">
-        <img src="Media/SVG/LOGO_CIESA_4K_REAL.svg" class="brand__logo" alt="Logo CIESA">
+      <a class="brand" href="#inicio" aria-label="CIESA - Ir para o início">
+        <img src="Media/SVG/LOGO_CIESA_4K_REAL.svg" class="brand__logo" alt="Logo CIESA" width="60" height="60" loading="eager">
       </a>
 
-      <nav id="primary-nav" class="nav" role="banner" aria-label="Navegação principal">
-        <a class="nav__link" href="#inicio">Início</a>
+      <nav id="primary-nav" class="nav" aria-label="Navegação principal" role="navigation">
+        <a class="nav__link" href="#inicio" aria-current="page">Início</a>
         <a class="nav__link" href="#quem-somos">Quem somos</a>
         <a class="nav__link" href="#sobre-ciesa">Sobre o CIESA</a>
         <a class="nav__link" href="#informacoes-uteis">Informações úteis</a>
         <a class="nav__link" href="#areas-atuacao">Áreas de Atuação</a>
         <a class="nav__link" href="#eventos">Eventos</a>
-        <a class="nav__link" href="#ia-github">IA & GitHub</a>
+        <a class="nav__link" href="#ia-github">IA &amp; GitHub</a>
         <a class="nav__link" href="#criacao-site">Sobre o Site</a>
       </nav>
 
-      <button id="nav-toggle" class="nav-toggle" type="button" 
-            aria-label="Abrir menu de navegação" 
-            aria-controls="primary-nav" 
-            aria-expanded="false">
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="visually-hidden">Menu</span>
-    </button>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menu de navegação" aria-controls="primary-nav" aria-expanded="false">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
     </div>
   </header>
 
+  <!-- Overlay para menu mobile -->
   <div id="nav-scrim" class="nav-scrim" aria-hidden="true"></div>
 
-  <main class="main" role="main" id="main-content">
-    <section id="inicio" class="splash" aria-label="Início"></section>
+  <!-- Conteúdo principal -->
+  <main id="main-content" class="main" role="main">
+    
+    <!-- Seção inicial splash -->
+    <section id="inicio" class="splash" aria-label="Página inicial">
+      <h1 class="visually-hidden">Bem-vindo ao CIESA - Portal do Estudante</h1>
+    </section>
 
-    <section id="o-que-teremos-hoje" class="section">
+    <!-- O que teremos hoje -->
+    <section id="o-que-teremos-hoje" class="section" aria-labelledby="o-que-teremos-hoje-title">
       <div class="container">
         <div class="o-que-teremos-hoje-content">
           <p class="section__eyebrow">Programação</p>
-          <h2 class="section__title">O que Teremos Hoje</h2>
+          <h2 id="o-que-teremos-hoje-title" class="section__title">O que Teremos Hoje</h2>
           <div class="section__accent" aria-hidden="true"></div>
           <p class="section__text o-que-teremos-hoje-text">
             Acompanhe a programação completa do dia. Desde a apresentação das seções do site, passando por presentes, 
             até o desafio do Kahoot com prêmios especiais para os vencedores e um coffee break para relaxar.
           </p>
 
-          <div class="o-que-teremos-hoje-trigger-card" id="o-que-teremos-hoje-trigger" role="button" tabindex="0">
-            <div class="o-que-teremos-hoje-trigger__content">
-              <h3 class="o-que-teremos-hoje-trigger__title">Ver Programação Completa</h3>
-            </div>
-          </div>
+          <button class="o-que-teremos-hoje-trigger-card" id="o-que-teremos-hoje-trigger" type="button" aria-label="Ver programação completa do dia">
+            <span class="o-que-teremos-hoje-trigger__content">
+              <span class="o-que-teremos-hoje-trigger__title">Ver Programação Completa</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
 
-    <section id="quem-somos" class="quem-somos-section" aria-label="Quem somos">
+    <!-- Quem somos -->
+    <section id="quem-somos" class="quem-somos-section" aria-labelledby="quem-somos-title">
       <div class="container quem-somos__inner">
-        <h2 class="section__title quem-somos__title">Quem somos?</h2>
+        <h2 id="quem-somos-title" class="section__title quem-somos__title">Quem somos?</h2>
         <div class="quem-somos__grid">
-          <div class="liga-card liga-card--latij" data-liga="latij">
+          
+          <article class="liga-card liga-card--latij" data-liga="latij">
             <div class="liga-card__media" aria-hidden="true"></div>
             <h3 class="liga-card__title">LIGA LATIJ</h3>
             <p class="liga-card__subtitle">Liga acadêmica com foco em eventos acadêmicos de tecnologia ou afins e inovação.</p>
-          </div>
-          <div class="liga-card liga-card--chrono" data-liga="chrono">
+          </article>
+          
+          <article class="liga-card liga-card--chrono" data-liga="chrono">
             <div class="liga-card__media" aria-hidden="true"></div>
             <h3 class="liga-card__title">LIGA CHRONOKAIO</h3>
-            <p class="liga-card__subtitle">Uma liga focada em produtividade, organização e experiências práticas.
-              Introdução a desenvolvimento de software e gestão de projetos.
-            </p>
-          </div>
+            <p class="liga-card__subtitle">Uma liga focada em produtividade, organização e experiências práticas. Introdução a desenvolvimento de software e gestão de projetos.</p>
+          </article>
         </div>
         
-        <div class="video-card video-card--hidden" id="liga-video-card">
-          <h3 class="video-card__title">As ligas no cenário de comunicação</h3>
+        <aside class="video-card video-card--hidden" id="liga-video-card" aria-labelledby="video-card-title">
+          <h3 id="video-card-title" class="video-card__title">As ligas no cenário de comunicação</h3>
           <div class="video-card__container">
             <iframe 
               class="video-card__iframe"
               src="https://www.youtube.com/embed/QokOFsoSARg?start=1932" 
-              title="As ligas no cenário de comunicação"
+              title="Vídeo: As ligas no cenário de comunicação"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
+              allowfullscreen
+              loading="lazy">
             </iframe>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
+    <!-- Sobre CIESA -->
     <section id="sobre-ciesa" class="section" aria-labelledby="sobre-ciesa-title">
       <div class="container about">
         <div class="about__media">
-          <img src="Media/SVG/CIESA_PREDIO.svg" class="about__image" id="ciesa-image-trigger" alt="Prédio do CIESA" style="cursor: pointer;">
+          <img src="Media/SVG/CIESA_PREDIO.svg" 
+               class="about__image" 
+               id="ciesa-image-trigger" 
+               alt="Ilustração do prédio do CIESA" 
+               width="400" 
+               height="300"
+               loading="lazy"
+               role="button"
+               tabindex="0"
+               aria-label="Clique para ver mais informações sobre o CIESA">
         </div>
         <div class="about__content">
           <p class="section__eyebrow">Instituição</p>
@@ -123,70 +150,75 @@
       </div>
     </section>
 
-    <section id="informacoes-uteis" class="section">
+    <!-- Informações úteis -->
+    <section id="informacoes-uteis" class="section" aria-labelledby="informacoes-uteis-title">
       <div class="container">
         <div class="informacoes-uteis-content">
           <p class="section__eyebrow">Recursos</p>
-          <h2 class="section__title">Informações úteis</h2>
+          <h2 id="informacoes-uteis-title" class="section__title">Informações úteis</h2>
           <div class="section__accent" aria-hidden="true"></div>
           <p class="section__text informacoes-uteis-text">
             Acesso rápido aos recursos mais importantes para sua jornada acadêmica. Biblioteca, laboratórios, consulta de notas, 
             email institucional, artigos científicos e muito mais. Tudo o que você precisa em um único lugar.
           </p>
 
-          <div class="informacoes-uteis-trigger-card" id="informacoes-uteis-trigger" role="button" tabindex="0">
-            <div class="informacoes-uteis-trigger__content">
-              <h3 class="informacoes-uteis-trigger__title">Explorar Informações Úteis</h3>
-            </div>
-          </div>
+          <button class="informacoes-uteis-trigger-card" id="informacoes-uteis-trigger" type="button" aria-label="Explorar informações úteis">
+            <span class="informacoes-uteis-trigger__content">
+              <span class="informacoes-uteis-trigger__title">Explorar Informações Úteis</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
 
-    <section id="areas-atuacao" class="section">
+    <!-- Áreas de atuação -->
+    <section id="areas-atuacao" class="section" aria-labelledby="areas-atuacao-title">
       <div class="container">
         <div class="areas-content">
           <p class="section__eyebrow">Orientação</p>
-          <h2 class="section__title">Áreas de Atuação</h2>
+          <h2 id="areas-atuacao-title" class="section__title">Áreas de Atuação</h2>
           <div class="section__accent" aria-hidden="true"></div>
           <p class="section__text areas-text">
             Não sabe qual área seguir? Não se preocupe! O CIESA oferece diversas possibilidades de atuação profissional.
             Nossa formação é flexível e permite que você explore diferentes caminhos durante sua jornada acadêmica.
           </p>
 
-          <div class="areas-trigger-card" id="areas-trigger" role="button" tabindex="0">
-            <div class="areas-trigger__content">
-              <h3 class="areas-trigger__title">Explorar Áreas de Atuação</h3>
-            </div>
-          </div>
+          <button class="areas-trigger-card" id="areas-trigger" type="button" aria-label="Explorar áreas de atuação">
+            <span class="areas-trigger__content">
+              <span class="areas-trigger__title">Explorar Áreas de Atuação</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
 
-    <section id="eventos" class="section">
+    <!-- Eventos -->
+    <section id="eventos" class="section" aria-labelledby="eventos-title">
       <div class="container">
         <div class="eventos-content">
           <p class="section__eyebrow">Agenda</p>
-          <h2 class="section__title">Eventos</h2>
+          <h2 id="eventos-title" class="section__title">Eventos</h2>
           <div class="section__accent" aria-hidden="true"></div>
           <p class="section__text eventos-text">
             Conheça os eventos promovidos pelo CIESA e seus parceiros. Esteja sempre atualizado sobre as oportunidades 
             de aprendizado, networking e lazer que transformam sua experiência acadêmica.
           </p>
 
-          <div class="eventos-trigger-card" id="eventos-trigger" role="button" tabindex="0">
-            <div class="eventos-trigger__content">
-              <h3 class="eventos-trigger__title">Explorar Eventos</h3>
-            </div>
-          </div>
+          <button class="eventos-trigger-card" id="eventos-trigger" type="button" aria-label="Explorar eventos">
+            <span class="eventos-trigger__content">
+              <span class="eventos-trigger__title">Explorar Eventos</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
-    <section id="ia-github" class="section">
+
+    <!-- IA & GitHub -->
+    <section id="ia-github" class="section" aria-labelledby="ia-github-title">
       <div class="container">
         <div class="ia-github-content">
           <p class="section__eyebrow">Tecnologia</p>
-          <h2 class="section__title">IA & GitHub</h2>
+          <h2 id="ia-github-title" class="section__title">IA &amp; GitHub</h2>
           <div class="section__accent" aria-hidden="true"></div>
           <p class="section__text ia-github-text">
             A Inteligência Artificial e o controle de versão com GitHub são ferramentas essenciais na área de comunicação moderna. 
@@ -194,20 +226,21 @@
             em projetos e criar soluções inovadoras. Preparamos você para um futuro onde tecnologia e criatividade andam juntas.
           </p>
 
-          <div class="ia-github-trigger-card" id="ia-github-trigger" role="button" tabindex="0">
-            <div class="ia-github-trigger__content">
-              <h3 class="ia-github-trigger__title">Explorar IA & GitHub</h3>
-            </div>
-          </div>
+          <button class="ia-github-trigger-card" id="ia-github-trigger" type="button" aria-label="Explorar IA e GitHub">
+            <span class="ia-github-trigger__content">
+              <span class="ia-github-trigger__title">Explorar IA &amp; GitHub</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
 
-    <section id="criacao-site" class="section">
+    <!-- Sobre o Site -->
+    <section id="criacao-site" class="section" aria-labelledby="criacao-site-title">
       <div class="container">
         <div class="criacao-site-content">
           <p class="section__eyebrow">Desenvolvimento</p>
-          <h2 class="section__title">Sobre o Site</h2>
+          <h2 id="criacao-site-title" class="section__title">Sobre o Site</h2>
           <div class="section__accent" aria-hidden="true"></div>
           <p class="section__text criacao-site-text">
             Este site foi desenvolvido com objetivo de oferecer uma experiência de boas-vindas interativa aos novos alunos do CIESA. 
@@ -215,41 +248,31 @@
             web e desenvolvimento frontend. Navegue e conheça os recursos disponíveis para tornar sua jornada no CIESA mais produtiva e enriquecedora.
           </p>
 
-          <div class="criacao-site-trigger-card" id="criacao-site-trigger" role="button" tabindex="0">
-            <div class="criacao-site-trigger__content">
-              <h3 class="criacao-site-trigger__title">Explorar Sobre o Site</h3>
-            </div>
-          </div>
+          <button class="criacao-site-trigger-card" id="criacao-site-trigger" type="button" aria-label="Explorar sobre o site">
+            <span class="criacao-site-trigger__content">
+              <span class="criacao-site-trigger__title">Explorar Sobre o Site</span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
   </main>
 
-  <script src="js/main.js" defer></script>
-
-  <!-- Modal Informações Úteis -->
-  <div id="info-modal" class="modal info-modal" role="dialog" aria-labelledby="info-modal-title">
-    <div class="modal__overlay" aria-hidden="true"></div>
-    <div class="modal__content info-modal__content">
-      <button class="modal__undo" aria-label="Desfazer" title="Desfazer">◀</button>
-      <h2 id="info-modal-title" class="info-modal__title"></h2>
-      <div class="info-modal__description"></div>
-    </div>
-  </div>
-
+  <!-- Todos os modais (continuam iguais mas com melhorias de aria) -->
   <!-- Modal O que Teremos Hoje -->
-  <div id="o-que-teremos-hoje-modal" class="modal o-que-teremos-hoje-modal" role="dialog" aria-labelledby="o-que-teremos-hoje-modal-title">
+  <div id="o-que-teremos-hoje-modal" class="modal o-que-teremos-hoje-modal" role="dialog" aria-labelledby="o-que-teremos-hoje-modal-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content o-que-teremos-hoje-modal__content">
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <h2 id="o-que-teremos-hoje-modal-title" class="o-que-teremos-hoje-modal__title">O que Teremos Hoje</h2>
 
       <div class="o-que-teremos-hoje-agenda">
-        <div class="agenda-section">
+        <article class="agenda-section">
           <h3 class="agenda-section__title">🎁 Presentes</h3>
           <p class="agenda-section__desc">Receba um presente especial quando chegar!</p>
-        </div>
+        </article>
 
-        <div class="agenda-section">
+        <article class="agenda-section">
           <h3 class="agenda-section__title">📚 Apresentação das Seções</h3>
           <ol class="agenda-list">
             <li>Quem somos - Ligas e contexto</li>
@@ -257,130 +280,145 @@
             <li>Informações Úteis - Recursos importantes</li>
             <li>Áreas de Atuação - Caminhos profissionais</li>
             <li>Eventos - Agenda e oportunidades</li>
-            <li>IA & GitHub - Tecnologia e colaboração</li>
+            <li>IA &amp; GitHub - Tecnologia e colaboração</li>
             <li>Sobre o Site - Como foi desenvolvido</li>
           </ol>
-        </div>
+        </article>
 
-        <div class="agenda-section">
+        <article class="agenda-section">
           <h3 class="agenda-section__title">🎮 Kahoot - Desafio Interativo</h3>
           <p class="agenda-section__desc">Perguntas sobre tudo que foi apresentado no site!</p>
           <p class="agenda-section__highlight">🏆 Os vencedores ganham uma caixa de chocolate!</p>
-        </div>
+        </article>
 
-        <div class="agenda-section">
+        <article class="agenda-section">
           <h3 class="agenda-section__title">☕ Coffee Break</h3>
           <p class="agenda-section__desc">Relaxe e converse com colegas e professores</p>
-        </div>
+        </article>
       </div>
     </div>
   </div>
 
   <!-- Modal Informações Úteis -->
-  <div id="informacoes-uteis-modal" class="modal informacoes-uteis-modal" role="dialog" aria-labelledby="informacoes-uteis-modal-title">
+  <div id="informacoes-uteis-modal" class="modal informacoes-uteis-modal" role="dialog" aria-labelledby="informacoes-uteis-modal-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content informacoes-uteis-modal__content">
-      <button class="modal__undo" aria-label="Desfazer" title="Desfazer">◀</button>
+      <button class="modal__undo" type="button" aria-label="Voltar" title="Voltar">◀</button>
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <h2 id="informacoes-uteis-modal-title" class="informacoes-uteis-modal__title">Informações Úteis</h2>
 
       <div class="informacoes-uteis-modal__grid">
-        <div class="info-item" data-info="biblioteca" role="button" tabindex="0">
+        <button class="info-item" data-info="biblioteca" type="button">
           <h3 class="info-item__title">📚 Biblioteca</h3>
-          <p class="info-item__text">Acesso a livros, periódicos e recursos digitais </p>
-        </div>
-        <div class="info-item" data-info="laboratorio" role="button" tabindex="0">
+          <p class="info-item__text">Acesso a livros, periódicos e recursos digitais</p>
+        </button>
+        <button class="info-item" data-info="laboratorio" type="button">
           <h3 class="info-item__title">💻 Laboratórios</h3>
           <p class="info-item__text">Equipamentos modernos para prática profissional</p>
-        </div>
-        <div class="info-item" data-info="notas" role="button" tabindex="0">
+        </button>
+        <button class="info-item" data-info="notas" type="button">
           <h3 class="info-item__title">📊 Notas</h3>
           <p class="info-item__text">Consulta de notas e histórico acadêmico online</p>
-        </div>
-        <div class="info-item" data-info="email" role="button" tabindex="0">
+        </button>
+        <button class="info-item" data-info="email" type="button">
           <h3 class="info-item__title">📧 Email Institucional</h3>
           <p class="info-item__text">Configure e acesse seu email @ciesa.edu.br</p>
-        </div>
-        <div class="info-item" data-info="artigos" role="button" tabindex="0">
+        </button>
+        <button class="info-item" data-info="artigos" type="button">
           <h3 class="info-item__title">📰 Artigos</h3>
           <p class="info-item__text">Publicações científicas e artigos acadêmicos</p>
-        </div>
-        <div class="info-item" data-info="camisa" role="button" tabindex="0">
+        </button>
+        <button class="info-item" data-info="camisa" type="button">
           <h3 class="info-item__title">👕 Loja CIESA</h3>
           <p class="info-item__text">Uniforme, camisa e itens de identidade visual</p>
-        </div>
-        <div class="info-item" data-info="conquistas" role="button" tabindex="0">
+        </button>
+        <button class="info-item" data-info="conquistas" type="button">
           <h3 class="info-item__title">🏆 Conquistas dos Alunos</h3>
           <p class="info-item__text">Prêmios, estágios e reconhecimentos conquistados</p>
-        </div>
-        <div class="info-item" data-info="coordenadora" role="button" tabindex="0">
+        </button>
+        <button class="info-item" data-info="coordenadora" type="button">
           <h3 class="info-item__title">👩‍🏫 Coordenadora</h3>
           <p class="info-item__text">Conheça nossa coordenadora Janaina Souza</p>
-        </div>
+        </button>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal Info Individual -->
+  <div id="info-modal" class="modal info-modal" role="dialog" aria-labelledby="info-modal-title" aria-modal="true">
+    <div class="modal__overlay" aria-hidden="true"></div>
+    <div class="modal__content info-modal__content">
+      <button class="modal__undo" type="button" aria-label="Voltar" title="Voltar">◀</button>
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
+      <h2 id="info-modal-title" class="info-modal__title"></h2>
+      <div class="info-modal__description"></div>
     </div>
   </div>
 
   <!-- Modal Eventos -->
-  <div id="eventos-modal" class="modal eventos-modal" role="dialog" aria-labelledby="eventos-modal-title">
+  <div id="eventos-modal" class="modal eventos-modal" role="dialog" aria-labelledby="eventos-modal-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content eventos-modal__content">
-      <button class="modal__undo" aria-label="Desfazer" title="Desfazer">◀</button>
+      <button class="modal__undo" type="button" aria-label="Voltar" title="Voltar">◀</button>
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <h2 id="eventos-modal-title" class="eventos-modal__title">Eventos</h2>
 
       <div class="eventos-modal__grid">
-        <div class="eventos-item" data-eventos="ciesa" role="button" tabindex="0">
+        <button class="eventos-item" data-eventos="ciesa" type="button">
           <h3 class="eventos-item__title">🎓 Eventos do CIESA</h3>
           <p class="eventos-item__text">Semana Acadêmica, Projetos e Atividades</p>
-        </div>
-        <div class="eventos-item" data-eventos="parceria" role="button" tabindex="0">
+        </button>
+        <button class="eventos-item" data-eventos="parceria" type="button">
           <h3 class="eventos-item__title">🤝 Eventos de Parcerias</h3>
           <p class="eventos-item__text">Tech Summit Brasil, Design Conference e muito mais</p>
-        </div>
-        <div class="eventos-item" data-eventos="indicados" role="button" tabindex="0">
+        </button>
+        <button class="eventos-item" data-eventos="indicados" type="button">
           <h3 class="eventos-item__title">⭐ Eventos Indicados</h3>
           <p class="eventos-item__text">Bootcamps, certificações e webinars especializados</p>
-        </div>
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Modal Detalhes de Eventos -->
-  <div id="eventos-detalhes-modal" class="modal eventos-detalhes-modal" role="dialog" aria-labelledby="eventos-detalhes-title">
+  <!-- Modal Detalhes Eventos -->
+  <div id="eventos-detalhes-modal" class="modal eventos-detalhes-modal" role="dialog" aria-labelledby="eventos-detalhes-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content eventos-detalhes-modal__content">
-      <button class="modal__undo" aria-label="Desfazer" title="Desfazer">◀</button>
+      <button class="modal__undo" type="button" aria-label="Voltar" title="Voltar">◀</button>
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <h2 id="eventos-detalhes-title" class="eventos-detalhes-modal__title">Título</h2>
       <p id="eventos-detalhes-subtitle" class="eventos-detalhes-modal__subtitle">Descrição</p>
       <div id="eventos-detalhes-lista" class="eventos-detalhes-lista"></div>
     </div>
   </div>
-  </div>
 
   <!-- Modal IA & GitHub -->
-  <div id="ia-github-modal" class="modal ia-github-modal" role="dialog" aria-labelledby="ia-github-modal-title">
+  <div id="ia-github-modal" class="modal ia-github-modal" role="dialog" aria-labelledby="ia-github-modal-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content ia-github-modal__content">
-      <button class="modal__undo" aria-label="Desfazer" title="Desfazer">◀</button>
-      <h2 id="ia-github-modal-title" class="ia-github-modal__title">IA & GitHub</h2>
+      <button class="modal__undo" type="button" aria-label="Voltar" title="Voltar">◀</button>
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
+      <h2 id="ia-github-modal-title" class="ia-github-modal__title">IA &amp; GitHub</h2>
 
       <div class="ia-github-modal__grid">
-        <div class="ia-github-item" data-tipo="ia" role="button" tabindex="0">
+        <button class="ia-github-item" data-tipo="ia" type="button">
           <h3 class="ia-github-item__title">🤖 Inteligência Artificial</h3>
           <p class="ia-github-item__text">Introdução básica, cuidados e curiosidades</p>
-        </div>
-        <div class="ia-github-item" data-tipo="github" role="button" tabindex="0">
+        </button>
+        <button class="ia-github-item" data-tipo="github" type="button">
           <h3 class="ia-github-item__title">🐙 GitHub</h3>
           <p class="ia-github-item__text">Importância para a área de tecnologia</p>
-        </div>
+        </button>
       </div>
     </div>
   </div>
 
   <!-- Modal Detalhes IA & GitHub -->
-  <div id="ia-github-detalhes-modal" class="modal ia-github-detalhes-modal" role="dialog" aria-labelledby="ia-github-detalhes-title">
+  <div id="ia-github-detalhes-modal" class="modal ia-github-detalhes-modal" role="dialog" aria-labelledby="ia-github-detalhes-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content ia-github-detalhes-modal__content">
-      <button class="modal__undo" aria-label="Desfazer" title="Desfazer">◀</button>
+      <button class="modal__undo" type="button" aria-label="Voltar" title="Voltar">◀</button>
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <h2 id="ia-github-detalhes-title" class="ia-github-detalhes-modal__title">Título</h2>
       <p id="ia-github-detalhes-subtitle" class="ia-github-detalhes-modal__subtitle">Descrição</p>
       <div id="ia-github-detalhes-lista" class="ia-github-detalhes-lista"></div>
@@ -388,42 +426,44 @@
   </div>
 
   <!-- Modal Sobre o Site -->
-  <div id="sobre-site-modal" class="modal sobre-site-modal" role="dialog" aria-labelledby="sobre-site-modal-title">
+  <div id="sobre-site-modal" class="modal sobre-site-modal" role="dialog" aria-labelledby="sobre-site-modal-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content sobre-site-modal__content">
-      <button class="modal__undo" aria-label="Desfazer" title="Desfazer">◀</button>
+      <button class="modal__undo" type="button" aria-label="Voltar" title="Voltar">◀</button>
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <h2 id="sobre-site-modal-title" class="sobre-site-modal__title">Sobre o Site</h2>
       <p class="sobre-site-modal__intro">Conheça os detalhes de como este site foi desenvolvido, as tecnologias utilizadas e as pessoas envolvidas no processo.</p>
       
       <div class="sobre-site-modal__grid">
-        <div class="sobre-site-item" data-tipo="desenvolvimento" role="button" tabindex="0">
+        <button class="sobre-site-item" data-tipo="desenvolvimento" type="button">
           <h3 class="sobre-site-item__title">📋 Desenvolvimento</h3>
           <p class="sobre-site-item__text">Como este site foi feito e os processos utilizados</p>
-        </div>
+        </button>
         
-        <div class="sobre-site-item" data-tipo="inspiracoes" role="button" tabindex="0">
+        <button class="sobre-site-item" data-tipo="inspiracoes" type="button">
           <h3 class="sobre-site-item__title">✨ Inspirações</h3>
           <p class="sobre-site-item__text">Referências e ideias que guiaram o design</p>
-        </div>
+        </button>
         
-        <div class="sobre-site-item" data-tipo="tecnologias" role="button" tabindex="0">
+        <button class="sobre-site-item" data-tipo="tecnologias" type="button">
           <h3 class="sobre-site-item__title">⚙️ Tecnologias</h3>
           <p class="sobre-site-item__text">Ferramentas e tecnologias utilizadas</p>
-        </div>
+        </button>
         
-        <div class="sobre-site-item" data-tipo="equipe" role="button" tabindex="0">
+        <button class="sobre-site-item" data-tipo="equipe" type="button">
           <h3 class="sobre-site-item__title">👥 Equipe</h3>
           <p class="sobre-site-item__text">Pessoas que contribuíram para este projeto</p>
-        </div>
+        </button>
       </div>
     </div>
   </div>
 
   <!-- Modal Detalhes Sobre o Site -->
-  <div id="sobre-site-detalhes-modal" class="modal sobre-site-detalhes-modal" role="dialog" aria-labelledby="sobre-site-detalhes-title">
+  <div id="sobre-site-detalhes-modal" class="modal sobre-site-detalhes-modal" role="dialog" aria-labelledby="sobre-site-detalhes-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content sobre-site-detalhes-modal__content">
-      <button class="modal__undo" aria-label="Desfazer" title="Desfazer">◀</button>
+      <button class="modal__undo" type="button" aria-label="Voltar" title="Voltar">◀</button>
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <h2 id="sobre-site-detalhes-title" class="sobre-site-detalhes-modal__title">Título</h2>
       <p id="sobre-site-detalhes-intro" class="sobre-site-detalhes-modal__intro">Descrição</p>
       <div id="sobre-site-detalhes-lista" class="sobre-site-detalhes-lista"></div>
@@ -431,9 +471,10 @@
   </div>
 
   <!-- Modal Áreas de Atuação -->
-  <div id="areas-modal" class="modal areas-modal" role="dialog" aria-labelledby="areas-modal-title">
+  <div id="areas-modal" class="modal areas-modal" role="dialog" aria-labelledby="areas-modal-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content areas-modal__content">
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <h2 id="areas-modal-title" class="areas-modal__title">Áreas de Atuação no CIESA</h2>
 
       <div class="areas-modal__intro">
@@ -444,64 +485,71 @@
       </div>
 
       <div class="areas-modal__grid">
-        <div class="area-modal-item">
+        <article class="area-modal-item">
           <h3 class="area-modal-item__title">🎨 Design e Comunicação Visual</h3>
           <p class="area-modal-item__text">
             Crie identidades visuais, desenvolva campanhas publicitárias e domine ferramentas de design digital.
             Ideal para quem gosta de criatividade e expressão visual.
           </p>
-        </div>
+        </article>
 
-        <div class="area-modal-item">
+        <article class="area-modal-item">
           <h3 class="area-modal-item__title">📱 Desenvolvimento Web e Mobile</h3>
           <p class="area-modal-item__text">
             Construa websites, aplicativos e sistemas digitais. Aprenda programação, UX/UI e tecnologias emergentes.
             Perfeito para mentes analíticas e solucionadores de problemas.
           </p>
-        </div>
+        </article>
 
-        <div class="area-modal-item">
+        <article class="area-modal-item">
           <h3 class="area-modal-item__title">🎬 Produção Audiovisual</h3>
           <p class="area-modal-item__text">
             Produza vídeos, documentários e conteúdo multimídia. Domine edição, roteiro e técnicas de produção.
             Excelente para contadores de histórias e artistas visuais.
           </p>
-        </div>
+        </article>
 
-        <div class="area-modal-item">
+        <article class="area-modal-item">
           <h3 class="area-modal-item__title">🎮 Criação de Jogos</h3>
           <p class="area-modal-item__text">
             Desenvolva jogos digitais, aprenda design de jogos e programação interativa. Domine engines como Unity e Unreal Engine.
             Ideal para criadores de experiências imersivas e apaixonados por games.
           </p>
-        </div>
+        </article>
 
-        <div class="area-modal-item">
+        <article class="area-modal-item">
           <h3 class="area-modal-item__title">🧪 Testers</h3>
           <p class="area-modal-item__text">
             Especialize-se em testes de software, qualidade e garantia de qualidade (QA). Aprenda metodologias de teste,
             automação e controle de qualidade. Essencial para profissionais que garantem a excelência dos produtos digitais.
           </p>
-        </div>
+        </article>
 
-        <div class="area-modal-item">
+        <article class="area-modal-item">
           <h3 class="area-modal-item__title">🔄 Interdisciplinar</h3>
           <p class="area-modal-item__text">
             Combine diferentes áreas do conhecimento. Nossa grade curricular flexível permite que você
             misture interesses e crie seu próprio caminho profissional único.
           </p>
-        </div>
+        </article>
       </div>
     </div>
   </div>
 
   <!-- Modal CIESA Galeria -->
-  <div id="ciesa-modal" class="modal ciesa-modal" role="dialog" aria-labelledby="ciesa-modal-title">
+  <div id="ciesa-modal" class="modal ciesa-modal" role="dialog" aria-labelledby="ciesa-modal-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content ciesa-modal__content">
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <div class="ciesa-modal__wrapper">
         <div class="ciesa-modal__image-container">
-          <img src="Media/SVG/CIESA_PREDIO.svg" id="ciesa-modal-image" class="ciesa-modal__image" alt="Prédio do CIESA">
+          <img src="Media/SVG/CIESA_PREDIO.svg" 
+               id="ciesa-modal-image" 
+               class="ciesa-modal__image" 
+               alt="Prédio do CIESA"
+               width="600"
+               height="400"
+               loading="lazy">
         </div>
         <div class="ciesa-modal__content-text">
           <h2 id="ciesa-modal-title" class="ciesa-modal__title">Sobre</h2>
@@ -511,7 +559,6 @@
             moderna e corpo docente qualificado, preparamos nossos alunos para os desafios do
             mercado de trabalho através de projetos práticos, conexões empresariais e uma educação
             focada no desenvolvimento integral.
-
             Além disso, o CIESA utiliza metodologia americana com intervalos, sala em formato de auditório, lousa digital e muito mais.
           </p>
         </div>
@@ -520,16 +567,17 @@
   </div>
 
   <!-- Modal LATIJ Detalhes -->
-  <div id="latij-modal" class="modal" role="dialog" aria-labelledby="modal-title">
+  <div id="latij-modal" class="modal" role="dialog" aria-labelledby="latij-modal-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content">
-      <h2 id="modal-title" class="modal__title">LIGA LATIJ - Detalhes</h2>
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
+      <h2 id="latij-modal-title" class="modal__title">LIGA LATIJ - Detalhes</h2>
 
       <div class="modal__sections">
         <section class="modal-section">
           <h3 class="modal-section__title">Objetivos</h3>
           <div class="modal-section__content">
-            <div class="modal-section__image" data-image="objetivos"><!-- Placeholder para imagem --></div>
+            <div class="modal-section__image" data-image="objetivos" aria-label="Imagem ilustrativa dos objetivos"></div>
             <p class="modal-section__text">
               Promover eventos educacionais e culturais que visam o desenvolvimento pessoal e profissional dos participantes.
               Incentivar a colaboração entre estudantes e a comunidade acadêmica e engajar a instituição em atividades extracurriculares.
@@ -540,7 +588,7 @@
         <section class="modal-section">
           <h3 class="modal-section__title">Feitos</h3>
           <div class="modal-section__content">
-            <div class="modal-section__image" data-image="feitos"><!-- Placeholder para imagem --></div>
+            <div class="modal-section__image" data-image="feitos" aria-label="Imagem ilustrativa dos feitos"></div>
             <p class="modal-section__text">
               Buscando união contínua entre os alunos de tecnologia foi feito um evento de HALLOWEEN com premiações, musica e comida.
             </p>
@@ -581,16 +629,17 @@
   </div>
 
   <!-- Modal Chrono Detalhes -->
-  <div id="chrono-modal" class="modal" role="dialog" aria-labelledby="chrono-modal-title">
+  <div id="chrono-modal" class="modal" role="dialog" aria-labelledby="chrono-modal-title" aria-modal="true">
     <div class="modal__overlay" aria-hidden="true"></div>
     <div class="modal__content">
+      <button class="modal__close" type="button" aria-label="Fechar modal" title="Fechar">×</button>
       <h2 id="chrono-modal-title" class="modal__title">Liga Chrono - Detalhes</h2>
 
       <div class="modal__sections">
         <section class="modal-section">
           <h3 class="modal-section__title">Objetivos</h3>
           <div class="modal-section__content">
-            <div class="modal-section__image" data-image="chrono-objetivos"><!-- Placeholder para imagem --></div>
+            <div class="modal-section__image" data-image="chrono-objetivos" aria-label="Imagem ilustrativa dos objetivos"></div>
             <p class="modal-section__text">
               Desenvolver habilidades de organização e produtividade através de projetos práticos.
               Incentivar a colaboração e o aprendizado contínuo entre estudantes.
@@ -601,7 +650,7 @@
         <section class="modal-section">
           <h3 class="modal-section__title">Feitos</h3>
           <div class="modal-section__content">
-            <div class="modal-section__image" data-image="chrono-feitos"><!-- Placeholder para imagem --></div>
+            <div class="modal-section__image" data-image="chrono-feitos" aria-label="Imagem ilustrativa dos feitos"></div>
             <p class="modal-section__text">
               Criação e desenvolvimento do novo site do CIESA, implementando funcionalidades modernas e design responsivo. 
             </p>
@@ -642,18 +691,35 @@
     </div>
   </div>
 
+  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer__inner">
       <div class="footer__bottom">
-        <p class="footer__copyright">© 2026 CIESA. Desenvolvido por <a href="https://nevext.github.io/nevext.web/" target="_blank" rel="noopener noreferrer" class="footer__credit">nevext</a> - <a href="https://www.instagram.com/nevexttv/" target="_blank" rel="noopener noreferrer" class="footer__credit">David Neves</a></p>
+        <p class="footer__copyright">
+          © 2026 CIESA. Desenvolvido por 
+          <a href="https://nevext.github.io/nevext.web/" target="_blank" rel="noopener noreferrer" class="footer__credit">nevext</a> - 
+          <a href="https://www.instagram.com/nevexttv/" target="_blank" rel="noopener noreferrer" class="footer__credit">David Neves</a>
+        </p>
       </div>
     </div>
   </footer>
+
+  <!-- Classe para ocultar visualmente mas manter acessível -->
+  <style>
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <!-- JavaScript com defer para não bloquear o carregamento -->
+  <script src="js/main.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
