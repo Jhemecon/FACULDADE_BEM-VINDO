@@ -1,6 +1,16 @@
+/* ========================================
+   CIESA - JavaScript Completo Refatorado
+   Melhorias: WCAG AA/AAA, Performance, Acessibilidade
+   Autor: David Neves (nevext)
+   ======================================== */
 
-// Sistema Simples de Undo por Modal
-const modalStacks = {}; // Pilha de estados para cada modal
+'use strict';
+
+/* ========================================
+   SISTEMA DE UNDO POR MODAL
+   ======================================== */
+
+const modalStacks = {};
 
 function setupModalUndo(modalId) {
 	if (!modalStacks[modalId]) {
@@ -8,29 +18,15 @@ function setupModalUndo(modalId) {
 	}
 	
 	const modal = document.getElementById(modalId);
-	if (!modal) {
-		console.log(`Modal ${modalId} não encontrado`);
-		return;
-	}
+	if (!modal) return;
 	
 	const undoBtn = modal.querySelector('.modal__undo');
-	if (!undoBtn) {
-		console.log(`Botão undo não encontrado em ${modalId}`);
-		return;
-	}
-	
-	console.log(`Setup undo para ${modalId} OK`);
+	if (!undoBtn) return;
 	
 	undoBtn.addEventListener('click', () => {
-		console.log(`Undo clicado em ${modalId}. Stack size: ${modalStacks[modalId].length}`);
-		
-		if (modalStacks[modalId].length === 0) {
-			console.log('Nenhuma ação para desfazer');
-			return;
-		}
+		if (modalStacks[modalId].length === 0) return;
 		
 		const previousState = modalStacks[modalId].pop();
-		console.log('Executando estado anterior');
 		if (typeof previousState === 'function') {
 			previousState();
 		}
@@ -41,42 +37,15 @@ function pushModalState(modalId, stateFunction) {
 	if (!modalStacks[modalId]) {
 		modalStacks[modalId] = [];
 	}
-	console.log(`Push para ${modalId}. Novo tamanho: ${modalStacks[modalId].length + 1}`);
 	modalStacks[modalId].push(stateFunction);
 }
 
-// Inicializar botões de undo em todos os modais
-function initializeModalUndoButtons() {
-	// Lista de todos os IDs de modais
-	const modalIds = [
-		'info-modal',
-		'o-que-teremos-hoje-modal',
-		'informacoes-uteis-modal',
-		'eventos-modal',
-		'eventos-detalhes-modal',
-		'ia-github-modal',
-		'ia-github-detalhes-modal',
-		'sobre-site-modal',
-		'sobre-site-detalhes-modal',
-		'areas-modal',
-		'ciesa-modal',
-		'latij-modal',
-		'chrono-modal'
-	];
-	
-	modalIds.forEach(modalId => {
-		setupModalUndo(modalId);
-	});
-}
-
-// Chamar quando o documento estiver pronto
-document.addEventListener('DOMContentLoaded', () => {
-	initializeModalUndoButtons();
-});
+/* ========================================
+   DADOS DO SISTEMA
+   ======================================== */
 
 const textos = {
-	descricao_latij:
-		"A LIGA LATIJ é uma iniciativa estudantil voltada para eventos educacionais e culturais. Aqui você encontra oportunidades para aprender com projetos, participar de atividades e construir conexões com outros alunos e professores.",
+	descricao_latij: "A LIGA LATIJ é uma iniciativa estudantil voltada para eventos educacionais e culturais. Aqui você encontra oportunidades para aprender com projetos, participar de atividades e construir conexões com outros alunos e professores."
 };
 
 const infosUteis = {
@@ -425,32 +394,32 @@ const infosUteis = {
 		titulo: "👩‍🏫 Coordenadora - Janaina Souza",
 		descricao: `
 			<div class="coordenadora-content">
-				<div class="coordenadora-info">
-					<h3>Janaina Souza</h3>
-					<p class="coordenadora-role">Coordenadora do CIESA</p>
-					
-					<div class="coordenadora-section">
-						<h4>📚 Experiência Acadêmica</h4>
-						<p>22 anos como professora universitária, atuando nas seguintes áreas:</p>
-						<ul class="coordenadora-areas">
-							<li>Programação</li>
-							<li>Lógica</li>
-							<li>Banco de Dados (BD)</li>
-							<li>Desenvolvimento de Jogos</li>
-							<li>Matemática</li>
-							<li>Ciência de Dados</li>
-							<li>Design</li>
-						</ul>
+				<div class="coordenadora-profile">
+					<div class="coordenadora-photo">
+						<img src="Media/SVG/JANAINA_SOUZA_4K.svg" alt="Foto da coordenadora Janaina Souza" class="coordenadora-photo__img">
 					</div>
-
-					<div class="coordenadora-section">
-						<h4>🎓 Formação Acadêmica</h4>
-						<p>Mestre em Inteligência Artificial</p>
-					</div>
-
-					<div class="coordenadora-section">
-						<h4>💼 Profissão</h4>
-						<p>Analista de Sistemas</p>
+					<div class="coordenadora-info">
+						<h3>Janaina Souza</h3>
+						<p class="coordenadora-role">Coordenadora do CIESA</p>
+						<p class="coordenadora-description">
+							Com 22 anos de experiência como professora universitária e formação como Mestre em Inteligência Artificial, 
+							Janaina Souza é Analista de Sistemas e atua nas áreas de Programação, Lógica, Banco de Dados, 
+							Desenvolvimento de Jogos, Matemática, Ciência de Dados e Design.
+						</p>
+						<div class="coordenadora-highlights">
+							<div class="highlight-item">
+								<span class="highlight-icon">🎓</span>
+								<span>Mestre em Inteligência Artificial</span>
+							</div>
+							<div class="highlight-item">
+								<span class="highlight-icon">👩‍🏫</span>
+								<span>22 anos como professora universitária</span>
+							</div>
+							<div class="highlight-item">
+								<span class="highlight-icon">💼</span>
+								<span>Analista de Sistemas</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -579,13 +548,6 @@ const iaGithubData = {
 			descricao: "Um bom perfil no GitHub com projetos relevantes é cartão de visita para recrutadores. Contribuições em projetos open source aumentam visibilidade profissional e criam oportunidades no mercado de trabalho."
 		}
 	]
-};
-
-const areasAtuacaoData = {
-	jogos: {
-		titulo: "🎮 Criação de Jogos",
-		video: "Media/Videos/JOGOS_VIDEO_1.mp4"
-	}
 };
 
 const sobreSiteData = {
@@ -723,6 +685,49 @@ const sobreSiteData = {
 	}
 };
 
+/* ========================================
+   FUNÇÕES AUXILIARES
+   ======================================== */
+
+function throttle(func, delay) {
+	let ticking = false;
+	return function(...args) {
+		if (!ticking) {
+			func.apply(this, args);
+			ticking = true;
+			setTimeout(() => ticking = false, delay);
+		}
+	};
+}
+
+function trapFocus(element) {
+	const focusableElements = element.querySelectorAll(
+		'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+	);
+	
+	const firstElement = focusableElements[0];
+	const lastElement = focusableElements[focusableElements.length - 1];
+
+	function handleTabKey(e) {
+		if (e.key !== 'Tab') return;
+
+		if (e.shiftKey && document.activeElement === firstElement) {
+			e.preventDefault();
+			lastElement.focus();
+		} else if (!e.shiftKey && document.activeElement === lastElement) {
+			e.preventDefault();
+			firstElement.focus();
+		}
+	}
+
+	element.addEventListener('keydown', handleTabKey);
+	
+	if (firstElement) {
+		setTimeout(() => firstElement.focus(), 100);
+	}
+
+	return () => element.removeEventListener('keydown', handleTabKey);
+}
 
 function aplicarTextos() {
 	const elementos = document.querySelectorAll("[data-text]");
@@ -736,119 +741,306 @@ function aplicarTextos() {
 	}
 }
 
-function configurarNavegacao() {
-	const links = document.querySelectorAll(".nav__link");
-	let scrollTimeout;
+/* ========================================
+   NAVEGAÇÃO
+   ======================================== */
 
-	function aplicarOverlayPorHash(hash) {
-    // Overlay escuro removido
-	}
+function configurarNavegacao() {
+	const links = document.querySelectorAll('.nav__link');
+	let ticking = false;
 
 	function atualizarNavAtivo() {
-		const secoes = document.querySelectorAll("section[id]");
+		const secoes = document.querySelectorAll('section[id]');
 		const scrollY = window.scrollY;
 		const windowHeight = window.innerHeight;
-		const headerHeight = 80; // Altura aproximada do header
+		const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h') || '76');
 
 		let secaoAtiva = null;
 		let maxVisibility = 0;
 
-		// Encontrar a seção mais visível na viewport
 		for (const secao of secoes) {
 			const rect = secao.getBoundingClientRect();
 			const secaoTop = rect.top + scrollY;
 			const secaoBottom = rect.bottom + scrollY;
 
-			// Calcular quanto da seção está visível
 			const visibleTop = Math.max(secaoTop, scrollY + headerHeight);
 			const visibleBottom = Math.min(secaoBottom, scrollY + windowHeight);
 			const visibleHeight = Math.max(0, visibleBottom - visibleTop);
 			const visibilityRatio = visibleHeight / rect.height;
 
-			if (visibilityRatio > maxVisibility && visibilityRatio > 0.3) { // Pelo menos 30% visível
+			if (visibilityRatio > maxVisibility && visibilityRatio > 0.3) {
 				maxVisibility = visibilityRatio;
 				secaoAtiva = secao;
 			}
 		}
 
-		// Remover classe ativa de todos os links
-		links.forEach(link => link.classList.remove("nav__link--active"));
+		links.forEach(link => {
+			link.classList.remove('nav__link--active');
+			link.removeAttribute('aria-current');
+		});
 
-		// Adicionar classe ativa ao link correspondente (apenas se existir no nav)
 		if (secaoAtiva) {
 			const linkAtivo = document.querySelector(`.nav__link[href="#${secaoAtiva.id}"]`);
 			if (linkAtivo) {
-				linkAtivo.classList.add("nav__link--active");
+				linkAtivo.classList.add('nav__link--active');
+				linkAtivo.setAttribute('aria-current', 'page');
 			}
 		}
 	}
 
-	// Função throttled para otimizar performance no scroll
-	function atualizarNavAtivoThrottled() {
-		if (scrollTimeout) return;
-		scrollTimeout = setTimeout(() => {
-			atualizarNavAtivo();
-			scrollTimeout = null;
-		}, 100); // Atualiza no máximo a cada 100ms
+	document.querySelector('.nav')?.addEventListener('click', (event) => {
+		const link = event.target.closest('.nav__link');
+		if (!link) return;
+
+		const href = link.getAttribute('href') || '';
+		if (!href.startsWith('#')) return;
+
+		const alvo = document.querySelector(href);
+		if (!alvo) return;
+
+		event.preventDefault();
+		alvo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		history.pushState(null, '', href);
+
+		if (window.matchMedia('(max-width: 920px)').matches) {
+			document.body.classList.remove('nav-open');
+			document.body.style.overflow = '';
+			const toggle = document.getElementById('nav-toggle');
+			toggle?.setAttribute('aria-expanded', 'false');
+		}
+	});
+
+	const atualizarNavAtivoThrottled = throttle(atualizarNavAtivo, 100);
+	window.addEventListener('scroll', atualizarNavAtivoThrottled, { passive: true });
+	window.addEventListener('resize', atualizarNavAtivo, { passive: true });
+
+	atualizarNavAtivo();
+}
+
+/* ========================================
+   MENU MOBILE
+   ======================================== */
+
+function configurarMenuMobile() {
+	const toggle = document.getElementById('nav-toggle');
+	const nav = document.getElementById('primary-nav');
+	const scrim = document.getElementById('nav-scrim');
+	
+	if (!toggle || !nav || !scrim) return;
+
+	const mql = window.matchMedia('(max-width: 920px)');
+	let aberto = false;
+
+	function aplicarEstado(novoEstado) {
+		aberto = novoEstado;
+		document.body.classList.toggle('nav-open', aberto);
+		toggle.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+		toggle.setAttribute('aria-label', aberto ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+		
+		if (mql.matches) {
+			document.body.style.overflow = aberto ? 'hidden' : '';
+		}
+
+		if (aberto && mql.matches) {
+			const primeiroLink = nav.querySelector('.nav__link');
+			if (primeiroLink) {
+				setTimeout(() => primeiroLink.focus(), 100);
+			}
+		}
 	}
 
-	for (const link of links) {
-		link.addEventListener("click", (event) => {
-			const href = link.getAttribute("href") || "";
-			if (!href.startsWith("#")) return;
+	function fechar() {
+		aplicarEstado(false);
+	}
 
-			const alvo = document.querySelector(href);
-			if (!alvo) return;
+	function alternar() {
+		if (!mql.matches) return;
+		aplicarEstado(!aberto);
+	}
 
+	toggle.addEventListener('click', (e) => {
+		e.stopPropagation();
+		alternar();
+	});
+
+	scrim.addEventListener('click', fechar);
+
+	document.addEventListener('click', (event) => {
+		if (!aberto || !mql.matches) return;
+		const target = event.target;
+		if (target.closest('#primary-nav') || 
+		    target.closest('.brand') || 
+		    target.closest('#nav-toggle')) return;
+		fechar();
+	});
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && aberto && mql.matches) {
+			fechar();
+			toggle.focus();
+		}
+	});
+
+	nav.addEventListener('keydown', (event) => {
+		if (!aberto || !mql.matches || event.key !== 'Tab') return;
+
+		const focusableElements = nav.querySelectorAll('.nav__link');
+		const firstElement = focusableElements[0];
+		const lastElement = focusableElements[focusableElements.length - 1];
+
+		if (event.shiftKey && document.activeElement === firstElement) {
 			event.preventDefault();
-			aplicarOverlayPorHash(href);
+			lastElement.focus();
+		} else if (!event.shiftKey && document.activeElement === lastElement) {
+			event.preventDefault();
+			firstElement.focus();
+		}
+	});
 
-			// Pequeno delay para garantir que a página esteja pronta
-			setTimeout(() => {
-				alvo.scrollIntoView({ behavior: "smooth", block: "center" });
-			}, 100);
+	function syncMedia() {
+		if (!mql.matches) {
+			fechar();
+		}
+	}
 
-			history.pushState(null, "", href);
+	if (typeof mql.addEventListener === 'function') {
+		mql.addEventListener('change', syncMedia);
+	} else {
+		mql.addListener(syncMedia);
+	}
+
+	syncMedia();
+}
+
+/* ========================================
+   EFEITO DE CARACTERES COLORIDOS
+   ======================================== */
+
+function configurarEfeitoCaracteres() {
+	const aboutText = document.getElementById('about-description');
+	if (!aboutText) return;
+
+	const texto = aboutText.textContent;
+	const caracteres = texto.split('');
+
+	const fragment = document.createDocumentFragment();
+	
+	caracteres.forEach((char, index) => {
+		const span = document.createElement('span');
+		span.className = 'char';
+		span.textContent = char;
+		span.style.setProperty('--hue', (index * 15) % 360);
+		fragment.appendChild(span);
+	});
+
+	aboutText.innerHTML = '';
+	aboutText.appendChild(fragment);
+}
+
+/* ========================================
+   LAZY LOADING
+   ======================================== */
+
+function setupLazyLoading() {
+	if (!('IntersectionObserver' in window)) {
+		document.querySelectorAll('img[data-src], video[data-src]').forEach(element => {
+			if (element.dataset.src) {
+				element.src = element.dataset.src;
+				element.removeAttribute('data-src');
+			}
+		});
+		return;
+	}
+
+	const imageObserver = new IntersectionObserver((entries, observer) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const element = entry.target;
+				
+				if (element.tagName === 'IMG' && element.dataset.src) {
+					element.src = element.dataset.src;
+					element.removeAttribute('data-src');
+				} else if (element.tagName === 'VIDEO' && element.dataset.src) {
+					element.src = element.dataset.src;
+					element.removeAttribute('data-src');
+					element.load();
+				}
+				
+				observer.unobserve(element);
+			}
+		});
+	}, {
+		rootMargin: '50px'
+	});
+
+	document.querySelectorAll('img[data-src], video[data-src]').forEach(element => {
+		imageObserver.observe(element);
+	});
+}
+
+/* ========================================
+   MODAL MANAGER CLASS
+   ======================================== */
+
+class ModalManager {
+	constructor(modalId) {
+		this.modal = document.getElementById(modalId);
+		this.overlay = this.modal?.querySelector('.modal__overlay');
+		this.closeBtn = this.modal?.querySelector('.modal__close');
+		this.removeTrapFocus = null;
+		this.previouslyFocused = null;
+		
+		if (this.modal) {
+			this.init();
+		}
+	}
+
+	init() {
+		this.overlay?.addEventListener('click', () => this.fechar());
+		this.closeBtn?.addEventListener('click', () => this.fechar());
+		
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && this.modal.classList.contains('modal--open')) {
+				this.fechar();
+			}
 		});
 	}
 
-	// Remover overlay quando clicar fora das áreas permitidas
-	document.addEventListener("click", (event) => {
-		// Só remove se o body tiver a classe bg-dimmed
-		if (!document.body.classList.contains("bg-dimmed")) return;
+	abrir() {
+		if (!this.modal) return;
+		
+		this.previouslyFocused = document.activeElement;
+		
+		this.modal.classList.add('modal--open');
+		this.modal.setAttribute('aria-hidden', 'false');
+		document.body.style.overflow = 'hidden';
+		
+		this.removeTrapFocus = trapFocus(this.modal);
+	}
 
-		// Verificar se o clique foi em elementos que não devem remover o overlay
-		const target = event.target;
-
-		// Não remover se clicou na logo do CIESA
-		if (target.closest('.brand')) return;
-
-		// Não remover se clicou em links do nav
-		if (target.closest('.nav__link')) return;
-
-		// Não remover se clicou na própria seção (conteúdo principal)
-		if (target.closest('.section')) return;
-
-		// Não remover se clicou no header
-		if (target.closest('.site-header')) return;
-
-		// Se chegou aqui, clicou fora - remover overlay
-		document.body.classList.remove("bg-dimmed");
-	});
-
-	// Atualizar navegação ativa no scroll e resize (com throttling para performance)
-	window.addEventListener("scroll", atualizarNavAtivoThrottled, { passive: true });
-	window.addEventListener("resize", atualizarNavAtivo, { passive: true });
-
-	// Inicializar navegação ativa
-	atualizarNavAtivo();
-
-	aplicarOverlayPorHash(window.location.hash);
-	window.addEventListener("hashchange", () => aplicarOverlayPorHash(window.location.hash));
+	fechar() {
+		if (!this.modal) return;
+		
+		this.modal.classList.remove('modal--open');
+		this.modal.setAttribute('aria-hidden', 'true');
+		document.body.style.overflow = '';
+		
+		if (this.removeTrapFocus) {
+			this.removeTrapFocus();
+			this.removeTrapFocus = null;
+		}
+		
+		if (this.previouslyFocused) {
+			this.previouslyFocused.focus();
+		}
+	}
 }
 
+/* ========================================
+   FUNÇÕES DE PREENCHIMENTO DE MÍDIAS
+   ======================================== */
+
 function preencherMidiasModais() {
-	// Preencher mídias do modal LATIJ
 	const latijObjetivos = document.querySelector("#latij-modal [data-image='objetivos']");
 	const latijFeitos = document.querySelector("#latij-modal [data-image='feitos']");
 	
@@ -857,12 +1049,10 @@ function preencherMidiasModais() {
 		video.src = 'Media/Videos/LATIJ_OBJETIVOS.mp4';
 		video.loop = true;
 		video.autoplay = true;
-		video.muted = true; // necessário para autoplay em muitos navegadores
-		// Compatibilidade mobile para permitir autoplay inline
+		video.muted = true;
 		video.playsInline = true;
 		video.setAttribute('playsinline', '');
 		video.setAttribute('webkit-playsinline', '');
-		// Garantir que não existam controles visíveis
 		video.removeAttribute('controls');
 		video.style.width = '100%';
 		video.style.height = 'auto';
@@ -871,7 +1061,6 @@ function preencherMidiasModais() {
 		video.style.borderRadius = 'var(--radius-md)';
 		video.style.display = 'block';
 		latijObjetivos.appendChild(video);
-		// Tentar tocar explicitamente (cairá em catch se bloqueado)
 		video.play().catch(() => {});
 	}
 	
@@ -890,7 +1079,6 @@ function preencherMidiasModais() {
 }
 
 function preencherMidiasChrono() {
-	// Preencher mídias do modal CHRONO
 	const chronoObjetivos = document.querySelector("#chrono-modal [data-image='chrono-objetivos']");
 	const chronoFeitos = document.querySelector("#chrono-modal [data-image='chrono-feitos']");
 	
@@ -921,381 +1109,9 @@ function preencherMidiasChrono() {
 	}
 }
 
-function configurarModalLATIJ() {
-	const modal = document.getElementById("latij-modal");
-	const logo = document.querySelector(".liga-card--latij");
-	if (!modal || !logo) return;
-	const overlay = modal.querySelector(".modal__overlay");
-	if (!overlay) return;
-
-	function abrirModal() {
-		modal.classList.add("modal--open");
-		document.body.style.overflow = "hidden"; // impede scroll da página
-		verificarVideoCard();
-		preencherMidiasModais();
-	}
-
-	function fecharModal() {
-		modal.classList.remove("modal--open");
-		document.body.style.overflow = ""; // restaura scroll
-	}
-
-	logo.addEventListener("click", abrirModal);
-	overlay.addEventListener("click", fecharModal);
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape" && modal.classList.contains("modal--open")) {
-			fecharModal();
-		}
-	});
-}
-
-function configurarModalChrono() {
-	const modal = document.getElementById("chrono-modal");
-	const logo = document.querySelector(".liga-card--chrono");
-	if (!modal || !logo) return;
-	const overlay = modal.querySelector(".modal__overlay");
-	if (!overlay) return;
-
-	function abrirModal() {
-		modal.classList.add("modal--open");
-		document.body.style.overflow = "hidden"; // impede scroll da página
-		verificarVideoCard();
-		preencherMidiasChrono();
-	}
-
-	function fecharModal() {
-		modal.classList.remove("modal--open");
-		document.body.style.overflow = ""; // restaura scroll
-	}
-
-	logo.addEventListener("click", abrirModal);
-	overlay.addEventListener("click", fecharModal);
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape" && modal.classList.contains("modal--open")) {
-			fecharModal();
-		}
-	});
-}
-
-// Rastrear cliques nas ligas para mostrar vídeo
-let ligasClicadas = {
-	latij: false,
-	chrono: false
-};
-
-function verificarVideoCard() {
-	if (ligasClicadas.latij && ligasClicadas.chrono) {
-		const videoCard = document.getElementById("liga-video-card");
-		if (videoCard && videoCard.classList.contains("video-card--hidden")) {
-			videoCard.classList.remove("video-card--hidden");
-			videoCard.classList.add("video-card--visible");
-		}
-	}
-}
-
-// Rastrear cliques nas ligas
-document.addEventListener("DOMContentLoaded", () => {
-	const ligaLatij = document.querySelector(".liga-card--latij");
-	const ligaChrono = document.querySelector(".liga-card--chrono");
-
-	if (ligaLatij) {
-		ligaLatij.addEventListener("click", () => {
-			ligasClicadas.latij = true;
-			verificarVideoCard();
-		});
-	}
-
-	if (ligaChrono) {
-		ligaChrono.addEventListener("click", () => {
-			ligasClicadas.chrono = true;
-			verificarVideoCard();
-		});
-	}
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-	aplicarTextos();
-	configurarNavegacao();
-	configurarMenuMobile();
-	configurarModalLATIJ();
-	configurarModalChrono();
-	configurarEfeitoCaracteres();
-	configurarModalCIESA();
-	configurarModalInformacoesUteis();
-	configurarModalInfos();
-	
-	// Configurar botão de undo
-	const undoBtn = document.getElementById("undo-btn");
-	if (undoBtn) {
-		undoBtn.addEventListener("click", undoLastAction);
-	}
-	
-	// Bloquear Ctrl+Z também (se preferir usar apenas o botão)
-	// document.addEventListener("keydown", (e) => {
-	//   if ((e.ctrlKey || e.metaKey) && e.key === "z") {
-	//     e.preventDefault();
-	//     undoLastAction();
-	//   }
-	// });
-
-	configurarModalEventos();
-	configurarModalAreas();
-	configurarModalOQueTeremosHoje();
-	configurarModalIAGithub();
-	configurarModalEquipe();
-	configurarModalSobreSite();
-});
-
-function configurarMenuMobile() {
-	const toggle = document.getElementById("nav-toggle");
-	const nav = document.getElementById("primary-nav") || document.querySelector(".nav");
-	const scrim = document.getElementById("nav-scrim");
-	if (!toggle || !nav || !scrim) return;
-
-	const mql = window.matchMedia("(max-width: 920px)");
-	let aberto = false;
-
-	function aplicarEstado(novoEstado) {
-		aberto = novoEstado;
-		document.body.classList.toggle("nav-open", aberto);
-		toggle.setAttribute("aria-expanded", aberto ? "true" : "false");
-		toggle.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
-		// No mobile, travar scroll quando menu estiver aberto
-		if (mql.matches) {
-			document.body.style.overflow = aberto ? "hidden" : "";
-		}
-	}
-
-	function abrir() {
-		if (!mql.matches) return;
-		aplicarEstado(true);
-	}
-
-	function fechar() {
-		aplicarEstado(false);
-	}
-
-	function alternar() {
-		if (!mql.matches) return;
-		aplicarEstado(!aberto);
-	}
-
-	// Toggle
-	toggle.addEventListener("click", (e) => {
-		e.stopPropagation();
-		alternar();
-	});
-
-	// Clique no scrim fecha
-	scrim.addEventListener("click", fechar);
-
-	// Clique fora (sem ser nav, links do nav e logo) fecha
-	document.addEventListener("click", (event) => {
-		if (!aberto || !mql.matches) return;
-		const target = event.target;
-		if (target.closest("#primary-nav")) return;
-		if (target.closest(".nav__link")) return;
-		if (target.closest(".brand")) return;
-		if (target.closest("#nav-toggle")) return;
-		fechar();
-	});
-
-	// Ao clicar em um link do nav, fechar menu (mobile)
-	nav.querySelectorAll(".nav__link").forEach((link) => {
-		link.addEventListener("click", () => {
-			if (mql.matches) fechar();
-		});
-	});
-
-	// ESC fecha
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape" && aberto && mql.matches) {
-			fechar();
-		}
-	});
-
-	// Se sair do mobile (resize), garantir estado fechado
-	function syncMedia() {
-		if (!mql.matches) {
-			fechar();
-			document.body.style.overflow = "";
-		}
-	}
-
-	if (typeof mql.addEventListener === "function") {
-		mql.addEventListener("change", syncMedia);
-	} else {
-		mql.addListener(syncMedia);
-	}
-
-	syncMedia();
-}
-
-function configurarEfeitoCaracteres() {
-	const aboutText = document.getElementById("about-description");
-	if (!aboutText) return;
-
-	const texto = aboutText.textContent;
-	const caracteres = texto.split("");
-
-	aboutText.innerHTML = "";
-	caracteres.forEach((char) => {
-		const span = document.createElement("span");
-		span.className = "char";
-		span.textContent = char;
-		aboutText.appendChild(span);
-	});
-}
-
-function configurarModalCIESA() {
-	const modal = document.getElementById("ciesa-modal");
-	const imageTrigger = document.getElementById("ciesa-image-trigger");
-	const modalImage = document.getElementById("ciesa-modal-image");
-	if (!modal || !imageTrigger || !modalImage) return;
-	const overlay = modal.querySelector(".modal__overlay");
-	if (!overlay) return;
-
-	// Array com as imagens (adicione mais URLs conforme necessário)
-	const imagens = [
-		"Media/SVG/CIESA_PREDIO.svg"
-		// Adicione mais imagens aqui: "Media/SVG/CIESA_2.svg", "Media/SVG/CIESA_3.svg", etc
-	];
-
-	let currentImageIndex = 0;
-	let autoChangeInterval = null;
-
-	function trocarImagem(novoIndice) {
-		// Valida se o índice é válido
-		if (novoIndice < 0 || novoIndice >= imagens.length) {
-			return;
-		}
-
-		// Adiciona efeito de fade out
-		modalImage.classList.add("fade-out");
-
-		setTimeout(() => {
-			currentImageIndex = novoIndice;
-			modalImage.src = imagens[currentImageIndex];
-			modalImage.classList.remove("fade-out");
-			reiniciarAutoChange();
-		}, 300);
-	}
-
-	function proximaImagem() {
-		const proximo = (currentImageIndex + 1) % imagens.length;
-		trocarImagem(proximo);
-	}
-
-	function iniciarAutoChange() {
-		autoChangeInterval = setInterval(() => {
-			proximaImagem();
-		}, 10000); // 10 segundos
-	}
-
-	function reiniciarAutoChange() {
-		clearInterval(autoChangeInterval);
-		iniciarAutoChange();
-	}
-
-	function abrirModal() {
-		modal.classList.add("ciesa-modal--open");
-		document.body.style.overflow = "hidden";
-		iniciarAutoChange();
-	}
-
-	function fecharModal() {
-		modal.classList.remove("ciesa-modal--open");
-		document.body.style.overflow = "";
-		clearInterval(autoChangeInterval);
-	}
-
-	imageTrigger.addEventListener("click", abrirModal);
-	overlay.addEventListener("click", fecharModal);
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape" && modal.classList.contains("ciesa-modal--open")) {
-			fecharModal();
-		}
-	});
-}
-
-function configurarModalInformacoesUteis() {
-	const modal = document.getElementById("informacoes-uteis-modal");
-	const trigger = document.getElementById("informacoes-uteis-trigger");
-	if (!modal || !trigger) return;
-	const overlay = modal.querySelector(".modal__overlay");
-	if (!overlay) return;
-
-	const infoItems = modal.querySelectorAll(".info-item");
-	const infoModal = document.getElementById("info-modal");
-	const infoModalTitle = infoModal?.querySelector(".info-modal__title");
-	const infoModalDescription = infoModal?.querySelector(".info-modal__description");
-
-	function abrirModal() {
-		modal.classList.add("modal--open");
-		document.body.style.overflow = "hidden";
-		
-		// Salvar estado de fechar quando abrir
-		pushModalState("informacoes-uteis-modal", () => {
-			fecharModal();
-		});
-	}
-
-	function fecharModal() {
-		modal.classList.remove("modal--open");
-		document.body.style.overflow = "";
-	}
-
-	trigger.addEventListener("click", abrirModal);
-	overlay.addEventListener("click", fecharModal);
-
-	// Quando clicar em um dos cards de informações dentro do modal
-	infoItems.forEach((item) => {
-		item.addEventListener("click", () => {
-			const info = item.getAttribute("data-info");
-			const dados = infosUteis[info];
-			if (dados) {
-				// Salvar estado anterior no modal de INFO (que será aberto)
-				pushModalState("info-modal", () => {
-					infoModal.classList.remove("modal--open");
-					document.body.style.overflow = "";
-					abrirModal();
-				});
-				
-				// Abre o modal individual
-				if (infoModal && infoModalTitle && infoModalDescription) {
-					infoModalTitle.textContent = dados.titulo;
-					if (info === "notas" || info === "email" || info === "artigos" || info === "camisa" || info === "conquistas" || info === "coordenadora") {
-						infoModalDescription.innerHTML = dados.descricao;
-					} else {
-						infoModalDescription.textContent = dados.descricao;
-					}
-					infoModal.classList.add("modal--open");
-					document.body.style.overflow = "hidden";
-				}
-				// Fecha o modal de galeria
-				fecharModal();
-			}
-		});
-	});
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape" && modal.classList.contains("modal--open")) {
-			fecharModal();
-		}
-	});
-}
-
 function inserirMidiaNoModal(container, tipo, src) {
-	if (!container || !tipo || !src) return;
+	if (!container || !tipo || !src) return null;
 	
-	// Criar wrapper com layout profissional flex
 	const wrapper = document.createElement('div');
 	wrapper.style.display = 'flex';
 	wrapper.style.gap = '24px';
@@ -1303,7 +1119,6 @@ function inserirMidiaNoModal(container, tipo, src) {
 	wrapper.style.marginTop = '20px';
 	wrapper.style.flexWrap = 'wrap';
 	
-	// Criar contêiner para mídia
 	const midiaContainer = document.createElement('div');
 	midiaContainer.style.flex = '1';
 	midiaContainer.style.minWidth = '250px';
@@ -1342,107 +1157,230 @@ function inserirMidiaNoModal(container, tipo, src) {
 	return wrapper;
 }
 
-function inserirVideoNoModal(container, videoSrc) {
-	return inserirMidiaNoModal(container, 'video', videoSrc);
+/* ========================================
+   RASTREAMENTO DE CLIQUES NAS LIGAS
+   ======================================== */
+
+let ligasClicadas = {
+	latij: false,
+	chrono: false
+};
+
+function verificarVideoCard() {
+	if (ligasClicadas.latij && ligasClicadas.chrono) {
+		const videoCard = document.getElementById("liga-video-card");
+		if (videoCard && videoCard.classList.contains("video-card--hidden")) {
+			videoCard.classList.remove("video-card--hidden");
+			videoCard.classList.add("video-card--visible");
+		}
+	}
 }
 
-function configurarModalInfos() {
-	const modal = document.getElementById("info-modal");
-	const infoItems = document.querySelectorAll(".info-item");
-	if (!modal || infoItems.length === 0) return;
-	const overlay = modal.querySelector(".modal__overlay");
-	const modalTitle = modal.querySelector(".info-modal__title");
-	const modalDescription = modal.querySelector(".info-modal__description");
-	if (!overlay || !modalTitle || !modalDescription) return;
+/* ========================================
+   CONFIGURAÇÕES DE MODAIS
+   ======================================== */
 
-	function abrirModal(info) {
-		const dados = infosUteis[info];
-		if (!dados) return;
-
-		// Limpar descrição anterior (importante para mídias)
-		modalDescription.innerHTML = '';
-
-		modalTitle.textContent = dados.titulo;
-		if (info === "notas" || info === "email" || info === "artigos" || info === "camisa" || info === "conquistas" || info === "coordenadora") {
-			modalDescription.innerHTML = dados.descricao;
-		} else {
-			modalDescription.textContent = dados.descricao;
+function configurarModalLATIJ() {
+	const modal = document.getElementById("latij-modal");
+	const logo = document.querySelector(".liga-card--latij");
+	if (!modal || !logo) return;
+	
+	const modalManager = new ModalManager("latij-modal");
+	
+	logo.addEventListener("click", () => {
+		ligasClicadas.latij = true;
+		verificarVideoCard();
+		preencherMidiasModais();
+		modalManager.abrir();
+	});
+	
+	logo.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			ligasClicadas.latij = true;
+			verificarVideoCard();
+			preencherMidiasModais();
+			modalManager.abrir();
 		}
+	});
+}
 
-		// Adicionar vídeo se existir
-		if (dados.video) {
-			const videoWrapper = inserirVideoNoModal(modalDescription, dados.video);
-			if (videoWrapper) {
-				modalDescription.appendChild(videoWrapper);
-			}
+function configurarModalChrono() {
+	const modal = document.getElementById("chrono-modal");
+	const logo = document.querySelector(".liga-card--chrono");
+	if (!modal || !logo) return;
+	
+	const modalManager = new ModalManager("chrono-modal");
+	
+	logo.addEventListener("click", () => {
+		ligasClicadas.chrono = true;
+		verificarVideoCard();
+		preencherMidiasChrono();
+		modalManager.abrir();
+	});
+	
+	logo.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			ligasClicadas.chrono = true;
+			verificarVideoCard();
+			preencherMidiasChrono();
+			modalManager.abrir();
 		}
+	});
+}
 
-		// Adicionar imagem se existir
-		if (dados.imagem) {
-			const imagemWrapper = inserirMidiaNoModal(modalDescription, 'imagem', dados.imagem);
-			if (imagemWrapper) {
-				modalDescription.appendChild(imagemWrapper);
-			}
-		}
+function configurarModalCIESA() {
+	const modal = document.getElementById("ciesa-modal");
+	const imageTrigger = document.getElementById("ciesa-image-trigger");
+	const modalImage = document.getElementById("ciesa-modal-image");
+	if (!modal || !imageTrigger || !modalImage) return;
+	
+	const modalManager = new ModalManager("ciesa-modal");
+	
+	const imagens = ["Media/SVG/CIESA_PREDIO.svg"];
+	let currentImageIndex = 0;
+	let autoChangeInterval = null;
 
-		modal.classList.add("modal--open");
-		document.body.style.overflow = "hidden";
+	function trocarImagem(novoIndice) {
+		if (novoIndice < 0 || novoIndice >= imagens.length) return;
+		
+		modalImage.classList.add("fade-out");
+		setTimeout(() => {
+			currentImageIndex = novoIndice;
+			modalImage.src = imagens[currentImageIndex];
+			modalImage.classList.remove("fade-out");
+			reiniciarAutoChange();
+		}, 300);
 	}
 
-	function fecharModal() {
-		modal.classList.remove("modal--open");
-		document.body.style.overflow = "";
+	function proximaImagem() {
+		const proximo = (currentImageIndex + 1) % imagens.length;
+		trocarImagem(proximo);
 	}
+
+	function iniciarAutoChange() {
+		autoChangeInterval = setInterval(() => {
+			proximaImagem();
+		}, 10000);
+	}
+
+	function reiniciarAutoChange() {
+		clearInterval(autoChangeInterval);
+		iniciarAutoChange();
+	}
+
+	imageTrigger.addEventListener("click", () => {
+		modalManager.abrir();
+		iniciarAutoChange();
+	});
+	
+	imageTrigger.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			modalManager.abrir();
+			iniciarAutoChange();
+		}
+	});
+
+	const originalFechar = modalManager.fechar.bind(modalManager);
+	modalManager.fechar = function() {
+		clearInterval(autoChangeInterval);
+		originalFechar();
+	};
+}
+
+function configurarModalInformacoesUteis() {
+	const modal = document.getElementById("informacoes-uteis-modal");
+	const trigger = document.getElementById("informacoes-uteis-trigger");
+	if (!modal || !trigger) return;
+	
+	const modalManager = new ModalManager("informacoes-uteis-modal");
+	
+	const infoItems = modal.querySelectorAll(".info-item");
+	const infoModal = document.getElementById("info-modal");
+	const infoModalTitle = infoModal?.querySelector(".info-modal__title");
+	const infoModalDescription = infoModal?.querySelector(".info-modal__description");
+
+	function abrirModal() {
+		modalManager.abrir();
+		pushModalState("informacoes-uteis-modal", () => {
+			modalManager.fechar();
+		});
+	}
+
+	trigger.addEventListener("click", abrirModal);
+	trigger.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			abrirModal();
+		}
+	});
 
 	infoItems.forEach((item) => {
 		item.addEventListener("click", () => {
 			const info = item.getAttribute("data-info");
-			abrirModal(info);
-		});
-
-		item.addEventListener("keydown", (event) => {
-			if (event.key === "Enter" || event.key === " ") {
-				event.preventDefault();
-				const info = item.getAttribute("data-info");
-				abrirModal(info);
+			const dados = infosUteis[info];
+			if (dados) {
+				pushModalState("info-modal", () => {
+					const infoModalManager = new ModalManager("info-modal");
+					infoModalManager.fechar();
+					modalManager.abrir();
+				});
+				
+				if (infoModal && infoModalTitle && infoModalDescription) {
+					infoModalTitle.textContent = dados.titulo;
+					
+					infoModalDescription.innerHTML = '';
+					if (info === "notas" || info === "email" || info === "artigos" || 
+					    info === "camisa" || info === "conquistas" || info === "coordenadora") {
+						infoModalDescription.innerHTML = dados.descricao;
+					} else {
+						infoModalDescription.textContent = dados.descricao;
+					}
+					
+					if (dados.video) {
+						const videoWrapper = inserirMidiaNoModal(infoModalDescription, 'video', dados.video);
+						if (videoWrapper) {
+							infoModalDescription.appendChild(videoWrapper);
+						}
+					}
+					
+					if (dados.imagem) {
+						const imagemWrapper = inserirMidiaNoModal(infoModalDescription, 'imagem', dados.imagem);
+						if (imagemWrapper) {
+							infoModalDescription.appendChild(imagemWrapper);
+						}
+					}
+					
+					const infoModalManager = new ModalManager("info-modal");
+					infoModalManager.abrir();
+				}
+				modalManager.fechar();
 			}
 		});
 	});
+}
 
-	overlay.addEventListener("click", fecharModal);
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape" && modal.classList.contains("modal--open")) {
-			fecharModal();
-		}
-	});
+function configurarModalInfos() {
+	const modal = document.getElementById("info-modal");
+	if (!modal) return;
+	
+	new ModalManager("info-modal");
 }
 
 function configurarModalOQueTeremosHoje() {
 	const modal = document.getElementById("o-que-teremos-hoje-modal");
 	const trigger = document.getElementById("o-que-teremos-hoje-trigger");
 	if (!modal || !trigger) return;
-	const overlay = modal.querySelector(".modal__overlay");
-	if (!overlay) return;
-
-	function abrirModal() {
-		modal.classList.add("modal--open");
-		document.body.style.overflow = "hidden";
-	}
-
-	function fecharModal() {
-		modal.classList.remove("modal--open");
-		document.body.style.overflow = "";
-	}
-
-	trigger.addEventListener("click", abrirModal);
-	overlay.addEventListener("click", fecharModal);
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape" && modal.classList.contains("modal--open")) {
-			fecharModal();
+	
+	const modalManager = new ModalManager("o-que-teremos-hoje-modal");
+	
+	trigger.addEventListener("click", () => modalManager.abrir());
+	trigger.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			modalManager.abrir();
 		}
 	});
 }
@@ -1451,16 +1389,17 @@ function configurarModalEventos() {
 	const modal = document.getElementById("eventos-modal");
 	const trigger = document.getElementById("eventos-trigger");
 	const detalhesModal = document.getElementById("eventos-detalhes-modal");
-	const detalhesOverlay = detalhesModal?.querySelector(".modal__overlay");
 	const detalhesTitle = document.getElementById("eventos-detalhes-title");
 	const detalhesSubtitle = document.getElementById("eventos-detalhes-subtitle");
 	const detalhesList = document.getElementById("eventos-detalhes-lista");
 	
 	if (!modal || !trigger) return;
-	const overlay = modal.querySelector(".modal__overlay");
+	
+	const modalManager = new ModalManager("eventos-modal");
+	const detalhesModalManager = new ModalManager("eventos-detalhes-modal");
+	
 	const eventosItems = modal.querySelectorAll(".eventos-item");
-	if (!overlay) return;
-
+	
 	const detalhesMeta = {
 		ciesa: {
 			titulo: "🎓 Eventos do CIESA",
@@ -1477,25 +1416,10 @@ function configurarModalEventos() {
 	};
 
 	function abrirModal() {
-		modal.classList.add("modal--open");
-		document.body.style.overflow = "hidden";
-		
-		// Salvar estado de fechar quando abrir
+		modalManager.abrir();
 		pushModalState("eventos-modal", () => {
-			fecharModal();
+			modalManager.fechar();
 		});
-	}
-
-	function fecharModal() {
-		modal.classList.remove("modal--open");
-		fecharDetalhes();
-		document.body.style.overflow = "";
-	}
-
-	function fecharDetalhes() {
-		if (detalhesModal) {
-			detalhesModal.classList.remove("modal--open");
-		}
 	}
 
 	function abrirDetalhesEventos(tipo) {
@@ -1505,14 +1429,11 @@ function configurarModalEventos() {
 		detalhesTitle.textContent = meta.titulo;
 		detalhesSubtitle.textContent = meta.subtitulo;
 
-		// Salvar estado anterior (retornar para a lista de eventos)
 		pushModalState("eventos-detalhes-modal", () => {
-			fecharDetalhes();
-			modal.classList.add("modal--open");
-			document.body.style.overflow = "hidden";
+			detalhesModalManager.fechar();
+			modalManager.abrir();
 		});
 
-		// Renderizar eventos
 		detalhesList.innerHTML = "";
 		const eventos = eventosData[tipo] || [];
 
@@ -1528,7 +1449,6 @@ function configurarModalEventos() {
 					<p class="evento-detalhe__descricao">${evento.descricao}</p>
 				`;
 				
-				// Adicionar vídeo se existir (em destaque)
 				if (evento.video) {
 					const videoWrapper = document.createElement('div');
 					videoWrapper.style.marginTop = '24px';
@@ -1551,7 +1471,6 @@ function configurarModalEventos() {
 					div.appendChild(videoWrapper);
 				}
 				
-				// Adicionar imagens se existirem
 				if (evento.imagens && Array.isArray(evento.imagens)) {
 					const imagensContainer = document.createElement('div');
 					imagensContainer.style.display = 'grid';
@@ -1577,7 +1496,6 @@ function configurarModalEventos() {
 						
 						imagemWrapper.appendChild(img);
 						
-						// Efeito hover
 						imagemWrapper.addEventListener('mouseenter', () => {
 							imagemWrapper.style.transform = 'scale(1.05)';
 							imagemWrapper.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.2)';
@@ -1593,7 +1511,6 @@ function configurarModalEventos() {
 					
 					div.appendChild(imagensContainer);
 				} else if (evento.imagem) {
-					// Imagem única
 					const imagemWrapper = document.createElement('div');
 					imagemWrapper.style.marginTop = '16px';
 					imagemWrapper.style.maxWidth = '300px';
@@ -1615,51 +1532,29 @@ function configurarModalEventos() {
 			});
 		}
 
-		if (detalhesModal) {
-			detalhesModal.classList.add("modal--open");
-			document.body.style.overflow = "hidden";
-		}
+		detalhesModalManager.abrir();
 	}
 
 	trigger.addEventListener("click", abrirModal);
-	trigger.addEventListener("keydown", (event) => {
-		if (event.key === "Enter" || event.key === " ") {
-			event.preventDefault();
+	trigger.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
 			abrirModal();
 		}
 	});
 
-	overlay.addEventListener("click", fecharModal);
-	
-	if (detalhesOverlay) {
-		detalhesOverlay.addEventListener("click", fecharDetalhes);
-	}
-
-	// Adicionar eventos aos cards
 	eventosItems.forEach((item) => {
 		item.addEventListener("click", () => {
 			const tipo = item.getAttribute("data-eventos");
 			abrirDetalhesEventos(tipo);
 		});
-		item.addEventListener("keydown", (event) => {
-			if (event.key === "Enter" || event.key === " ") {
-				event.preventDefault();
+		item.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
 				const tipo = item.getAttribute("data-eventos");
 				abrirDetalhesEventos(tipo);
 			}
 		});
-	});
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key !== "Escape") return;
-		if (detalhesModal && detalhesModal.classList.contains("modal--open")) {
-			fecharDetalhes();
-			return;
-		}
-		if (modal.classList.contains("modal--open")) {
-			fecharModal();
-		}
 	});
 }
 
@@ -1667,53 +1562,14 @@ function configurarModalAreas() {
 	const modal = document.getElementById("areas-modal");
 	const trigger = document.getElementById("areas-trigger");
 	if (!modal || !trigger) return;
-	const overlay = modal.querySelector(".modal__overlay");
-	if (!overlay) return;
-
-	const areaItems = modal.querySelectorAll(".area-modal-item");
-
-	function abrirModal() {
-		modal.classList.add("modal--open");
-		document.body.style.overflow = "hidden";
-	}
-
-	function fecharModal() {
-		modal.classList.remove("modal--open");
-		document.body.style.overflow = "";
-	}
-
-	trigger.addEventListener("click", abrirModal);
-	trigger.addEventListener("keydown", (event) => {
-		if (event.key === "Enter" || event.key === " ") {
-			event.preventDefault();
-			abrirModal();
-		}
-	});
-
-	overlay.addEventListener("click", fecharModal);
-
-	// Adicionar evento para cards com vídeos
-	areaItems.forEach((item) => {
-		item.addEventListener("click", () => {
-			// Verificar se tem vídeo relacionado
-			const areaKey = item.getAttribute("data-area") || item.textContent.toLowerCase().includes("jogo") ? "jogos" : null;
-			
-			if (areaKey && areasAtuacaoData[areaKey]) {
-				const areaData = areasAtuacaoData[areaKey];
-				if (areaData.video) {
-					const videoWrapper = inserirVideoNoModal(item, areaData.video);
-					if (videoWrapper && !item.querySelector('video')) {
-						item.appendChild(videoWrapper);
-					}
-				}
-			}
-		});
-	});
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape" && modal.classList.contains("modal--open")) {
-			fecharModal();
+	
+	const modalManager = new ModalManager("areas-modal");
+	
+	trigger.addEventListener("click", () => modalManager.abrir());
+	trigger.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			modalManager.abrir();
 		}
 	});
 }
@@ -1722,16 +1578,17 @@ function configurarModalIAGithub() {
 	const modal = document.getElementById("ia-github-modal");
 	const trigger = document.getElementById("ia-github-trigger");
 	const detalhesModal = document.getElementById("ia-github-detalhes-modal");
-	const detalhesOverlay = detalhesModal?.querySelector(".modal__overlay");
 	const detalhesTitle = document.getElementById("ia-github-detalhes-title");
 	const detalhesSubtitle = document.getElementById("ia-github-detalhes-subtitle");
 	const detalhesList = document.getElementById("ia-github-detalhes-lista");
 	
 	if (!modal || !trigger) return;
-	const overlay = modal.querySelector(".modal__overlay");
+	
+	const modalManager = new ModalManager("ia-github-modal");
+	const detalhesModalManager = new ModalManager("ia-github-detalhes-modal");
+	
 	const iaGithubItems = modal.querySelectorAll(".ia-github-item");
-	if (!overlay) return;
-
+	
 	const detalhesMeta = {
 		ia: {
 			titulo: "🤖 Inteligência Artificial",
@@ -1744,25 +1601,10 @@ function configurarModalIAGithub() {
 	};
 
 	function abrirModal() {
-		modal.classList.add("modal--open");
-		document.body.style.overflow = "hidden";
-		
-		// Salvar estado de fechar quando abrir
+		modalManager.abrir();
 		pushModalState("ia-github-modal", () => {
-			fecharModal();
+			modalManager.fechar();
 		});
-	}
-
-	function fecharModal() {
-		modal.classList.remove("modal--open");
-		fecharDetalhes();
-		document.body.style.overflow = "";
-	}
-
-	function fecharDetalhes() {
-		if (detalhesModal) {
-			detalhesModal.classList.remove("modal--open");
-		}
 	}
 
 	function abrirDetalhes(tipo) {
@@ -1772,14 +1614,11 @@ function configurarModalIAGithub() {
 		detalhesTitle.textContent = meta.titulo;
 		detalhesSubtitle.textContent = meta.subtitulo;
 
-		// Salvar estado anterior (retornar para a lista de IA & GitHub)
 		pushModalState("ia-github-detalhes-modal", () => {
-			fecharDetalhes();
-			modal.classList.add("modal--open");
-			document.body.style.overflow = "hidden";
+			detalhesModalManager.fechar();
+			modalManager.abrir();
 		});
 
-		// Renderizar conteúdo
 		detalhesList.innerHTML = "";
 		const items = iaGithubData[tipo] || [];
 
@@ -1793,90 +1632,29 @@ function configurarModalIAGithub() {
 			detalhesList.appendChild(div);
 		});
 
-		if (detalhesModal) {
-			detalhesModal.classList.add("modal--open");
-			document.body.style.overflow = "hidden";
-		}
+		detalhesModalManager.abrir();
 	}
 
 	trigger.addEventListener("click", abrirModal);
-	trigger.addEventListener("keydown", (event) => {
-		if (event.key === "Enter" || event.key === " ") {
-			event.preventDefault();
+	trigger.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
 			abrirModal();
 		}
 	});
 
-	overlay.addEventListener("click", fecharModal);
-	
-	if (detalhesOverlay) {
-		detalhesOverlay.addEventListener("click", fecharDetalhes);
-	}
-
-	// Adicionar eventos aos items
 	iaGithubItems.forEach((item) => {
 		item.addEventListener("click", () => {
 			const tipo = item.getAttribute("data-tipo");
 			abrirDetalhes(tipo);
 		});
-		item.addEventListener("keydown", (event) => {
-			if (event.key === "Enter" || event.key === " ") {
-				event.preventDefault();
+		item.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
 				const tipo = item.getAttribute("data-tipo");
 				abrirDetalhes(tipo);
 			}
 		});
-	});
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key !== "Escape") return;
-		if (detalhesModal && detalhesModal.classList.contains("modal--open")) {
-			fecharDetalhes();
-			return;
-		}
-		if (modal.classList.contains("modal--open")) {
-			fecharModal();
-		}
-	});
-}
-
-function configurarModalEquipe() {
-	const equipeLink = document.querySelector(".equipe-link");
-	const equipeModal = document.getElementById("equipe-modal");
-	if (!equipeLink || !equipeModal) return;
-
-	const overlay = equipeModal.querySelector(".modal__overlay");
-	if (!overlay) return;
-
-	function abrirEquipeModal(event) {
-		if (event) event.preventDefault();
-		equipeModal.classList.add("modal--open");
-		equipeModal.setAttribute("aria-hidden", "false");
-		document.body.style.overflow = "hidden";
-	}
-
-	function fecharEquipeModal() {
-		equipeModal.classList.remove("modal--open");
-		equipeModal.setAttribute("aria-hidden", "true");
-		document.body.style.overflow = "";
-	}
-
-	equipeLink.addEventListener("click", abrirEquipeModal);
-	equipeLink.addEventListener("keydown", (event) => {
-		if (event.key === "Enter" || event.key === " ") {
-			event.preventDefault();
-			abrirEquipeModal();
-		}
-	});
-
-	overlay.addEventListener("click", fecharEquipeModal);
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape" && equipeModal.classList.contains("modal--open")) {
-			fecharEquipeModal();
-		}
 	});
 }
 
@@ -1887,35 +1665,19 @@ function configurarModalSobreSite() {
 	
 	if (!trigger || !modal || !detalhesModal) return;
 
-	const overlay = modal.querySelector(".modal__overlay");
-	const items = modal.querySelectorAll(".sobre-site-item");
+	const modalManager = new ModalManager("sobre-site-modal");
+	const detalhesModalManager = new ModalManager("sobre-site-detalhes-modal");
 	
-	const detalhesOverlay = detalhesModal.querySelector(".modal__overlay");
+	const items = modal.querySelectorAll(".sobre-site-item");
 	const detalhesTitle = detalhesModal.querySelector("#sobre-site-detalhes-title");
 	const detalhesIntro = detalhesModal.querySelector("#sobre-site-detalhes-intro");
 	const detalhesList = detalhesModal.querySelector("#sobre-site-detalhes-lista");
 
-	if (!overlay || !detalhesOverlay) return;
-
 	function abrirModal() {
-		modal.classList.add("modal--open");
-		document.body.style.overflow = "hidden";
-		
-		// Salvar estado de fechar quando abrir
+		modalManager.abrir();
 		pushModalState("sobre-site-modal", () => {
-			fecharModal();
+			modalManager.fechar();
 		});
-	}
-
-	function fecharModal() {
-		modal.classList.remove("modal--open");
-		document.body.style.overflow = "";
-	}
-
-	function fecharDetalhes() {
-		if (detalhesModal) {
-			detalhesModal.classList.remove("modal--open");
-		}
 	}
 
 	function abrirDetalhes(tipo) {
@@ -1925,18 +1687,15 @@ function configurarModalSobreSite() {
 		detalhesTitle.textContent = data.titulo;
 		detalhesIntro.textContent = data.intro;
 
-		// Salvar estado anterior (retornar para a lista de Sobre o Site)
 		pushModalState("sobre-site-detalhes-modal", () => {
-			fecharDetalhes();
-			modal.classList.add("modal--open");
-			document.body.style.overflow = "hidden";
+			detalhesModalManager.fechar();
+			modalManager.abrir();
 		});
 
-		// Renderizar conteúdo
 		detalhesList.innerHTML = "";
-		const items = data.items || [];
+		const itemsList = data.items || [];
 
-		items.forEach((item) => {
+		itemsList.forEach((item) => {
 			const div = document.createElement("div");
 			div.className = "sobre-site-detalhe";
 			div.innerHTML = `
@@ -1946,50 +1705,79 @@ function configurarModalSobreSite() {
 			detalhesList.appendChild(div);
 		});
 
-		detalhesModal.classList.add("modal--open");
-		document.body.style.overflow = "hidden";
+		detalhesModalManager.abrir();
 	}
 
-	// Listeners para trigger
 	trigger.addEventListener("click", abrirModal);
-	trigger.addEventListener("keydown", (event) => {
-		if (event.key === "Enter" || event.key === " ") {
-			event.preventDefault();
+	trigger.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
 			abrirModal();
 		}
 	});
 
-	// Listeners para items
 	items.forEach((item) => {
 		item.addEventListener("click", () => {
 			const tipo = item.getAttribute("data-tipo");
 			abrirDetalhes(tipo);
 		});
 
-		item.addEventListener("keydown", (event) => {
-			if (event.key === "Enter" || event.key === " ") {
-				event.preventDefault();
+		item.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
 				const tipo = item.getAttribute("data-tipo");
 				abrirDetalhes(tipo);
 			}
 		});
 	});
-
-	// Listeners para fechar modal principal
-	overlay.addEventListener("click", fecharModal);
-
-	// Listeners para fechar modal de detalhes
-	detalhesOverlay.addEventListener("click", fecharDetalhes);
-
-	// Fechar com ESC
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape") {
-			if (detalhesModal.classList.contains("modal--open")) {
-				fecharDetalhes();
-				document.body.style.overflow = "hidden";
-			} else if (modal.classList.contains("modal--open")) {
-				fecharModal();
-			}
-		}
-	});
 }
+
+/* ========================================
+   INICIALIZAÇÃO PRINCIPAL
+   ======================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+	const modalIds = [
+		'info-modal',
+		'o-que-teremos-hoje-modal',
+		'informacoes-uteis-modal',
+		'eventos-modal',
+		'eventos-detalhes-modal',
+		'ia-github-modal',
+		'ia-github-detalhes-modal',
+		'sobre-site-modal',
+		'sobre-site-detalhes-modal',
+		'areas-modal',
+		'ciesa-modal',
+		'latij-modal',
+		'chrono-modal'
+	];
+	
+	modalIds.forEach(modalId => setupModalUndo(modalId));
+
+	aplicarTextos();
+	configurarNavegacao();
+	configurarMenuMobile();
+	configurarEfeitoCaracteres();
+	setupLazyLoading();
+	
+	configurarModalLATIJ();
+	configurarModalChrono();
+	configurarModalCIESA();
+	configurarModalInformacoesUteis();
+	configurarModalInfos();
+	configurarModalEventos();
+	configurarModalAreas();
+	configurarModalOQueTeremosHoje();
+	configurarModalIAGithub();
+	configurarModalSobreSite();
+
+	const loadAnnouncement = document.createElement('div');
+	loadAnnouncement.setAttribute('role', 'status');
+	loadAnnouncement.setAttribute('aria-live', 'polite');
+	loadAnnouncement.className = 'visually-hidden';
+	loadAnnouncement.textContent = 'Página carregada com sucesso';
+	document.body.appendChild(loadAnnouncement);
+	
+	setTimeout(() => loadAnnouncement.remove(), 1000);
+});
