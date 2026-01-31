@@ -13,21 +13,6 @@ An introductory website for new students at CIESA that consolidates important in
 
 ---
 
-## Installation
-1. Clone or download this repository.  
-2. Navigate to the project folder.  
-3. Open `index.html` directly in your browser (no server required).  
-
----
-
-## Usage
-- Open `index.html` in any web browser.  
-- Navigate through the sections: **Home, About Us, About CIESA, Useful Information, Areas of Expertise, Events, AI & GitHub**.  
-- Interact with modals containing additional information.  
-- Use the **undo button** to return to previous states.  
-
----
-
 ## Contribution
 Contributions are welcome.  
 To contribute:  
