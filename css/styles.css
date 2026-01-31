@@ -1047,6 +1047,27 @@ body.nav-open .nav-scrim {
   line-height: 1.7;
 }
 
+/* Centralizar conteúdo de seções sem imagem (Metas, Membros, Buscamos por) */
+.modal-section:nth-child(3) .modal-section__title,
+.modal-section:nth-child(4) .modal-section__title,
+.modal-section:nth-child(5) .modal-section__title {
+  text-align: center;
+}
+
+.modal-section:nth-child(3) .modal-section__content,
+.modal-section:nth-child(4) .modal-section__content,
+.modal-section:nth-child(5) .modal-section__content {
+  display: block;
+  text-align: center;
+}
+
+.modal-section:nth-child(3) .modal-section__text,
+.modal-section:nth-child(4) .modal-section__text,
+.modal-section:nth-child(5) .modal-section__text {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 /* Responsivo */
 @media (max-width: 920px) {
   :root {
@@ -4122,4 +4143,4 @@ body.nav-open .nav-scrim {
   .modal-section__content {
     grid-template-columns: 1fr;
   }
-}
+}   }

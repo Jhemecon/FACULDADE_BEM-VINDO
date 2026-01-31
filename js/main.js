@@ -547,11 +547,6 @@ const eventosData = {
 			titulo: "Ocean - Plataforma de Eventos",
 			data: "Sempre indicado",
 			descricao: "Plataforma que reúne diversos eventos tech e de networking. Sempre é indicada pelos coordenadores como oportunidade para os alunos participarem de eventos profissionais de qualidade."
-		},
-		{
-			titulo: "Bootcamp - Programação Intensiva",
-			data: "Turmas regulares",
-			descricao: "Programa intensivo de desenvolvimento de software. Aprenda as tecnologias mais demandadas no mercado em um formato acelerado com mentoria especializada."
 		}
 	]
 };
@@ -596,6 +591,10 @@ const iaGithubData = {
 };
 
 const areasAtuacaoData = {
+	audiovisual: {
+		titulo: "🎬 Produção Audiovisual",
+		video: "Media/Videos/ENTREVISTA.mp4"
+	},
 	jogos: {
 		titulo: "🎮 Criação de Jogos",
 		video: "Media/Videos/JOGOS_VIDEO_1.mp4"
@@ -714,15 +713,15 @@ const sobreSiteData = {
 				descricao: "Responsável pela criação completa do site, implementação em HTML, CSS e JavaScript, além de portar o projeto para o GitHub. Trabalhou em todas as camadas do desenvolvimento, desde o planejamento inicial até a finalização e publicação do código."
 			},
 			{
-				titulo: "👨‍💼 Jhemerson Conde - Liga LATIJ",
+				titulo: "👨‍💼 Jhemeson Conde - Liga LATIJ",
 				descricao: "Realizou testes de usabilidade utilizando ferramentas de avaliação de design e experiência do usuário. Seus insights garantiram que a interface fosse intuitiva, acessível e atendesse às reais necessidades dos usuários finais."
 			},
 			{
 				titulo: "💡 Julio - Liga LATIJ",
-				descricao: "Aplicou feedbacks construtivos e contribuiu com ideias criativas para aprimorar o projeto. Participou ativamente na validação de funcionalidades e na identificação de oportunidades de melhoria."
+				descricao: "Responsável pela documentação completa do projeto, incluindo análise de usabilidade e parecer técnico detalhado. Documentou toda a experiência do usuário e forneceu insights críticos para melhorias contínuas. <a href='Media/Doc/PARECER do site.pdf' download class='pdf-link'>Visualizar Parecer</a>"
 			},
 			{
-				titulo: "⚡ Luan Nery - Liga Chronokaio",
+				titulo: "⚡ Luan Nery - Liga Chronokairo",
 				descricao: "Participou do desenvolvimento inicial, sugerindo ideias de aplicação e indicando o uso de React como alternativa tecnológica. Suas perspectivas técnicas enriqueceram as discussões sobre arquitetura e tecnologia do projeto."
 			},
 			{
@@ -732,6 +731,18 @@ const sobreSiteData = {
 			{
 				titulo: "📊 Professor Francisco - Análise Crítica",
 				descricao: "Realizou análises críticas profundas, oferecendo uma visão aprofundada sobre o projeto. Suas contribuições técnicas e estratégicas foram fundamentais para validar a qualidade e viabilidade da solução implementada."
+			},
+			{
+				titulo: "🎓 L. Bonates - Liga LATIJ",
+				descricao: "Representante do curso de ADS que estará apresentando o site no dia do evento. Contribuiu com perspectivas importantes e está liderando a apresentação do projeto para os novos alunos."
+			},
+			{
+				titulo: "🎁 S. Alburquerque",
+				descricao: "Responsável pela seleção e preparação dos presentes especiais para os novos alunos, garantindo uma experiência acolhedora e memorável desde a chegada."
+			},
+			{
+				titulo: "💰 Suelen - Liga LATIJ",
+				descricao: "Gerenciou aspectos específicos do planejamento e execução do projeto, garantindo que todos os recursos fossem otimizados e alocados adequadamente para o sucesso do evento."
 			}
 		]
 	}
@@ -1710,7 +1721,16 @@ function configurarModalAreas() {
 	areaItems.forEach((item) => {
 		item.addEventListener("click", () => {
 			// Verificar se tem vídeo relacionado
-			const areaKey = item.getAttribute("data-area") || item.textContent.toLowerCase().includes("jogo") ? "jogos" : null;
+			const itemText = item.textContent.toLowerCase();
+			let areaKey = item.getAttribute("data-area");
+			
+			if (!areaKey) {
+				if (itemText.includes("jogo")) {
+					areaKey = "jogos";
+				} else if (itemText.includes("audiovisual") || itemText.includes("produção")) {
+					areaKey = "audiovisual";
+				}
+			}
 			
 			if (areaKey && areasAtuacaoData[areaKey]) {
 				const areaData = areasAtuacaoData[areaKey];
